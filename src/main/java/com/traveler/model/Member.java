@@ -1,6 +1,6 @@
 package com.traveler.model;
 
-<<<<<<< HEAD
+
 import java.util.Date;
 
 public class Member {
@@ -12,6 +12,7 @@ public class Member {
 	private String tel;
 	private String address;
 	private Integer addressNum;
+	
 	public String getId() {
 		return id;
 	}
@@ -55,9 +56,4 @@ public class Member {
 		this.addressNum = addressNum;
 	}
 	
-	
-=======
-public class Member {
-
->>>>>>> cf6d6abb530ef7d74ba727ae699c33625ee09ff9
 }
