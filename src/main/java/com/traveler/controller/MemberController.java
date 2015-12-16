@@ -16,11 +16,4 @@ public class MemberController {
 		
 		return "traveler/member/main";
 	}
-	
-	@RequestMapping(value="recommandList.html")
-	public String getRecommandListView(){
-		log.info("getRecommandListView()...");
-		
-		return "traveler/travel/recommandList";
-	}
 }
