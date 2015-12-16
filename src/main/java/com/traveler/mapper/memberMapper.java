@@ -1,5 +1,15 @@
 package com.traveler.mapper;
 
-public interface memberMapper {
+import java.util.List;
 
+import com.traveler.model.Member;
+import com.traveler.util.Pagination;
+
+public interface memberMapper {
+	int selectCount();
+	List<Member> selectAll();
+	List<Member> selectPage(Pagination paging);
+	
+	int insert(Member member);
+	int deleteAll();
 }
