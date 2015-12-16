@@ -10,16 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 	static Log log = LogFactory.getLog(AdminController.class);
 	
-	@RequestMapping(value="login.html")
-	public String getLoginView(){
-		log.info("getLoginView()...");
-		
-		return "traveler/admin/login";
-	}
-	
 	@RequestMapping(value="memberList.html")
-	public String getmemberListView(){
-		log.info("getmemberListView()...");
+	public String getmemberList(){
+		log.info("getmemberList()...");
 		
 		return "traveler/admin/memberList";
 	}

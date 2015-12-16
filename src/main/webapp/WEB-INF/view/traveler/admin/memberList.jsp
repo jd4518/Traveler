@@ -69,12 +69,12 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr class="center">
-                                <th class="col-sm-1">회원번호</th>
+                                <th class="col-sm-1">회원수</th>
                                 <th class="col-sm-1">이름</th>
                                 <th class="col-sm-1">아이디</th>
                                 <th class="col-sm-1">비밀번호</th>
-                                <th class="col-sm-2">생년월일</th>
-                                <th class="col-sm-4">주소</th>
+                                <th class="col-sm-1">생년월일</th>
+                                <th class="col-sm-5">주소</th>
                                 <th class="col-sm-2">전화번호</th>
                             </tr>
                         </thead>
