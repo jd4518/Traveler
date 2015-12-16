@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta charset="UTF-8">
-<%@ include file="/common.jspf"%>
+<%@ include file="/WEB-INF/view/common.jspf" %>
 <title>regist.jsp</title>
 
 <script type="text/javascript">
