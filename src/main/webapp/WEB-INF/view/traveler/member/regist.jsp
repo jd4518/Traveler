@@ -93,12 +93,12 @@
 		<br>
 		<form role="form">
 		
-			<!-- 로그인정보 -->
+			<!-- 로그인정보   -->
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<label for="id">아이디:</label> 
 					<input type="text"
-						   name="id"	
+						   name="id"	 
 						   class="form-control" 
 						   id="id" 
 						   placeholder="사용할 ID를 입력하세요"
