@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta charset="UTF-8">
-<%@ include file="/common.jspf"%>
+<%@ include file="/WEB-INF/view/common.jspf" %>
 <title>regist.jsp</title>
 
 <script type="text/javascript">
@@ -91,18 +91,20 @@
 	<div class="container col-sm-4 col-md-offset-4">
 		<h2>회원 가입</h2>
 		<br>
-		<form role="form">
+		<form role="form" name="registForm" 
+			  novalidate="novalidate" data-ng-submit="submit()">
 		
-			<!-- 로그인정보 -->
+			<!-- 로그인정보   -->
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<label for="id">아이디:</label> 
 					<input type="text"
-						   name="id"	
+						   name="id"	 
 						   class="form-control" 
 						   id="id" 
 						   placeholder="사용할 ID를 입력하세요"
-						   required="required">
+						   required="required"
+						   data-ng-model="member.id">
 				</div>
 				
 				<div class="panel-body">
@@ -112,7 +114,8 @@
 						   class="form-control" 
 						   id="pwd" 
 						   placeholder="비밀번호를 입력하세요"
-						   required="required">
+						   required="required"
+						   data-ng-model="member.password">
 				</div>
 			
 				<div class="panel-body">
@@ -120,9 +123,10 @@
 					<input type="password"
 						   name="checkPwd"
 						   class="form-control" 
-						   id="checkPwd2" 
+						   id="checkPwd" 
 						   placeholder="비밀번호를 다시 입력하세요"
-						   required="required">
+						   required="required"
+						   data-ng-model="member.checkPwd">
 				</div>
 			</div>
 			
@@ -135,7 +139,8 @@
 						   class="form-control" 
 						   id="name" 
 						   placeholder="이름"
-						   required="required">
+						   required="required"
+						   data-ng-model="member.name">
 				</div>
 				
 				<div class="panel-body">
@@ -144,8 +149,9 @@
 						   name="birtyday"
 						   class="form-control" 
 						   id="birthday" 
-						   placeholder="생년월일"
-						   required="required">
+						   placeholder="yyyy-mm-dd"
+						   required="required"
+						   data-ng-model="member.birthday">
 				</div>
 			
 				<div class="panel-body">
@@ -188,11 +194,14 @@
 						   class="form-control" 
 						   id="tel" 
 						   placeholder="xxx-xxx-xxxx, xxx-xxxx-xxxx"
-						   required="required">
+						   required="required"
+						   data-ng-model="member.tel">
 				</div>
 			</div>
 			<div align="right">
-				<button type="submit" class="btn btn-success">완료</button>
+				<button type="submit" 
+						class="btn btn-success"
+						data-ng-disabled="registForm.$invalid">완료</button>
 			</div>
 		</form>
 	</div>

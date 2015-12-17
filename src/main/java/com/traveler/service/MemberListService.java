@@ -16,7 +16,7 @@ public class MemberListService {
 	}
 
 	public MemberList getList() {
-		List<Member> members = memberDao.selectAllMember();
+		List<Member> members = memberDao.selectAll();
 		MemberList rtn = new MemberList();
 		rtn.setMembers(members);
 		

@@ -23,11 +23,13 @@ public class MemberController {
 		
 		return "traveler/member/main";
 	}
+
 	
-	@RequestMapping(value="recommandList.html")
-	public String getRecommandListView(){
-		log.info("getRecommandListView()...");
+	@RequestMapping(value="regist.html")
+	public String getRegistView(){
+		log.info("getRegistView()...");
 		
-		return "traveler/travel/recommandList";
+		return "traveler/member/regist";
 	}
+	
 }

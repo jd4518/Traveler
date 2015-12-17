@@ -44,9 +44,9 @@ public class AdminController {
 	public MemberList getMemberList() {
 		log.info("getMemberList()...");
 		
-		MemberList list = memberListService.getList();
+		MemberList memberList = memberListService.getList();
 		
-		return list;
+		return memberList;
 	}
 	
 

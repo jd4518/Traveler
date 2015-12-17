@@ -1,2 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traveler.mapper.memberMapper">
+    
+    <select id="selectAll" resultType="com.traveler.model.Member">
+        select id,
+			   password,
+			   name,
+			   register_date,
+			   tel,
+			   address,
+			   addressNum
+		  from Travelmember
+    </select>
+    
+    <select id="selectPage" 
+        	parameterType="com.traveler.util.Pagination" 
+        	resultType="com.traveler.model.Member"
+        	databaseId="mysql">
+        select id,
+			   password,
+			   name,
+			   register_date,
+			   tel,
+			   address,
+			   addressNum
+		  from Travelmember
+		 order by id desc 
+		 limit #{start}, #{length} 
+    </select>
+    
+    <insert id="insert" 
+        	parameterType="com.traveler.model.Member" 
+        	useGeneratedKeys="true"
+        	keyProperty="id"
+        	databaseId="mysql">
+        insert into Travelmember
+		(
+			id,
+		   	password,
+		   	name,
+		   	register_date,
+		   	tel,
+		   	address,
+		   	addressNum
+		)
+		values
+		(
+			#{id, jdbcType=VARCHAR},
+			#{password, jdbcType=VARCHAR},
+			#{name, jdbcType=VARCHAR},
+			#{register_date, jdbcType=DATE},
+			#{tel, jdbcType=VARCHAR},
+			#{address, jdbcType=VARCHAR},
+			#{addressNum, jdbcType=NUMERIC},
+		)
+    </insert>
+    
+    <delete id="deleteAll">
+        delete from Travelmember
+    </delete>
+    
+    
+    
+    
+</mapper>

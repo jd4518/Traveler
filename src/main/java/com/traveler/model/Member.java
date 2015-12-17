@@ -8,6 +8,7 @@ public class Member {
 	private String 	password;
 	private String 	name;
 	private Date 	regist_date;
+	private Date	birthday;
 	private String 	tel;
 	private String 	address;
 	private Integer addressNum;
@@ -36,6 +37,12 @@ public class Member {
 	}
 	public void setRegist_date(Date regist_date) {
 		this.regist_date = regist_date;
+	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 	public String getTel() {
 		return tel;

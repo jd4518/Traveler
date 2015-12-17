@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html lang="ko" data-ng-app="travelerApp">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<%@ include file="/common.jspf" %>
+<%@ include file="/WEB-INF/view/common.jspf" %>
 <title>Main.jsp</title>
-<c:url var="URL_GET_LIST"					value="/traveler/admin/"/>
+
+<c:url var="URL_GET_LIST"					value="/traveler/"/>
 
 <script type="text/javascript">
 
@@ -26,7 +26,9 @@
 
 	var app = angular.module("travelerApp", deps);
 	
-	app.controller("mainController", function($scope, $http) {
+	app.constant("URL", urls);
+	
+	app.controller("mainController", function($scope, $http, $location) {
 		
 		console.log("mainController...");
 		
@@ -35,7 +37,7 @@
 	
 </script>
 
-<c:url var="listController" value="/js/traveler/listController.js"/>
+<c:url var="listController" value="/js/traveler/admin/listController.js"/>
 
 <script type="text/javascript" src="${listController}"></script>
 

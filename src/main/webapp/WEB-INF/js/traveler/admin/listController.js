@@ -5,16 +5,18 @@
 app.config(function($routeProvider) {
 	console.log("/memberList config...")
 	
-	$routeProvider.when("/list", {
+	$routeProvider.when("/memberList", {
 		templateUrl: "memberList.html",
-		controller: "memberListController"
+		controller: "listController"
 	});
 	
 });
 
-app.controller('memberListController', function($scope, $http, URL) {
+app.controller('listController', function($scope, $http, URL) {
 	console.log("memberListController...");
 	
 	$scope.$parent.title = "memberList View";
+	
+	$scope.members = [];
 	
 });

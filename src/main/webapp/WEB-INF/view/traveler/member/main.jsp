@@ -8,13 +8,17 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<%@ include file="/common.jspf" %>
+<%@ include file="/WEB-INF/view/common.jspf" %>
+
+<script src="http://maps.google.com/maps/api/js"></script>
+
 <title>Main.jsp</title>
 <script type="text/javascript">
 	var deps = ['ngRoute',
 	            'ngAnimate',
 	            'ngTouch',
-	            'angular-loading-bar'
+	            'angular-loading-bar',
+	            'ngMap'
 	           ];
 
 	var app = angular.module("travelerApp", deps);
@@ -29,6 +33,6 @@
 </script>
 </head>
 <body data-ng-controller="mainController" class="container">
-<h1><a href="" class="btn btn-primary">{{title}}</a></h1>
+<div data-ng-map data-center="37.8, 127.03"></div>
 </body>
 </html>
