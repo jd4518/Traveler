@@ -10,7 +10,6 @@ import com.traveler.model.MemberList;
 public class MemberListService {
 	MemberDao memberDao;
 	
-
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}

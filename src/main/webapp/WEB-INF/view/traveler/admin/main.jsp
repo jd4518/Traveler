@@ -10,13 +10,13 @@
 <%@ include file="/WEB-INF/view/common.jspf" %>
 <title>Main.jsp</title>
 
-<c:url var="URL_GET_LIST"					value="/traveler/"/>
+<c:url var="URL_GET_LIST"					value="/traveler/admin/"/>
 
 <script type="text/javascript">
 
 	var urls = {
-		GET_LIST : 					"${URL_GET_LIST}",
-	}	
+		GET_LIST : 					"${URL_GET_LIST}"
+	};	
 		
 	var deps = ['ngRoute',
 	            'ngAnimate',
@@ -28,24 +28,24 @@
 	
 	app.constant("URL", urls);
 	
-	app.controller("mainController", function($scope, $http, $location) {
+	app.controller("memberListController", function($scope, $http, $location) {
 		
-		console.log("mainController...");
+		console.log("memberListController...");
 		
 		
 	});
 	
 </script>
 
-<c:url var="listController" value="/js/traveler/admin/listController.js"/>
+<c:url var="memberListController" value="/js/traveler/admin/listController.js"/>
 
-<script type="text/javascript" src="${listController}"></script>
+<script type="text/javascript" src="${memberListController}"></script>
 
 </head>
-<body data-ng-controller="mainController" class="container">
+<body data-ng-controller="memberListController" class="container">
 <h1>{{title}}</h1>
 <div data-ng-view>
-
+ asd
 </div>
 </body>
 </html>

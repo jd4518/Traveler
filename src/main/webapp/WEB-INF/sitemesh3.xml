@@ -6,7 +6,7 @@
 <!--   <mapping decorator="/default-decorator.html"/> -->
 
   <!-- Map decorators to path patterns. -->
-  <mapping path="/jsp/city/main.*" 		decorator="/decorators/menu.jsp"/>
+<!--   <mapping path="/jsp/city/main.*" 		decorator="/decorators/menu.jsp"/> -->
 		<!-- path의 경로는 webapp 밑을 지칭한다. -->
 <!--   <mapping path="/*.special.jsp" decorator="/special-decorator.html"/> -->
 

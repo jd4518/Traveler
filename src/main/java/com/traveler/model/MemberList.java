@@ -16,7 +16,7 @@ public class MemberList {
 	@XmlElement(name="member")
 
 	List<Member> members;
-
+	
 	public List<Member> getMembers() {
 		return members;
 	}
@@ -24,6 +24,4 @@ public class MemberList {
 	public void setMembers(List<Member> members) {
 		this.members = members;
 	}
-	
-	
 }

@@ -6,9 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
 <%@ include file="/WEB-INF/view/common.jspf" %>
-
 <style type="text/css">
 th {
 	text-align: center;
@@ -23,8 +21,7 @@ td {
 
 </head>
 <body class="container">
-
-	<div  class="table-responsive">
+	<div class="table-responsive">
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">회원 목록</h1>
@@ -32,7 +29,7 @@ td {
 			<!-- /.col-lg-12 -->
 		</div>
 		<!-- /.row -->
-		<div class="row">
+		<div>
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">회원 목록 - 관리자 전용</div>
@@ -47,7 +44,7 @@ td {
 					</div>
 					<!-- /.panel-heading -->
 					<div class="panel-body">
-						<div class="dataTable_wrapper">
+						<div>
 							<table class="table table-striped table-bordered table-hover">
 								<thead>
 									<tr class="center">

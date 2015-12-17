@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.traveler.model.MemberList;
 import com.traveler.service.MemberListService;
 
-
 @Controller
 @RequestMapping("/traveler")
 public class AdminController {
@@ -19,7 +18,6 @@ public class AdminController {
 	
 	@Autowired	// 필드 주입
 	MemberListService memberListService;
-	
 	
 	@RequestMapping(value="admin/main.html")
 	public String getMainView(){
@@ -29,8 +27,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="memberList.html")
-	public String getmemberList(){
-		log.info("getmemberList()...");
+	public String getmemberListView(){
+		log.info("getmemberListView()...");
 		
 		return "traveler/admin/memberList";
 	}

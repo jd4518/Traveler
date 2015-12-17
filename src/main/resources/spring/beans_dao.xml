@@ -42,13 +42,13 @@
 			<property name="properties">
 				<props>
 					<prop key="MySQL">mysql</prop>
-					<prop key="Oracle">oracle</prop>
 				</props>			
 			</property>
 		</bean>
 	</property>
 </bean>
 
+<!-- SqlSessionTemplate -->
 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="sqlSessionFactory"/>
 </bean>
