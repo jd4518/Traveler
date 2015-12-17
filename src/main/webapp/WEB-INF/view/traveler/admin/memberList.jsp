@@ -66,7 +66,7 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="dataTable_wrapper">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr class="center">
                                 <th class="col-sm-1">회원수</th>
@@ -79,9 +79,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>${index+1}</td>
-                                <td>홍길동</td>
+                            <tr data-ng-repeat="member in members">
+                                <td>${{index+1}}</td>
+                                <td>{{member.id}}</td>
                                 <td>gildong123</td>
                                 <td>123456789</td>
                                 <td>2015-12-15</td>

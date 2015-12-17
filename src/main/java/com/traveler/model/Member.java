@@ -4,13 +4,15 @@ import java.util.Date;
 
 public class Member {
 	
-	private String id;
-	private String password;
-	private String name;
-	private Date regist_date;
-	private String tel;
-	private String address;
+	private String 	id;
+	private String 	password;
+	private String 	name;
+	private Date 	regist_date;
+	private String 	tel;
+	private String 	address;
 	private Integer addressNum;
+	
+	
 	public String getId() {
 		return id;
 	}
