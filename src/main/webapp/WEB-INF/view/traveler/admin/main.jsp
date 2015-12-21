@@ -6,24 +6,29 @@
 <!DOCTYPE html>
 <html lang="ko" data-ng-app="travelerApp">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/view/common.jspf" %>
-
-<script src="http://maps.google.com/maps/api/js"></script>
-
 <title>Main.jsp</title>
+
+<c:url var="URL_GET_LIST"					value="/traveler/"/>
+
 <script type="text/javascript">
+
+	var urls = {
+		GET_LIST : 					"${URL_GET_LIST}",
+	}	
+		
 	var deps = ['ngRoute',
 	            'ngAnimate',
 	            'ngTouch',
-	            'angular-loading-bar',
-	            'ngMap'
+	            'angular-loading-bar'
 	           ];
 
 	var app = angular.module("travelerApp", deps);
 	
-	app.controller("mainController", function($scope, $http) {
+	app.constant("URL", urls);
+	
+	app.controller("mainController", function($scope, $http, $location) {
 		
 		console.log("mainController...");
 		
@@ -31,8 +36,16 @@
 	});
 	
 </script>
+
+<c:url var="listController" value="/js/traveler/admin/listController.js"/>
+
+<script type="text/javascript" src="${listController}"></script>
+
 </head>
 <body data-ng-controller="mainController" class="container">
-<div data-ng-map data-center="37.8, 127.03"></div>
+<h1>{{title}}</h1>
+<div data-ng-view>
+
+</div>
 </body>
 </html>

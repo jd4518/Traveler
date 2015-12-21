@@ -12,5 +12,10 @@
 <bean id="recommandPageService" class="com.traveler.service.RecommandPageService">
     <property name="recommandDao" ref="recommandDao"/>
 </bean>    
+    <!-- MemberListService -->
+	<bean id="memberListService" class="com.traveler.service.MemberListService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+    
     
 </beans>

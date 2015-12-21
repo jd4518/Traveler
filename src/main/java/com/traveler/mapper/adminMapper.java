@@ -1,5 +1,10 @@
 package com.traveler.mapper;
 
-public interface AdminMapper {
+import java.util.List;
+
+import com.traveler.model.Member;
+
+public interface adminMapper {
 	
+	List<Member> selectAll();
 }

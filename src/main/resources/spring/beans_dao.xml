@@ -47,14 +47,13 @@
 			</property>
 		</bean>
 	</property>
-	
-<!-- 	<property name="mapperLocations"> -->
-<!-- 		<list> -->
-<!-- 			<value>classpath:com/traveler/mapper/MemberMapper.xml</value> -->
-<!-- 		</list> -->
-<!-- 	</property> -->
+</bean>
 
 
+<!-- AdminMapper -->
+<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.adminMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
 
 <!-- SqlSessionTemplate -->
@@ -73,6 +72,10 @@
 	<property name="travelMapper" ref="travelMapper"/>
 </bean>
 
+<!-- MemberDao -->
+<bean id="memberDao" class="com.traveler.dao.MemberDao">
+	<property name="adminMapper" ref="adminMapper"/>
+</bean>
 
 
 

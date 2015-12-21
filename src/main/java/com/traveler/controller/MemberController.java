@@ -23,6 +23,7 @@ public class MemberController {
 		
 		return "traveler/member/main";
 	}
+
 	
 	@RequestMapping(value="regist.html")
 	public String getRegistView(){
