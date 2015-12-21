@@ -21,7 +21,7 @@
 		</Root>
 		<Logger name="org.springframework.jdbc.datasource" level="DEBUG">
     	</Logger>		
-    	<Logger name="com.hybrid.mapper" level="DEBUG">
+    	<Logger name="com.traveler.mapper" level="DEBUG">
     	</Logger>
 	</Loggers>
  

@@ -65,12 +65,34 @@
 	<property name="mapperInterface" value="com.traveler.mapper.ShareMapper"/>
 	<property name="sqlSessionTemplate" ref="sqlSession"></property>
 </bean>
+
+
+<!-- AdminMapper -->
+<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.adminMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- travelMapper -->
+<bean id="travelMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.RecommandMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- recommandDao -->
+<bean id="recommandDao" class="com.traveler.dao.RecommandDao">
+	<property name="travelMapper" ref="travelMapper"/>
+</bean>
 <!-- ShareDao -->
 <bean id="shareDao" class="com.traveler.dao.ShareDao">
 	<property name="shareMapper" ref="shareMapper"/>
 </bean>
 
 
+<!-- MemberDao -->
+<bean id="memberDao" class="com.traveler.dao.MemberDao">
+	<property name="adminMapper" ref="adminMapper"/>
+</bean>
 
 
 
