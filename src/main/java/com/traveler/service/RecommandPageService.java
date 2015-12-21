@@ -10,7 +10,7 @@ import com.traveler.model.RecommandPage;
 import com.traveler.util.Pagination;
 
 public class RecommandPageService {
-	RecommandDao recommandDao;
+	static RecommandDao recommandDao;
 	
 	public void setRecommandDao(RecommandDao dao) {
 		this.recommandDao = dao;
@@ -29,6 +29,11 @@ public class RecommandPageService {
 		page.setRecommandLists(list);
 		
 		return page;
+	}
+	
+	public int getCount(){
+		int count = recommandDao.selectCount();
+		return count;
 	}
 
 }

@@ -8,14 +8,20 @@
     
 <bean id="recommandListService" class="com.traveler.service.RecommandListService">
     <property name="recommandDao" ref="recommandDao"/>
-</bean>  
+</bean>
+  
 <bean id="recommandPageService" class="com.traveler.service.RecommandPageService">
     <property name="recommandDao" ref="recommandDao"/>
-</bean>    
+</bean>
+
+<bean id="recommandRegisterService" class="com.traveler.service.RecommandRegisterService">
+    <property name="recommandDao" ref="recommandDao"/>
+</bean>
+    
     <!-- MemberListService -->
-	<bean id="memberListService" class="com.traveler.service.MemberListService">
+<bean id="memberListService" class="com.traveler.service.MemberListService">
 	    <property name="memberDao" ref="memberDao"/>
-	</bean>
+</bean>
     
     
 </beans>

@@ -11,9 +11,8 @@
 		  from RecommandList
 	</select>
 	
-	<select id="selectCount">
-	    select count(*)
-	      from RecommandList
+	<select id="selectCount" resultType="int">
+	    select count(*) from RecommandList
 	</select>
 	
 	 <select id="selectPage" 
@@ -31,5 +30,26 @@
     </select>
 
 
+	<insert id="recommandInsert" 
+        	parameterType="com.traveler.model.Recommand">
+        insert into RecommandList
+		(
+			   listNo,
+			   title,
+			   area,
+			   name,
+			   content,
+			   picture
+		)
+		values
+		(
+			#{listNo, jdbcType=VARCHAR},
+			#{title, jdbcType=VARCHAR},
+			#{area, jdbcType=VARCHAR},
+			#{name, jdbcType=NUMERIC},
+			#{content, jdbcType=NUMERIC},
+			#{picture, jdbcType=NUMERIC}
+		)
+    </insert>
 
 </mapper>

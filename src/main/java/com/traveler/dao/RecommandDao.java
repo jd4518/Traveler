@@ -25,4 +25,7 @@ public class RecommandDao {
 		return travelMapper.selectPage(paging);
 	}
 	
+	public int recommandInsert(Recommand recommand){
+		return travelMapper.recommandInsert(recommand);
+	}
 }

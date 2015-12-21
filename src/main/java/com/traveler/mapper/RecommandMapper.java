@@ -10,5 +10,5 @@ public interface RecommandMapper {
 	List<Recommand> selectPage(Pagination paging);
 	
 	int selectCount();
-	
+	int recommandInsert(Recommand recommand);
 }

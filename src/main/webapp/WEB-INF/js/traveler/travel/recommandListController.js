@@ -27,7 +27,6 @@ app.controller('recommandListController', function($scope, $http, URL) {
 			console.dir(data);
 			$scope.recommandLists = data.recommandLists;
 			$scope.paging = data.paging;
-	 			alert("success...");
 		});
 	};
 	

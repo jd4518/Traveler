@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/view/common.jspf" %>
 <title>recommandList.jsp</title>
 </head>
-<body data-ng-controller="mainController" class="container">
+<body class="container">
 <h1><a href="" class="btn btn-primary">{{title}}</a></h1>
 
 <div class="table-responsive">
@@ -25,7 +25,7 @@
 
 	<table class="table table-striped table-hover">
 		<thead>
-			<tr><td><a href="#/append" class="btn btn-primary">Append</a></td></tr>
+			<tr><td><a href="#/recommandInsert" class="btn btn-primary">글쓰기</a></td></tr>
 			<tr><th colspan="8">
 <!-- 					<uib-pagination total-items="paging.totalItem" style="width:800px;"  -->
 <!-- 						ng-model="pageNo" -->
@@ -44,9 +44,9 @@
 			</tr>
 			<tr>
 				<th>No</th>
-				<th>ID</th>
-				<th>Name</th>
-				<th>CountryCode</th>
+				<th>글 제목</th>
+				<th>지역</th>
+				<th>작성자</th>
 				<th>District</th>
 				<th>Population</th>
 				<th>수정</th>

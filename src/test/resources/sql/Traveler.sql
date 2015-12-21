@@ -32,13 +32,11 @@ create table RecommandList (
   PRIMARY KEY (listNo)
 );
 
-<<<<<<< HEAD
 
 insert into RecommandList(title,area,name,content,picture) values('우와된당','서울','홍현우','너는누구냐나야야누이할','1')
 
 select * from RecommandList;
 select count(*) from RecommandList;
-=======
 create table TravelShareBoard(
 	memberPicture varchar(100),
 	boardNum int auto_increment,
@@ -74,4 +72,4 @@ create table Travelmember(
 drop table Travelmember
 
 select * from Travelmember
->>>>>>> 0b64d3854e75f03f10edaf3457033465f72e34af
+select count(*) from RecommandList
