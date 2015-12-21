@@ -53,9 +53,23 @@
 <!-- 			<value>classpath:com/traveler/mapper/MemberMapper.xml</value> -->
 <!-- 		</list> -->
 <!-- 	</property> -->
-
-
 </bean>
+
+<!-- SqlSessionTemplate -->
+<bean  id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactory"/>
+</bean>
+
+<!-- ShareMapper -->
+<bean id="shareMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.ShareMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"></property>
+</bean>
+<!-- ShareDao -->
+<bean id="shareDao" class="com.traveler.dao.ShareDao">
+	<property name="shareMapper" ref="shareMapper"/>
+</bean>
+
 
 
 

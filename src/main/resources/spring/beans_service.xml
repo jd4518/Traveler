@@ -5,4 +5,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
     
+<!-- ShareListService -->
+<bean id="shareListService" class="com.traveler.service.ShareListService">
+	<property name="shareDao" ref="shareDao"></property>
+</bean>    
+
+<!-- SharePageService -->
+<bean id="sharePageService" class="com.traveler.service.SharePageService">
+	<property name="shareDao" ref="shareDao"></property>
+</bean>
+
+<!-- ShareDetailService -->
+<bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
+    <property name="shareDao" ref="shareDao"/>
+</bean>
+<!-- ShareRegisterService -->
+<bean id="shareRegisterService" class="com.traveler.service.ShareRegisterService">
+	<property name="shareDao" ref="shareDao"></property>
+</bean>
+    
 </beans>

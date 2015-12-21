@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <script src="http://maps.google.com/maps/api/js"></script>
-<title>shareList.jsp</title>
+<title>shareInsert.jsp</title>
 <%@ include file="/WEB-INF/view/common.jspf" %>
 <script type="text/javascript">
 		var deps = ['ngRoute',
@@ -24,24 +24,44 @@
 			
 			console.log("shareController...");
 			
-			$scope.title = "shareList"
+			$scope.title = "shareInsert"
 		});
 
 
 </script>
 </head>
 <body  data-ng-controller="shareController"  class="container">
-<a class="btn btn-primary" href="#/main">main...</a>
+<a class="btn btn-primary" href="#/shareList">list...</a>
 <h2>공유 게시판</h2>
 <hr>
 <div class="row">
 	<div class="col-sm-8 col-sm-offset-3">
 		<div class="panel panel-default">
+		<div class="panel-heading">도시 입력</div>
+		<pre>{{share}}</pre>		
 		<div class="panel-body">
 			<form class="form-horizontal" name="shareForm" novalidate="novalidate" data-ng-submit="submit()">
+			<!-- Name -->
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="name">작성자 : </label>
+				<div class="col-sm-8">
+				<input id="name"
+					   name="name"
+					   type="text" 
+					   class="form-control"
+					   required="required"
+					   data-ng-model="share.name"	
+					   data-ng-maxlength="35"		
+					   />	<!-- 사용자의 입력이 발생하면 share.name -->
+					   <div data-ng-show="shareForm.name.$dirty">
+						   <div class="alert alert-warning" data-ng-show="shareForm.name.$error.required">필수 입력 항목입니다.</div>
+						   <div class="alert alert-warning" data-ng-show="shareForm.name.$error.maxlength">35자리까지 입력가능합니다.</div>
+					   </div>
+					 </div>  
+				</div>
 				
+				<!-- title -->
 				<div class="form-group">
-					<!-- title -->
 					<label class="col-sm-2 control-label" for="title">제목 :</label>
 					<div class="col-sm-8">
 					<input id="title"
@@ -49,6 +69,7 @@
 						   type="text"
 						   class="form-control"
 						   required="required"
+						   data-ng-model="share.title"
 						   data-ng-maxlength="15"
 					/>
 					</div>
@@ -66,6 +87,7 @@
 						   type="text"
 						   class="form-control"
 						   required="required"
+						   data-ng-model="share.term"
 						   data-ng-maxlength="15"
 					/>
 					</div>
@@ -82,6 +104,7 @@
 						   type="number"
 						   class="form-control"
 						   required="required"
+						   data-ng-model="share.number"
 						   data-ng-maxlength="15"
 					/>
 					</div>
@@ -99,6 +122,7 @@
 						   type="text"
 						   class="form-control"
 						   required="required"
+						   data-ng-model="share.cost"
 						   data-ng-maxlength="15"
 						   placeholder="교통비:"
 					/>
@@ -107,6 +131,7 @@
 						   type="text"
 						   class="form-control"
 						   required="required"
+						   data-ng-model="share.cost"
 						   data-ng-maxlength="15"
 						   placeholder="숙박비:"
 					/>
@@ -115,6 +140,7 @@
 						   type="text"
 						   class="form-control"
 						   required="required"
+						   data-ng-model="share.cost"
 						   data-ng-maxlength="15"
 						   placeholder="식비:"
 					/>
@@ -124,6 +150,7 @@
 						   class="form-control"
 						   required="required"
 						   data-ng-maxlength="15"
+						   data-ng-model="share.cost"
 						   placeholder="Total:"
 					/>
 					</div>
@@ -137,15 +164,21 @@
 						<!-- content -->
 						<label class="col-sm-2 control-label" for="comment">내용 :</label>
 						<div class="col-sm-8">
-							<textarea class="form-control" rows="5" id="comment"></textarea>
+							<textarea class="form-control" rows="5" id="comment"  data-ng-model="share.comment"></textarea>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<!-- picture -->
-						<label class="col-sm-2 control-label" for="picture">사진 :</label>
+						<label class="col-sm-2 control-label" for="picture">사진등록:</label>
 						<div class="col-sm-8">
-							<textarea class="form-control" rows="5" id="picture"></textarea>
+						<input id="picture"
+						   name="picture"
+						   type="file"
+						   required="required"
+						   data-ng-model="share.picture"
+						   data-ng-maxlength="15"
+					/>
 						</div>
 					</div>
 					
@@ -157,17 +190,29 @@
 						</div>
 					</div>
 					
-					
+					<div class="form-group">
+					<!-- content -->
+						<label class="col-sm-2 control-label" for="comment">댓글 :</label>
+						<div class="col-sm-8">
+							<textarea placeholder="댓글등록" class="form-control" rows="5" id="comment"></textarea>
+							<div align="right">
+							<input type="submit" 
+							   value="등록"
+							   class="btn btn-success"
+							   data-ng-disabled="shareForm.$invalid"/>
+							   </div>
+						</div>
+					</div>
 						<!-- Submit -->
 						<div class="form-group" align="center">
 						<input type="submit" 
 							   value="확인"
 							   class="btn btn-primary"
-							   data-ng-disabled="cityForm.$invalid"/>
+							   data-ng-disabled="shareForm.$invalid"/>
 						<input type="submit" 
 							   value="취소"
 							   class="btn btn-danger"
-							   data-ng-disabled="cityForm.$invalid"/>
+							   data-ng-disabled="shareForm.$invalid"/>
 						</div>
 					
 				</form>

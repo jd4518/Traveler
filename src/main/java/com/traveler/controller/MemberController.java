@@ -17,14 +17,12 @@ public class MemberController {
 		return "traveler/member/loginForm";
 	}
 	
-	@RequestMapping(value="main.html")
+	@RequestMapping(value="travel/main.html")
 	public String getMainView(){
 		log.info("getMainView()...");
 		
 		return "traveler/member/main";
 	}
-
-	
 	@RequestMapping(value="regist.html")
 	public String getRegistView(){
 		log.info("getRegistView()...");
@@ -32,10 +30,4 @@ public class MemberController {
 		return "traveler/member/regist";
 	}
 	
-	@RequestMapping(value="recommandList.html")
-	public String getRecommandListView(){
-		log.info("getRecommandListView()...");
-		
-		return "traveler/travel/recommandList";
-	}
 }

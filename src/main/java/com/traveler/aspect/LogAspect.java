@@ -14,12 +14,12 @@ import org.aspectj.lang.annotation.Pointcut;
 public class LogAspect {
 //	static Log log = LogFactory.getLog(LogDaoAspect.class);
 	
-	@Pointcut("execution(public * com.hybrid.dao.*Dao.*(..))")
+	@Pointcut("execution(public * com.traveler.dao.*Dao.*(..))")
 	public void dao() {
 		
 	}
 	
-	@Pointcut("execution(public * com.hybrid.service.*Service.*(..))")
+	@Pointcut("execution(public * com.traveler.service.*Service.*(..))")
 	public void service() {
 		
 	}
