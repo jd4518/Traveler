@@ -4,108 +4,75 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
-<html class="ng-scope" lang="ko" data-ng-app="travelerApp">
+<html lang="ko" data-ng-app="travelerApp">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/view/common.jspf" %>
 <title>recommandList.jsp</title>
-<script type="text/javascript">
-	var deps = ['ngRoute',
-	            'ngAnimate',
-	            'ngTouch',
-	            'angular-loading-bar'
-	           ];
-
-	var app = angular.module("travelerApp", deps);
-	
-	
-	app.controller("recommandController", function($scope, $http) {
-		
-		console.log("recommandController...");
-		
-		$scope.title = "recommandList"
-		
-		$('input:checkbox').on('click',function(){
-			var $box = $(this);
-				if($box.is(":checked")){
-					var group = "input:checkbox[name='" + $box.attr("name") +"']";
-						$(group).prop("checked",false);
-						$box.prop("checked",true);
-				}else{
-					$box.prop("checked", false);
-				}
-			
-		});
-		
-	});
-	
-</script>
 </head>
-<body data-ng-controller="recommandController" class="container">
-<h1><a href="#" class="btn btn-primary">{{title}}</a></h1>
-<form class="form-horizontal">
-  <fieldset>
-    <legend><h1>추천 게시판</h1></legend>
-    <div class="form-group">
-      <label for="inputTitle" class="col-lg-2 control-label">제목</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputTitle" placeholder="Title">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputWriter" class="col-lg-2 control-label">작성자</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputWriter" placeholder="Writer">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="area" value="서울"> 서울
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="경기"> 경기
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="강원"> 강원
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="충북"> 충북
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="충남"> 충남
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="전북"> 전북
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="전남"> 전남
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="경북"> 경북
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="경남"> 경남
-          </label>
-          <label>
-            <input type="checkbox" name="area" value="제주도"> 제주도
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="textArea" class="col-lg-2 control-label">내용</label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="20" id="textArea"></textarea>
-        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-      </div>
-    </div>
-     <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+<body data-ng-controller="mainController" class="container">
+<h1><a href="" class="btn btn-primary">{{title}}</a></h1>
+
+<div class="table-responsive">
+	<ul class="pagination">
+		<li><a href="" data-ng-click="prevClick(paging.firstPage - 1)">Prev</a></li>
+		<li data-ng-repeat="recommand in recommandLists">
+			<a href="" data-ng-click="pageClick(paging.firstPage + $index)">{{paging.firstPage + $index}}</a>
+		</li>
+		<li><a href="" data-ng-click="prevClick(paging.lastPage + 1)">Next</a></li>
+	</ul>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr><td><a href="#/append" class="btn btn-primary">Append</a></td></tr>
+			<tr><th colspan="8">
+<!-- 					<uib-pagination total-items="paging.totalItem" style="width:800px;"  -->
+<!-- 						ng-model="pageNo" -->
+<!-- 						max-size="10" -->
+<!-- 						ng-change="selectPage()" -->
+<!-- 						boundary-links="true"> -->
+<!-- 					</uib-pagination> -->
+						<div data-uib-pagination 
+							data-total-items="paging.totalItem" style="width:800px;" 
+							data-ng-model="pageNo"
+							data-max-size="10"
+							data-ng-change="selectPage()"
+							data-boundary-links="true">
+						</div>
+				</th>
+			</tr>
+			<tr>
+				<th>No</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>CountryCode</th>
+				<th>District</th>
+				<th>Population</th>
+				<th>수정</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-ng-repeat="recommand in recommandLists">
+				<td>{{recommand.listNo}}</td>
+				<td>{{recommand.title}}</td>
+				<td>{{recommand.area}}</td>
+				<td>{{recommand.name}}</td>
+				<td><a href="#" class="btn btn-success">Edit...</a></td>
+				<td><a href="#" class="btn btn-info">Delete...</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<hr>	
+<div class="form-group">
+<textarea rows="20" class="form-control">
+	{{recommandLists}}
+	{{paging}}
+</textarea>
+</div>
 
 </body>
 </html>

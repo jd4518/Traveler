@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traveler.mapper.RecommandMapper">
+	<select id="selectAllRecommand" resultType="com.traveler.model.Recommand">
+		select listNo,
+			   title,
+			   area,
+			   name,
+			   content,
+			   picture
+		  from RecommandList
+	</select>
+	
+	<select id="selectCount">
+	    select count(*)
+	      from RecommandList
+	</select>
+	
+	 <select id="selectPage" 
+        	parameterType="com.traveler.util.Pagination" 
+        	resultType="com.traveler.model.Recommand">
+        select listNo,
+			   title,
+			   area,
+			   name,
+			   content,
+			   picture
+		  from RecommandList
+		 order by listNo desc 
+		 limit #{start}, #{length} 
+    </select>
+
+
+
+</mapper>

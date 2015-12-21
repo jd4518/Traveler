@@ -3,31 +3,31 @@
  */
 
 app.config(function($routeProvider) {
-	console.log("/list config...")
+	console.log("/recommandList config...")
 	
 	$routeProvider.when("/list", {
 		templateUrl: "list.html",
-		controller: "listController"
+		controller: "recommandListController"
 	});
 	
 });
 
-app.controller('listController', function($scope, $http, URL) {
-	console.log("listController...");
+app.controller('recommandListController', function($scope, $http, URL) {
+	console.log("recommandListController...");
 	console.log("URL.GET_PAGE_BASE = " + URL.GET_PAGE_BASE);
 	
-	$scope.$parent.title = "List City View";
+	$scope.$parent.title = "List Recommand View";
 	
 	$scope.pageNo = 1;
-	$scope.citys = [];
+	$scope.recommandLists = [];
 	$scope.paging = {};
 	
 	$scope.selectPage = function() {
 		$http.get(URL.GET_PAGE_BASE + $scope.pageNo).success(function(data, status, headers, config) {
 			console.dir(data);
-			$scope.citys = data.citys;
+			$scope.recommandLists = data.recommandLists;
 			$scope.paging = data.paging;
-//	 			alert("success...");
+	 			alert("success...");
 		});
 	};
 	

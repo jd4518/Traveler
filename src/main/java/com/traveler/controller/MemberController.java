@@ -30,11 +30,4 @@ public class MemberController {
 		
 		return "traveler/member/regist";
 	}
-	
-	@RequestMapping(value="recommandList.html")
-	public String getRecommandListView(){
-		log.info("getRecommandListView()...");
-		
-		return "traveler/travel/recommandList";
-	}
 }
