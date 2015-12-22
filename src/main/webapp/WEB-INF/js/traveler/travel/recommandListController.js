@@ -8,14 +8,15 @@ app.config(function($routeProvider) {
 		$routeProvider.when("/shareList", {				
 			templateUrl: "shareList.html",				
 			controller: "listController"			
-		});
-
+		}); 
+ 
 		console.log("/recommandList config...")
 		
 		$routeProvider.when("/list", {
 			templateUrl: "list.html",
 			controller: "recommandListController"
 		});
+}
 
 app.controller('recommandListController', function($scope, $http, URL) {
 	console.log("recommandListController...");
@@ -58,4 +59,5 @@ app.controller('recommandListController', function($scope, $http, URL) {
 // 			alert("pageNo=" + pageNo);
 		};
 		
-	});
+});
+

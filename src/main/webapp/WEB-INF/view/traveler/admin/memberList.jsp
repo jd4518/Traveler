@@ -68,7 +68,7 @@ td {
 									<td><a href="#/membermodify/{{member.id}}" class="btn btn-success">수정</a></td>
 									<td><a href="#/memberdelete/{{member.id}}" class="btn btn-info">삭제</a></td>
 								</tr>
-							</tbody>
+							</tbody> 
 							<tr><td colspan="9">
 								<uib-pagination data-total-items="paging.totalItem" style="width:800px;" 
 										data-ng-model="pageNo"
