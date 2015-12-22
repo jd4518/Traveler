@@ -1,3 +1,4 @@
+
 package com.traveler.aspect;
 
 import javax.sql.DataSource;
@@ -23,6 +24,7 @@ public class TransactionAspect {
 		this.dataSource = ds;
 	}
 	
+	//스프링의 Transaction 매커니즘
 	@Around("execution(public * com.traveler.service.*Service.*(..))")
 	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 		
@@ -45,5 +47,4 @@ public class TransactionAspect {
 		
 		return rtn;
 	}
-
 }

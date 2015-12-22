@@ -142,9 +142,4 @@ public class Pagination {
 	}
 	
 	
-	
-	
-	
-	
-	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import com.traveler.model.Member;
 import com.traveler.util.Pagination;
 
-public interface memberMapper {
+public interface MemberMapper {
 	int selectCount();
 	List<Member> selectAll();
 	List<Member> selectPage(Pagination paging);

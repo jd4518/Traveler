@@ -1,4 +1,6 @@
 
+<<<<<<< HEAD
+=======
 select * from Travelmember;
 
 drop table Travelmember
@@ -20,47 +22,64 @@ create table Travelmember(
    constraint pk_id primary key(id)
 );
 
+drop table RecommandList;
+
+>>>>>>> 9e04f7c97515ff07fd56bb6258348ff9675329f9
 create table RecommandList (
   listNo int(11) NOT NULL auto_increment,
   title char(35) NOT NULL,
   area char(20) NOT NULL,
   name char(20) NOT NULL,
   content longtext NOT NULL,
+  picture char(100) default 'nothing.jpg , nothing.png, nothing.gif',
   PRIMARY KEY (listNo)
 );
 
+
+insert into RecommandList(title,area,name,content,picture) values('우와된당','서울','홍현우','너는누구냐나야야누이할','1')
+
+select * from RecommandList;
+select count(*) from RecommandList;
 create table TravelShareBoard(
-	memberPicture varchar(100),
+	memberPicture varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
 	boardNum int auto_increment,
 	id varchar(255),
 	name varchar(255),
-	memberAge integer(100),
+	memberAge int(100),
 	memberTel varchar(255),
 	title	  varchar(255),
-	term	  varchar(255),		--기간
-	number	  int(100), 		--인원
-	cost	  integer(100),
+	term	  varchar(255),		
+	number	  int(100), 		
+	cost	  int(100),
 	content   longtext,
-	picture	  varchar(255),
+	picture	  varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
 	map		  varchar(255),
-	foreign key(id) references Travelmember(id) on delete cascade,
-	constraint pk_boardNum primary key(boardNum)
+	foreign key(id) references Travelmember(id),
+	constraint boardNum primary key(boardNum)
 );
 
+
+insert into TravelShareBoard (memberPicture,boardNum,id,name,memberAge,memberTel,title,term,number,cost,content,picture,map)
+values('Hong','1','gusdn','홍현우','26','010-5170-7855','낭만적인부산','3개월','4','45000','겨울바다이야기','aaa','Busan')
+
+select * from TravelShareBoard
 drop table TravelShareBoard
 
 create table Travelmember(
 	id 				varchar(255),
-	picture			varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
+	memberPicture	varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
 	password 		varchar(255),
 	name 			varchar(255),
 	register_date 	date,
 	tel 			varchar(255),
 	address 		varchar(255),
-	addressNum      integer(100),
+	addressNum      int(100),
 	constraint pk_id primary key(id)
 );
+insert into Travelmember(id,memberPicture,password,name,register_date,tel,address,addressNum)
+values('gusdn','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
 
 drop table Travelmember
 
 select * from Travelmember
+select count(*) from RecommandList
