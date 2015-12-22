@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-
+ 
 <!-- LogAspect -->
 <aop:aspectj-autoproxy/>
 <bean class="com.traveler.aspect.LogAspect"/>
@@ -55,7 +55,7 @@
 
 <!-- AdminMapper -->
 <bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-	<property name="mapperInterface" value="com.traveler.mapper.adminMapper"/>
+	<property name="mapperInterface" value="com.traveler.mapper.AdminMapper"/>
 	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
 

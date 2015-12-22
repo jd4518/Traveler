@@ -6,7 +6,7 @@ drop table Travelmember
 insert into Travelmember
 (id, password, name, register_date, birthday, tel, address, addressNum) 
 values
-('lol126', '12341234', '홍길동','2015-12-12','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+('lol329', '12341234', '홍길동','2015/12/12','2015/12/12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
 
 create table Travelmember(
    id               varchar(255),

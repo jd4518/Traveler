@@ -10,11 +10,11 @@ import com.traveler.model.MemberList;
 public class MemberListService {
 	MemberDao memberDao;
 	
-	public void setMemberDao(MemberDao memberDao) {
-		this.memberDao = memberDao;
+	public void setMemberDao(MemberDao dao) {
+		this.memberDao = dao;
 	}
 
-	public MemberList getList() {
+	public MemberList getMemberList() {
 		List<Member> members = memberDao.selectAll();
 		MemberList rtn = new MemberList();
 		rtn.setMembers(members);

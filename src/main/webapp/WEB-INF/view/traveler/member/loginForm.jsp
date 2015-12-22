@@ -47,6 +47,8 @@
                                 </div>
                                 <div class="form-group" align="right">
                                 	 <a href="" class="btn btn-default btn-sm">
+                                	 	<font color="#5cb85c"><b>회원가입</b></font></a>
+                                	 <a href="" class="btn btn-default btn-sm">
                                 	 	<font color="#5cb85c"><b>아이디 찾기</b></font></a>
                                 	 <a href="" class="btn btn-default btn-sm">
                                 	 	<font color="#5cb85c"><b>비밀번호 찾기</b></font></a>

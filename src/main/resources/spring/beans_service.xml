@@ -9,5 +9,30 @@
 	<bean id="memberListService" class="com.traveler.service.MemberListService">
 	    <property name="memberDao" ref="memberDao"/>
 	</bean>
+	
+	<!-- MemberPageService -->
+	<bean id="memberPageService" class="com.traveler.service.MemberPageService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberRegisterService -->
+	<bean id="memberRegisterService" class="com.traveler.service.MemberRegisterService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>   
+	
+	<!-- MemberDetailService -->
+	<bean id="memberDetailService" class="com.traveler.service.MemberDetailService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberModifyService -->
+	<bean id="memberModifyService" class="com.traveler.service.MemberModifyService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberUnRegisterService -->
+	<bean id="memberUnRegisterService" class="com.traveler.service.MemberUnRegisterService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
     
 </beans>
