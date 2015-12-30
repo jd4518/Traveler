@@ -6,17 +6,22 @@ drop table Travelmember
 insert into Travelmember
 (id, password, name,  birthday, tel, address, addressNum) 
 values
+<<<<<<< HEAD
 ('lol330', '12341234', '홍길동','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+=======
+('master', 'master', '마스터','1111/11/11','1111/11/11','010-0000-0000', '관리자전용 아이디', '11111')
+>>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 
 create table Travelmember(
-   id               varchar(255),
+   num				integer(100) auto_increment not null,
+   id               varchar(255) not null unique,
    password         varchar(255),
    name             varchar(255),
    birthday			date,
    tel              varchar(255),
    address          varchar(255),
    addressNum       integer(100),
-   constraint pk_id primary key(id)
+   constraint pk_tr primary key(num)
 );
 
 drop table RecommandList;

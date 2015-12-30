@@ -11,16 +11,14 @@ app.config(function($routeProvider) {
 	});
 });
 
-app.controller('listController', function($scope, $http, URL) {
+app.controller('listController', function($scope, $http, URL, $location, $routeParams) {
 	console.log("listController...");
 	console.log("URL.GET_PAGE_BASE = " + URL.GET_PAGE_BASE);
-	
-	$scope.$parent.title = "회원 목록";
 
 	$scope.pageNo = 1;
 	$scope.members = [];
 	$scope.paging = {};
-	
+
 	$scope.selectPage = function() {
 		$http.get(URL.GET_PAGE_BASE + $scope.pageNo).success(function(data, status, headers, config) {
 			console.dir(data);
@@ -29,7 +27,7 @@ app.controller('listController', function($scope, $http, URL) {
 //	 			alert("success...");
 		});
 	};
-	
+
 	$scope.selectPage();
 	
 	$scope.prevClick = function(pageNo) {

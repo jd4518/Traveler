@@ -15,10 +15,10 @@ public class MemberModifyService {
 	}
 	
 	@Transactional
-	public String modify(Member member) {
+	public int modify(Member member) {
 		
 		memberDao.update(member);
 		
-		return member.getId();
+		return member.getNum();
 	}
 }

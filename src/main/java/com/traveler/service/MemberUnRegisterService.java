@@ -14,9 +14,9 @@ public class MemberUnRegisterService {
 	}
 	
 	@Transactional
-	public String unregist(String id) {
-		memberDao.deleteById(id);
+	public int unregist(int num) {
+		memberDao.deleteByNum(num);
 		
-		return id;
+		return num;
 	}
 }

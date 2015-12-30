@@ -5,7 +5,8 @@
         select count(*) from Travelmember
     </select>
     <select id="selectAll" resultType="com.traveler.model.Member">
-        select id,
+        select num,
+        	   id,
 			   password,
 			   name,
 			   register_date,
@@ -19,7 +20,8 @@
      	parameterType="com.traveler.util.Pagination" 
      	resultType="com.traveler.model.Member"
      	databaseId="mysql">
-			select id,
+			select num,
+			       id,
 				   password,
 				   name,
 				   register_date,
@@ -28,12 +30,13 @@
 				   address,
 				   addressNum 
 			  from Travelmember
-			 order by register_date desc 
+			 order by num desc
 			 limit #{start}, #{length} 
     </select>
     
-    <select id="selectById" parameterType="String" resultType="com.traveler.model.Member">
-        select id,
+    <select id="selectByNum" parameterType="int" resultType="com.traveler.model.Member">
+        select num,
+        	   id,
 			   password,
 			   name,
 			   register_date,
@@ -42,7 +45,7 @@
 			   address,
 			   addressNum 
 		  from Travelmember
-		 where id = #{id}
+		 where num = #{num}
     </select>
     
     <insert id="insert" 
@@ -52,6 +55,7 @@
         	databaseId="mysql">
         insert into Travelmember
 		(
+			 num,
 	         id,
 		 	 password,
 			 name,
@@ -63,32 +67,39 @@
 		)
 		values
 		(
+			#{num, jdbcType=NUMERIC},
 			#{id, jdbcType=VARCHAR},
 			#{password, jdbcType=VARCHAR},
 			#{name, jdbcType=VARCHAR},
+<<<<<<< HEAD
 			#{register_date, jdbcType=DATE}
 			#{birthday, jdbcType=DATE}
 			#{tel, jdbcType=VARCHAR}
 			#{address, jdbcType=VARCHAR}
+=======
+			now(),
+			#{birthday, jdbcType=DATE},
+			#{tel, jdbcType=VARCHAR},
+			#{address, jdbcType=VARCHAR},
+>>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 			#{addressNum, jdbcType=NUMERIC}
 		)
     </insert>
     
     <update id="update" parameterType="com.traveler.model.Member">
         update Travelmember
-           set id,
-		 	   password,
-			   name,
-			   register_date,
-			   birthday,
-			   tel,
-			   address,
-			   addressNum
-         where id = #{id}
+           set id				= #{id},
+		 	   password			= #{password},
+			   name				= #{name},
+			   birthday			= #{birthday},
+			   tel				= #{tel},
+			   address			= #{address},
+			   addressNum		= #{addressNum}
+         where num 				= #{num}
     </update>
     
-    <delete id="deleteById" parameterType="String">
-        delete from Travelmember where id = #{id}
+    <delete id="deleteByNum" parameterType="int">
+        delete from Travelmember where num = #{num}
     </delete>
 
 </mapper>

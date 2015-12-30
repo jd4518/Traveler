@@ -15,8 +15,8 @@ public class MemberDetailService {
 	}
 	
 	@Transactional
-	public Member detail(String id) {
-		Member member = memberDao.selectById(id);
+	public Member detail(int num) {
+		Member member = memberDao.selectByNum(num);
 		
 		return member;
 	}

@@ -5,20 +5,38 @@
 app.config(function($routeProvider) {
 	console.log("/memberdelete config...")
 	
-	$routeProvider.when("/memberdelete/:id", {
+	$routeProvider.when("/memberdelete/:num", {
 		templateUrl: "memberdelete.html",
 		controller: "deleteController"
 	});
 	
 });
 
-app.controller('deleteController', function($scope, $http, URL, $routeParams) {
+app.controller('deleteController', function($scope, $http, URL, $location, $routeParams) {
 	console.log("memberdeleteController...");
 	console.log("URL.DELETE_ITEM_DELETE_BASE = " + URL.DELETE_ITEM_DELETE_BASE);
-	console.log("id = " + $routeParams.id);
+	console.log("num = " + $routeParams.num);
 	
-	$scope.$parent.title = "Delete Member View";
+	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.num);
+	ajax.then(function(value) {
+		console.dir(value);
+		$scope.member = value.data;
+	}, function(reason) {
+		console.dir(reason);
+		alert("error...");
+	});
 	
-	
+	$scope.submit = function() {
+		var ajax = $http.delete(URL.DELETE_ITEM_DELETE_BASE + $scope.member.num, {
+			
+		});
+		
+		ajax.then(function(response) {
+			console.dir(response.data);
+			$location.path("/memberList");
+		}, function(response) {
+			console.dir(response.data);
+		});
+	};
 	
 });
