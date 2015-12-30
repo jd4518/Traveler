@@ -16,7 +16,7 @@ app.config(function($routeProvider) {
 			templateUrl: "list.html",
 			controller: "recommandListController"
 		});
-}
+});
 
 app.controller('recommandListController', function($scope, $http, URL) {
 	console.log("recommandListController...");

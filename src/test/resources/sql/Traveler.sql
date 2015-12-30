@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 select * from Travelmember;
 
 drop table Travelmember
@@ -8,10 +6,11 @@ drop table Travelmember
 insert into Travelmember
 (id, password, name, register_date, birthday, tel, address, addressNum) 
 values
-('lol329', '12341234', '홍길동','2015/12/12','2015/12/12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+('master', 'master', '마스터','1111/11/11','1111/11/11','010-0000-0000', '관리자전용 아이디', '11111')
 
 create table Travelmember(
-   id               varchar(255),
+   num				integer(100) auto_increment not null,
+   id               varchar(255) not null unique,
    password         varchar(255),
    name             varchar(255),
    register_date    date,
@@ -19,12 +18,11 @@ create table Travelmember(
    tel              varchar(255),
    address          varchar(255),
    addressNum       integer(100),
-   constraint pk_id primary key(id)
+   constraint pk_tr primary key(num)
 );
 
 drop table RecommandList;
 
->>>>>>> 9e04f7c97515ff07fd56bb6258348ff9675329f9
 create table RecommandList (
   listNo int(11) NOT NULL auto_increment,
   title char(35) NOT NULL,

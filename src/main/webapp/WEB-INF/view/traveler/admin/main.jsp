@@ -8,6 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/view/common.jspf" %>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 <title>Main.jsp</title>
 
 <!-- URL Resolve -->
@@ -66,20 +69,18 @@
 </script>
 
 <c:url var="listController"   value="/js/traveler/admin/listController.js"/>
-<c:url var="detailController" value="/js/traveler/admin/detailController.js"/>
 <c:url var="appendController" value="/js/traveler/admin/appendController.js"/>
 <c:url var="modifyController" value="/js/traveler/admin/modifyController.js"/>
 <c:url var="deleteController" value="/js/traveler/admin/deleteController.js"/>
 
 <script type="text/javascript" src="${listController}"></script>
-<script type="text/javascript" src="${detailController}"></script>
 <script type="text/javascript" src="${appendController}"></script>
 <script type="text/javascript" src="${modifyController}"></script>
 <script type="text/javascript" src="${deleteController}"></script>
 
 
 </head>
-<body data-ng-controller="mainController" class="container">
+<body class="container">
 <h1>{{title}}</h1>
 <div data-ng-view>
 

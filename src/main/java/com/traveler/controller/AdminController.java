@@ -121,12 +121,12 @@ public class AdminController {
 	 * detail서비스
 	 * Accept = application/json
 	 */
-	@RequestMapping(value="/{id:[0-9]+}", method=RequestMethod.GET)
+	@RequestMapping(value="/{num}", method=RequestMethod.GET)
 	@ResponseBody
-	public Member getMemberItem(@PathVariable String id) {
-		log.info("getMemberItem()... id=" + id);
+	public Member getMemberItem(@PathVariable int num) {
+		log.info("getMemberItem()... num=" + num);
 		
-		Member member = memberDetailService.detail(id);
+		Member member = memberDetailService.detail(num);
 		
 		return member;
 	}
@@ -151,7 +151,7 @@ public class AdminController {
 	@RequestMapping(value={"", "/"}, method=RequestMethod.POST)
 	@ResponseBody
 	public MemberCommand postMemberAppend(@RequestBody MemberCommand command) {
-		log.info("postMeberAppend()... member id = " + command.getId());
+		log.info("postMeberAppend()... member num = " + command.getNum());
 		
 //		command.validate();
 //		
@@ -159,8 +159,8 @@ public class AdminController {
 //			// throw 
 //		}
 		
-		String id = memberRegisterService.regist(command.getMember());
-		command.setId(id);
+		int num = memberRegisterService.regist(command.getMember());
+		command.setNum(num);
 		
 		return command;
 	}
@@ -168,11 +168,11 @@ public class AdminController {
 	 * 	URL_PUT_ITEM_MODIFY = [/city/{id}]
 	 *  Accept = application/json
 	 */
-	@RequestMapping(value="/{id:[0-9]+}", method=RequestMethod.PUT)
+	@RequestMapping(value="/{num}", method=RequestMethod.PUT)
 	@ResponseBody
-	public MemberCommand putMemberModify(@PathVariable int id, @RequestBody MemberCommand command) {
-		log.info("putMemberModify()... id = " + id);
-		log.info("putMemberModify()... city id = " + command.getId());
+	public MemberCommand putMemberModify(@PathVariable int num, @RequestBody MemberCommand command) {
+		log.info("putMemberModify()... num = " + num);
+		log.info("putMemberModify()... member num = " + command.getNum());
 		
 		memberModifyService.modify(command.getMember());
 		
@@ -182,11 +182,11 @@ public class AdminController {
 	 * 	URL_DELETE_ITEM_DELETE = [/city/{id}]
 	 *  Accept = application/json
 	 */
-	@RequestMapping(value="/{id:[0-9]+}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/{num}", method=RequestMethod.DELETE)
 	@ResponseBody
-	public void deleteMember(@PathVariable String id) {
-		log.info("deleteMember()... id = " + id);
+	public void deleteMember(@PathVariable int num) {
+		log.info("deleteMember()... num = " + num);
 
-		memberUnRegisterService.unregist(id);
+		memberUnRegisterService.unregist(num);
 	}
 }

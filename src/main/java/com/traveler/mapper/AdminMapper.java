@@ -1,7 +1,7 @@
 package com.traveler.mapper;
 
 import java.util.List;
-
+import java.util.Date;
 import com.traveler.model.Member;
 import com.traveler.util.Pagination;
 
@@ -10,10 +10,10 @@ public interface AdminMapper {
 	int selectCount();
 	List<Member> selectAll();
 	List<Member> selectPage(Pagination paging);
-	Member selectById(String id);
+	Member selectByNum(int num);
 	
-	String insert(Member member);
+	int insert(Member member);
 	
-	String update(Member member);
-	String deleteById(String id);
+	int update(Member member);
+	int deleteByNum(int num);
 }

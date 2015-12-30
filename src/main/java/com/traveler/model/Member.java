@@ -2,18 +2,29 @@ package com.traveler.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Member {
 	
+	private int num;
 	private String 	id;
 	private String 	password;
 	private String 	name;
-	private Date 	regist_date;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date 	register_date;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
 	private Integer addressNum;
 	
 	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}
@@ -32,11 +43,11 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getRegist_date() {
-		return regist_date;
+	public Date getRegister_date() {
+		return register_date;
 	}
-	public void setRegist_date(Date regist_date) {
-		this.regist_date = regist_date;
+	public void setRegister_date(Date register_date) {
+		this.register_date = register_date;
 	}
 	public Date getBirthday() {
 		return birthday;

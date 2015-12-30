@@ -26,21 +26,21 @@ public class MemberDao {
 		return adminMapper.selectPage(paging);
 	}
 	
-	public Member selectById(String id) {
-		return adminMapper.selectById(id);
+	public Member selectByNum(int num) {
+		return adminMapper.selectByNum(num);
 	}
 	
-	public String insert(Member member) {
-		String rtn = adminMapper.insert(member);
+	public int insert(Member member) {
+		int rtn = adminMapper.insert(member);
 		
-		return member.getId();
+		return member.getNum();
 	}
 	
-	public String update(Member member) {
+	public int update(Member member) {
 		return adminMapper.update(member);
 	}
 	
-	public String deleteById(String id) {
-		return adminMapper.deleteById(id);
+	public int deleteByNum(int num) {
+		return adminMapper.deleteByNum(num);
 	}
 }

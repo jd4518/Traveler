@@ -87,7 +87,6 @@
 	<property name="shareMapper" ref="shareMapper"/>
 </bean>
 
-
 <!-- MemberDao -->
 <bean id="memberDao" class="com.traveler.dao.MemberDao">
 	<property name="adminMapper" ref="adminMapper"/>

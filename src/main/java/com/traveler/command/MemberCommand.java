@@ -4,15 +4,19 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.traveler.model.Member;
 
 @JsonIgnoreProperties(value = "member")
 public class MemberCommand {
+	private int num;
 	private String 	id;
 	private String 	password;
 	private String 	name;
-	private Date 	regist_date;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date 	register_date;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
@@ -57,10 +61,11 @@ public class MemberCommand {
 	public Member getMember() {
 		Member m = new Member();
 		
+		m.setNum(num);
 		m.setId(id);
 		m.setPassword(password);
 		m.setName(name);
-		m.setRegist_date(regist_date);
+		m.setRegister_date(register_date);
 		m.setBirthday(birthday);
 		m.setTel(tel);
 		m.setAddress(address);
@@ -69,6 +74,14 @@ public class MemberCommand {
 		return m;
 	}
 
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -93,12 +106,12 @@ public class MemberCommand {
 		this.name = name;
 	}
 
-	public Date getRegist_date() {
-		return regist_date;
+	public Date getRegister_date() {
+		return register_date;
 	}
 
-	public void setRegist_date(Date regist_date) {
-		this.regist_date = regist_date;
+	public void setRegister_date(Date register_date) {
+		this.register_date = register_date;
 	}
 
 	public Date getBirthday() {
