@@ -12,7 +12,7 @@ public interface AdminMapper {
 	List<Member> selectPage(Pagination paging);
 	Member selectById(String id);
 	
-	String insert(Member member);
+	int insert(Member member);
 	
 	String update(Member member);
 	String deleteById(String id);

@@ -7,7 +7,6 @@ public class Member {
 	private String 	id;
 	private String 	password;
 	private String 	name;
-	private Date 	regist_date;
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
@@ -31,12 +30,6 @@ public class Member {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public Date getRegist_date() {
-		return regist_date;
-	}
-	public void setRegist_date(Date regist_date) {
-		this.regist_date = regist_date;
 	}
 	public Date getBirthday() {
 		return birthday;

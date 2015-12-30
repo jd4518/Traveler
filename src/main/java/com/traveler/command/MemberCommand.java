@@ -12,7 +12,6 @@ public class MemberCommand {
 	private String 	id;
 	private String 	password;
 	private String 	name;
-	private Date 	regist_date;
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
@@ -60,7 +59,6 @@ public class MemberCommand {
 		m.setId(id);
 		m.setPassword(password);
 		m.setName(name);
-		m.setRegist_date(regist_date);
 		m.setBirthday(birthday);
 		m.setTel(tel);
 		m.setAddress(address);
@@ -93,13 +91,6 @@ public class MemberCommand {
 		this.name = name;
 	}
 
-	public Date getRegist_date() {
-		return regist_date;
-	}
-
-	public void setRegist_date(Date regist_date) {
-		this.regist_date = regist_date;
-	}
 
 	public Date getBirthday() {
 		return birthday;

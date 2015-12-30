@@ -6,29 +6,50 @@
 <!DOCTYPE html>
 <html lang="ko" data-ng-app="travelerApp">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/view/common.jspf" %>
 <title>regist.jsp</title>
 
+<c:url var="URL_POST_LIST_REGIST" 			value="/traveler/member/"/>
+<c:url var="URL_POST_ITEM_REGIST" 			value="/traveler/member/"/>
+
 <script type="text/javascript">
-	var deps = [ 'ngRoute', 
-	             'ngAnimate', 
-	             'ngTouch', 
-	             'angular-loading-bar'  
+
+	var urls = {
+			
+			
+			POST_LIST_REGIST :			"${URL_POST_LIST_REGIST}",
+			POST_ITEM_REGIST :			"${URL_POST_ITEM_REGIST}"
+			
+			
+	};
+	var deps = ['ngRoute',
+	            'ngAnimate',
+	            'ngTouch',
+	            'angular-loading-bar',
+	            'ui.bootstrap'
 	           ];
 
 	var app = angular.module("travelerApp", deps);
+	
+	
+	app.constant("URL", urls);
 
-	app.controller("mainController", function($scope, $http) {
-
+	app.controller("mainController", function($scope, $http, $location) {
 		console.log("mainController...");
-		console.log("regist.jsp...")
-
+		
+		
+		
 	});
+	
 </script>
+
+
+<c:url var="registController" value="/js/traveler/member/registController.js"/>
+
+<script type="text/javascript" src="${registController}"></script>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
@@ -64,17 +85,12 @@
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
                 document.getElementById('sample4_roadAddress').value = fullRoadAddr;
-                document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
 
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
                 if(data.autoRoadAddress) {
                     //예상되는 도로명 주소에 조합형 주소를 추가한다.
                     var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
                     document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
 
                 } else {
                     document.getElementById('guide').innerHTML = '';
@@ -86,13 +102,16 @@
 
 </head>
 
-<body data-ng-controller="mainController" class="container">
+<body class="container" data-ng-controller="mainController">
 
 	<div class="container col-sm-4 col-md-offset-4">
 		<h2>회원 가입</h2>
+		<pre>{{member}}</pre>
 		<br>
-		<form role="form" name="registForm" 
-			  novalidate="novalidate" data-ng-submit="submit()">
+		<form role="form"
+			  name="registForm" 
+			  novalidate="novalidate" 
+			  data-ng-submit="submit()">
 		
 			<!-- 로그인정보   -->
 			<div class="panel panel-default">
@@ -127,6 +146,7 @@
 						   placeholder="비밀번호를 다시 입력하세요"
 						   required="required"
 						   data-ng-model="member.checkPwd">
+						   
 				</div>
 			</div>
 			
@@ -168,23 +188,17 @@
 						   name="addressNum"
 						   class="form-control"
 						   id="sample4_postcode" 
-						   placeholder="우편번호"><br>
+						   placeholder="우편번호"
+						   data-ng-model="member.addressNum"><br>
 						   
 					<label for="sample4_roadAddress">도로명:</label> <p> 
 					<input type="text"
 						   name="address"
 						   class="form-control"
 						   id="sample4_roadAddress"
-						   placeholder="도로명주소"> <p>
-						   
-					<!-- <label for="sample4_jibunAddress">지번:</label> <p> -->
-					<!-- 사용 안함 -->
-					<input type="hidden"
-						   class="form-control"
-						   id="sample4_jibunAddress"  
-						   placeholder="지번주소"> 
-						   
-					<span id="guide" style="color:#999"></span>
+						   placeholder="도로명주소"
+						   data-ng-model="member.address"> <p>
+					
 				</div>
 				
 				<div class="panel-body">
@@ -199,9 +213,12 @@
 				</div>
 			</div>
 			<div align="right">
-				<button type="submit" 
+				<input  type="submit" 
 						class="btn btn-success"
-						data-ng-disabled="registForm.$invalid">완료</button>
+						value="완료"
+						
+						data-ng-disabled="registForm.$invalid">
+						
 			</div>
 		</form>
 	</div>

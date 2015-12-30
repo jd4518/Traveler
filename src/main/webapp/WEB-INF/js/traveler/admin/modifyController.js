@@ -18,9 +18,9 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	console.log("URL.GET_ITEM_BASE = " + URL.GET_ITEM_BASE);
 	console.log("id = " + $routeParams.id);
 
-	$scope.$parent.title = "Modify Member View";
+	$scope.$parent.title = "회원 정보 수정";
 	
-	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id); // /city/2000
+	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id);
 	ajax.then(function(value) {
 		console.dir(value);
 		$scope.member = value.data;
@@ -30,15 +30,15 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	});
 	
 	$scope.submit = function() {
-		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.city.id, {
+		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.memberForm.id, {
 			id : 			$scope.member.id,
-			password : 		$scope.memeber.password,
-			name : 			$scope.memeber.name,
-			regist_date : 	$scope.memeber.regist_date,
-			birthday : 		$scope.memeber.birthday,
-			tel : 			$scope.memeber.tel,
-			address : 		$scope.memeber.address,
-			addressNum : 	$scope.memeber.addressNum
+			password : 		$scope.member.password,
+			name : 			$scope.member.name,
+			regist_date : 	$scope.member.regist_date,
+			birthday : 		$scope.member.birthday,
+			tel : 			$scope.member.tel,
+			address : 		$scope.member.address,
+			addressNum : 	$scope.member.addressNum
 		});
 		
 		ajax.then(function(response) {

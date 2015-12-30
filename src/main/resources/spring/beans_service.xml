@@ -4,67 +4,73 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-    
-<!-- ShareListService -->
-<bean id="shareListService" class="com.traveler.service.ShareListService">
-	<property name="shareDao" ref="shareDao"></property>
-</bean>    
 
-<!-- SharePageService -->
-<bean id="sharePageService" class="com.traveler.service.SharePageService">
-	<property name="shareDao" ref="shareDao"></property>
-</bean>
+	 <!-- LoginService -->
+	<bean id="loginService" class="com.traveler.service.LoginService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	    
+	<!-- ShareListService -->
+	<bean id="shareListService" class="com.traveler.service.ShareListService">
+		<property name="shareDao" ref="shareDao"></property>
+	</bean>    
+	
+	<!-- SharePageService -->
+	<bean id="sharePageService" class="com.traveler.service.SharePageService">
+		<property name="shareDao" ref="shareDao"></property>
+	</bean>
+	
+	<!-- ShareDetailService -->
+	<bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
+	    <property name="shareDao" ref="shareDao"/>
+	</bean>
+	<!-- ShareRegisterService -->
+	<bean id="shareRegisterService" class="com.traveler.service.ShareRegisterService">
+		<property name="shareDao" ref="shareDao"></property>
+	</bean>
+	    
+	    
+	<bean id="recommandListService" class="com.traveler.service.RecommandListService">
+	    <property name="recommandDao" ref="recommandDao"/>
+	</bean>
+	  
+	<bean id="recommandPageService" class="com.traveler.service.RecommandPageService">
+	    <property name="recommandDao" ref="recommandDao"/>
+	</bean>
+	
+	<bean id="recommandRegisterService" class="com.traveler.service.RecommandRegisterService">
+	    <property name="recommandDao" ref="recommandDao"/>
+	</bean>
+	    
+	   <!-- MemberListService -->
+	<bean id="memberListService" class="com.traveler.service.MemberListService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberPageService -->
+	<bean id="memberPageService" class="com.traveler.service.MemberPageService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberRegisterService -->
+	<bean id="memberRegisterService" class="com.traveler.service.MemberRegisterService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>   
+	
+	<!-- MemberDetailService -->
+	<bean id="memberDetailService" class="com.traveler.service.MemberDetailService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberModifyService -->
+	<bean id="memberModifyService" class="com.traveler.service.MemberModifyService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- MemberUnRegisterService -->
+	<bean id="memberUnRegisterService" class="com.traveler.service.MemberUnRegisterService">
+	    <property name="memberDao" ref="memberDao"/>
+	</bean>
 
-<!-- ShareDetailService -->
-<bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
-    <property name="shareDao" ref="shareDao"/>
-</bean>
-<!-- ShareRegisterService -->
-<bean id="shareRegisterService" class="com.traveler.service.ShareRegisterService">
-	<property name="shareDao" ref="shareDao"></property>
-</bean>
-    
-    
-<bean id="recommandListService" class="com.traveler.service.RecommandListService">
-    <property name="recommandDao" ref="recommandDao"/>
-</bean>
-  
-<bean id="recommandPageService" class="com.traveler.service.RecommandPageService">
-    <property name="recommandDao" ref="recommandDao"/>
-</bean>
-
-<bean id="recommandRegisterService" class="com.traveler.service.RecommandRegisterService">
-    <property name="recommandDao" ref="recommandDao"/>
-</bean>
-    
-   <!-- MemberListService -->
-<bean id="memberListService" class="com.traveler.service.MemberListService">
-    <property name="memberDao" ref="memberDao"/>
-</bean>
-
-<!-- MemberPageService -->
-<bean id="memberPageService" class="com.traveler.service.MemberPageService">
-    <property name="memberDao" ref="memberDao"/>
-</bean>
-
-<!-- MemberRegisterService -->
-<bean id="memberRegisterService" class="com.traveler.service.MemberRegisterService">
-    <property name="memberDao" ref="memberDao"/>
-</bean>   
-
-<!-- MemberDetailService -->
-<bean id="memberDetailService" class="com.traveler.service.MemberDetailService">
-    <property name="memberDao" ref="memberDao"/>
-</bean>
-
-<!-- MemberModifyService -->
-<bean id="memberModifyService" class="com.traveler.service.MemberModifyService">
-    <property name="memberDao" ref="memberDao"/>
-</bean>
-
-<!-- MemberUnRegisterService -->
-<bean id="memberUnRegisterService" class="com.traveler.service.MemberUnRegisterService">
-    <property name="memberDao" ref="memberDao"/>
-</bean>
     
 </beans>

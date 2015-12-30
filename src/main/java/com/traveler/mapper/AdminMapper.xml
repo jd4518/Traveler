@@ -66,8 +66,8 @@
 			#{id, jdbcType=VARCHAR},
 			#{password, jdbcType=VARCHAR},
 			#{name, jdbcType=VARCHAR},
-			#{register_date, jdbcType=VARCHAR}
-			#{birthday, jdbcType=VARCHAR}
+			#{register_date, jdbcType=DATE}
+			#{birthday, jdbcType=DATE}
 			#{tel, jdbcType=VARCHAR}
 			#{address, jdbcType=VARCHAR}
 			#{addressNum, jdbcType=NUMERIC}

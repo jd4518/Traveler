@@ -1,8 +1,11 @@
 package com.traveler.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.traveler.mapper.AdminMapper;
+import com.traveler.mapper.MemberMapper;
 import com.traveler.model.Member;
 import com.traveler.util.Pagination;
  
@@ -31,7 +34,7 @@ public class MemberDao {
 	}
 	
 	public String insert(Member member) {
-		String rtn = adminMapper.insert(member);
+		int rtn = adminMapper.insert(member);
 		
 		return member.getId();
 	}
@@ -43,4 +46,45 @@ public class MemberDao {
 	public String deleteById(String id) {
 		return adminMapper.deleteById(id);
 	}
+	
+	MemberMapper memberMapper;
+	
+	public void setMemberMapper(MemberMapper mapper){
+		this.memberMapper = mapper;
+	}
+	
+	public int memberSelectCount() {
+		return adminMapper.selectCount();
+	}
+
+	public List<Member> memberSelectAll() {
+		return adminMapper.selectAll();
+	}
+
+	public List<Member> memberSelectPage(Pagination paging) {
+		return memberMapper.selectPage(paging);
+	}
+	
+	public String memberInsert(Member member) {
+		int rtn = adminMapper.insert(member);
+		
+		return member.getId();
+	}
+	
+	public int deleteAll() {
+		return memberMapper.deleteAll();
+	}
+	
+	public Member selectByIdAndPassword(String id, String password) {
+		
+		Map<String, Object> idAndPassword = new HashMap<String, Object>();
+		idAndPassword.put("id", id);
+		idAndPassword.put("password", password);
+		
+		return memberMapper.selectByIdAndPassword(idAndPassword);
+	}
+	
+	
+	
+	
 }
