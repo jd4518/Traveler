@@ -24,7 +24,7 @@ public class MemberController {
 	@RequestMapping(value="login.html")
 	public String getLoginView(){
 		log.info("getLoginView()...");
-		
+		 
 		return "traveler/member/loginForm";
 	}
 	
@@ -49,20 +49,5 @@ public class MemberController {
 		return "traveler/member/regist";
 	}
 	
-	@RequestMapping(value={"","/"}, method=RequestMethod.POST)
-	@ResponseBody
-	public MemberCommand postMemberAppend(@RequestBody MemberCommand command){
-		log.info("postMemberAppend()...member.id = " + command.getId());
-		
-		command.validate();
-		
-		if (!command.isValid()) {
-			
-		}
-		
-		String id = memberRegisterService.regist(command.getMember());
-		command.setId(id);
-		
-		return command;
-	}
+	
 }

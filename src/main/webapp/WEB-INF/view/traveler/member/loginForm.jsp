@@ -75,7 +75,6 @@
 							  data-ng-submit="submit()">
                             <fieldset>
                                 <div class="form-group">
-<<<<<<< HEAD
                                     <input 	class="form-control" 
                                     		placeholder="ID" 
                                     		name="id" 
@@ -91,10 +90,6 @@
 	                                	</div>
 						       		</div>
 						       	</div>
-=======
-                                    <input class="form-control" placeholder="ID" name="id" type="text" autofocus>
-                                </div>
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
                                 <div class="form-group">
                                     <input 	class="form-control" 
                                     		placeholder="Password"

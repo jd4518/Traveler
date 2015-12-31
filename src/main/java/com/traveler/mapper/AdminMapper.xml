@@ -71,17 +71,10 @@
 			#{id, jdbcType=VARCHAR},
 			#{password, jdbcType=VARCHAR},
 			#{name, jdbcType=VARCHAR},
-<<<<<<< HEAD
-			#{register_date, jdbcType=DATE}
-			#{birthday, jdbcType=DATE}
-			#{tel, jdbcType=VARCHAR}
-			#{address, jdbcType=VARCHAR}
-=======
 			now(),
 			#{birthday, jdbcType=DATE},
 			#{tel, jdbcType=VARCHAR},
 			#{address, jdbcType=VARCHAR},
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 			#{addressNum, jdbcType=NUMERIC}
 		)
     </insert>

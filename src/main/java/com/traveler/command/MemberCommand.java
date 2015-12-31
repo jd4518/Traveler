@@ -14,12 +14,9 @@ public class MemberCommand {
 	private String 	id;
 	private String 	password;
 	private String 	name;
-<<<<<<< HEAD
-=======
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date 	register_date;
 	@JsonFormat(pattern="yyyy-MM-dd")
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
@@ -68,10 +65,7 @@ public class MemberCommand {
 		m.setId(id);
 		m.setPassword(password);
 		m.setName(name);
-<<<<<<< HEAD
-=======
 		m.setRegister_date(register_date);
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 		m.setBirthday(birthday);
 		m.setTel(tel);
 		m.setAddress(address);
@@ -112,8 +106,6 @@ public class MemberCommand {
 		this.name = name;
 	}
 
-<<<<<<< HEAD
-=======
 	public Date getRegister_date() {
 		return register_date;
 	}
@@ -121,7 +113,6 @@ public class MemberCommand {
 	public void setRegister_date(Date register_date) {
 		this.register_date = register_date;
 	}
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 
 	public Date getBirthday() {
 		return birthday;
