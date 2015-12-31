@@ -13,7 +13,7 @@
 
 <mvc:annotation-driven/>
 <mvc:view-resolvers>
-<mvc:jsp prefix="/WEB-INF/view/" suffix=".jsp"/>
+	<mvc:jsp prefix="/WEB-INF/view/" suffix=".jsp"/>
 </mvc:view-resolvers>
 
 <mvc:view-controller path="/index.html" view-name="index"/>
@@ -28,6 +28,7 @@
 <mvc:resources location="/WEB-INF/node_modules/angular-touch/" mapping="/angular-touch/**"/>
 <mvc:resources location="/WEB-INF/node_modules/angular-loading-bar/" mapping="/angular-loading-bar/**"/>
 <mvc:resources location="/WEB-INF/node_modules/angular-ui-bootstrap/" mapping="/angular-ui-bootstrap/**"/>
+
 <mvc:resources location="/WEB-INF/node_modules/ngmap/" mapping="/ngmap/**"/>
 
 <mvc:resources location="/WEB-INF/node_modules/bootstrap/" mapping="/bootstrap/**"/>
@@ -36,6 +37,10 @@
 <mvc:resources location="/WEB-INF/node_modules/font-awesome/" mapping="/font-awesome/**"/>
 <mvc:resources location="/WEB-INF/node_modules/metismenu/" mapping="/metismenu/**"/>
 
+<mvc:resources location="/WEB-INF/node_modules/jquery/" mapping="/jquery/**"/>
+<mvc:resources location="/WEB-INF/node_modules/mainbootstrap/" mapping="/mainbootstrap/**"/>
+
+
+
 
 </beans>
-

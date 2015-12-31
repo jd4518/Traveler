@@ -45,3 +45,4 @@
 <script type="text/javascript" src="${angular_ui_bootstrap_tpls}"></script>
 <script type="text/javascript" src="${metismenu_js}"></script>
 <script type="text/javascript" src="${ngmap}"></script>
+

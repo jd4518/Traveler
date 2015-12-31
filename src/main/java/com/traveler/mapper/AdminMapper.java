@@ -1,18 +1,19 @@
 package com.traveler.mapper;
 
 import java.util.List;
-import java.util.Map;
-
+import java.util.Date;
 import com.traveler.model.Member;
 import com.traveler.util.Pagination;
 
-public interface MemberMapper {
+public interface AdminMapper {
+	
 	int selectCount();
 	List<Member> selectAll();
 	List<Member> selectPage(Pagination paging);
-	Member selectByIdAndPassword(Map<String, Object> idAndPassword);
+	Member selectByNum(int num);
 	
 	int insert(Member member);
-	int deleteAll();
-
+	
+	int update(Member member);
+	int deleteByNum(int num);
 }
