@@ -31,7 +31,7 @@ footer{
 <script type="text/javascript">
 	app.controller("navController", function($scope, $http){
 		
-		var ajax = $http.get("<c:url value="/user/logincheck"/>");
+		var ajax = $http.get("<c:url value="/traveler/member/logincheck"/>");
 		ajax.then(function(value) {
 			$scope.$parent.loginstatus = value.data.login;
 		});
