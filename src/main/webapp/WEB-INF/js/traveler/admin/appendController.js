@@ -36,6 +36,8 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	  $scope.open = function($event) {
 	    $scope.status.opened = true;
 	  };
+	  
+	  
 
 	  $scope.setDate = function(year, month, day) {
 	    $scope.dt = new Date(year, month, day);

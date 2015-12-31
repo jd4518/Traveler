@@ -24,6 +24,7 @@
 	<bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
 	    <property name="shareDao" ref="shareDao"/>
 	</bean>
+	
 	<!-- ShareRegisterService -->
 	<bean id="shareRegisterService" class="com.traveler.service.ShareRegisterService">
 		<property name="shareDao" ref="shareDao"></property>
