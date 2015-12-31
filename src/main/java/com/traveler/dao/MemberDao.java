@@ -22,9 +22,9 @@ public class MemberDao {
 		this.adminMapper = mapper;
 	}
 
-	public int selectCount() {
-		return adminMapper.selectCount();
-	}
+   public int selectCount() {
+      return adminMapper.selectCount();
+   }
 
 	public List<Member> selectAll() {
 		return adminMapper.selectAll();
@@ -57,15 +57,10 @@ public class MemberDao {
 	}
 	
 	public Member selectByIdAndPassword(String id, String password) {
-		
 		Map<String, Object> idAndPassword = new HashMap<String, Object>();
 		idAndPassword.put("id", id);
 		idAndPassword.put("password", password);
 		
 		return memberMapper.selectByIdAndPassword(idAndPassword);
 	}
-	
-	
-	
-	
 }
