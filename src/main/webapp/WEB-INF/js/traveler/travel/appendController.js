@@ -11,7 +11,6 @@ app.config(function($routeProvider) {
 		
 	});
 
-
 	app.controller('appendController', function($scope, $http, $location, URL) {
 		console.log("appendController...");
 		console.log("URL.POST_ITEM_APPEND =" + URL.POST_ITEM_APPEND);

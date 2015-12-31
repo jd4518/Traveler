@@ -21,40 +21,43 @@
 	            'ngTouch',
 	            'angular-loading-bar'
 	           ];
-	
-	var app = angular.module("travelerApp", deps);
 
+	var app = angular.module("travelerApp", deps);
+	
 	app.controller("mainController", function($scope, $http) {
 		console.log("mainController...");
-
-		$scope.login = {};
 		
 		$scope.$watch("loginstatus", function() {
 			console.log("$watch... loginstatus");
+			if ($scope.loginstatus == true) {
+				location.href = "/traveler/member/logout";
+			}	
 		});
-
+		
+		$scope.login = {};
+		
 		$scope.submit = function() {
-
-			console.log("submit()...")
-
+			alert("submit...");
+			console.log("submit()...");
+			
 			var ajax = $http.post("${LOGIN_URL}", {
 				id : $scope.login.id,
 				password : $scope.login.password
-
 			});
-
+			
 			ajax.then(function(value) {
 				console.dir(value);
 				location.href = "${REDIRECT_URL}";
-
 			}, function(reason) {
 				console.dir(reason);
 				$scope.error = reason.data;
-				alert("회원 정보를 확인하세요");
 			});
-
+			
+			
 		};
+		
 	});
+	
 </script>
 
 </head>
@@ -92,7 +95,7 @@
 								</div>
 							</div>
 							<div class="form-group" align="right">
-								<a href="regist.html" class="btn btn-default btn-sm"> <font
+								<a href="<c:url value="/traveler/admin/main.html#/memberappend"/>" class="btn btn-default btn-sm"> <font
 									color="#5cb85c"><b>회원가입</b></font></a> 
 									<a href="" class="btn btn-default btn-sm"> 
 										<font color="#5cb85c">

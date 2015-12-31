@@ -78,10 +78,8 @@
 <script type="text/javascript" src="${modifyController}"></script>
 <script type="text/javascript" src="${deleteController}"></script>
 
-
 </head>
 <body class="container">
-<h1>{{title}}</h1>
 <div data-ng-view>
 
 </div>

@@ -6,10 +6,11 @@
 <!DOCTYPE html>
 <html lang="ko" data-ng-app="travelerApp">
 
+<%@ include file="/WEB-INF/view/common.jspf" %>
 <head>
 
     <meta charset="UTF-8">
-    <%@ include file="/WEB-INF/view/common.jspf" %>
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -36,8 +37,7 @@
 		
 	});
 	
-</script>
-
+	</script>
     <!-- Bootstrap Core CSS -->
     <link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
 
