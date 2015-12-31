@@ -3,29 +3,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="sitemesh" tagdir="/WEB-INF/tags/sitemesh"%>    
+<%@ taglib prefix="sitemesh" tagdir="/WEB-INF/tags/sitemesh" %> 
 <!DOCTYPE html>
-
-<html lang="ko" data-ng-app="employeeApp">
+<html lang="ko" data-ng-app="travelerApp">
 <head>
 <title><sitemesh:write property='title'/></title>
 
 <sitemesh:write property='head'/>
 
-<c:url var="menu_sider"       	value="/css/menu_sider.css"/>
-<c:url var="menu_sider_js"      value="/js/menu_sider.js"/>
+<c:url var="menu_sider" 	value="/css/menu_sider.css"/>
+<c:url var="menu_sider_js" 	value="/js/menu_sider.js"/>
 
-<link rel="stylesheet"          href="${menu_sider}">
+<link rel="stylesheet" href="${menu_sider}"/>
 <script type="text/javascript" src="${menu_sider_js}"></script>
+
 <script type="text/javascript">
-	app.controller("navController", function($scope, $http){
-		
+	app.controller("navController", function($scope, $http) {
+
 		var ajax = $http.get("<c:url value="/user/logincheck"/>");
 		ajax.then(function(value) {
 			$scope.$parent.loginstatus = value.data.login;
 		});
 	});
 </script>
+
 </head>
 <body data-ng-controller="mainController">
 
@@ -40,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Employee</a>
+            <a class="navbar-brand" href="index.html">Traveler</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -174,8 +175,6 @@
                 </ul>
                 <!-- /.dropdown-tasks -->
             </li>
-            
-            
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -236,8 +235,8 @@
                 </ul>
                 <!-- /.dropdown-alerts -->
             </li>
-            <!-- /.dropdown -->
             
+            <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -279,10 +278,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> World<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<c:url value ="/city/main.html"/>">City</a>
+                                <a href="<c:url value="/city/main.html"/>">City</a>
                             </li>
                             <li>
-                                <a href="<c:url value = "/country/main.html"/>">Country</a>
+                                <a href="<c:url value="/country/main.html"/>">Country</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -369,7 +368,7 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-            <sitemesh:write property="body"/>
+            <sitemesh:write property='body'/>
         </div>
         <!-- /.container-fluid -->
     </div>
@@ -377,7 +376,6 @@
 
 </div>
     <!-- /#wrapper -->
-
 
 </body>
 </html>

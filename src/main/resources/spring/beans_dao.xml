@@ -4,7 +4,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
@@ -34,6 +36,14 @@
 		<value>${password}</value>
 	</property>
 </bean>
+
+ <!-- MultipartResolver 설정 -->		<!-- spring에서 파일업로드 기능을 구현해놓은 클래스 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000" />
+        <property name="maxInMemorySize" value="100000000" />
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+    
 
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"/>

@@ -9,8 +9,13 @@ public interface ShareMapper {
 
 		int selectCount();
 		List<Share> selectAll();
-		Share selectById(int id);
+		Share selectByboardNum(int boardNum);
 		List<Share> selectPage(Pagination paging);
 		
 		int insert(Share share);
+		int update(Share share);
+		
+		int deleteByboardNum(int boardNum);
+		
+		int deleteAll();
 }

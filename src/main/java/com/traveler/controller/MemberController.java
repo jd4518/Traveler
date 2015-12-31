@@ -37,4 +37,12 @@ public class MemberController {
 		
 		return "traveler/member/main";
 	}
+	
+	@RequestMapping(value="regist.html")
+	public String getRegistView(){
+		log.info("getRegistView()...");
+		
+		return "traveler/member/regist";
+	}
+	
 }

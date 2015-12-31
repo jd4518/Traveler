@@ -24,13 +24,12 @@
   }
 </style>
 </head>
-
+<a class="btn btn-primary" href="#/memberList">목록</a>
 <body class="container">
 <div class="row">
 <div class="col-sm-6 col-sm-offset-3">
 	<div class="panel panel-default">
 		<div class="panel-heading">회원 정보 수정</div>
-		<pre>{{member}}</pre>
 		<div class="panel-body">
         <form name="modifyForm" novalidate="novalidate" data-ng-submit="submit()">
          <!-- 로그인정보   -->

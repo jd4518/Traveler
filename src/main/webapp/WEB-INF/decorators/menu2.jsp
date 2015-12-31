@@ -68,12 +68,12 @@ footer{
                 <a href="/Traveler/traveler/admin/main.html#/memberappend" onclick = $("#menu-close").click(); >SignUp</a>
             </li>
             
-            <li data-ng-hide="loginstatus">{{loginstatus}}<a href="<c:url value="/traveler/member/login.html"/>">
-                <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Login</a>
+            <li data-ng-hide="loginstatus">{{loginstatus}}
+                <a href="<c:url value="/traveler/member/login.html"/>" onclick = $("#menu-close").click(); >Login</a>
             </li>
             
-            <li data-ng-show="loginstatus">{{loginstatus}}<a href="<c:url value="/traveler/member/logout"/>">
-                <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Logout</a>
+            <li data-ng-show="loginstatus">{{loginstatus}}
+                <a href="<c:url value="/traveler/member/logout"/>" onclick = $("#menu-close").click(); >Logout</a>
             </li>
         </ul>
     </nav>

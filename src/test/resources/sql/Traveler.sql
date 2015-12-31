@@ -1,4 +1,6 @@
 
+<<<<<<< HEAD
+=======
 select * from Travelmember;
 
 drop table Travelmember
@@ -21,6 +23,7 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
+>>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
 drop table RecommandList;
 
 create table RecommandList (
@@ -38,6 +41,7 @@ insert into RecommandList(title,area,name,content,picture) values('우와된당'
 
 select * from RecommandList;
 select count(*) from RecommandList;
+
 create table TravelShareBoard(
 	memberPicture varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
 	boardNum int auto_increment,
@@ -60,6 +64,8 @@ create table TravelShareBoard(
 insert into TravelShareBoard (memberPicture,boardNum,id,name,memberAge,memberTel,title,term,number,cost,content,picture,map)
 values('Hong','1','gusdn','홍현우','26','010-5170-7855','낭만적인부산','3개월','4','45000','겨울바다이야기','aaa','Busan')
 
+delete from TravelShareBoard
+
 select * from TravelShareBoard
 drop table TravelShareBoard
 
@@ -75,9 +81,15 @@ create table Travelmember(
 	constraint pk_id primary key(id)
 );
 insert into Travelmember(id,memberPicture,password,name,register_date,tel,address,addressNum)
-values('gusdn','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
+values('asas','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
 
 drop table Travelmember
 
 select * from Travelmember
 select count(*) from RecommandList
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7

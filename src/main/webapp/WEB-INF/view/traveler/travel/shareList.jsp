@@ -10,32 +10,14 @@
 <body class="container">
 <div class="table-responsive">
 
-	<ul class="pagination">
-		<li><a href="" data-ng-click="prevClick(paging.firstPage - 1)">Prev</a></li>
-		<li data-ng-repeat="share in shares">
-			<a href="" data-ng-click="pageClick(paging.firstPage + $index)">{{paging.firstPage + $index}}</a>
-		</li>
-		<li><a href="" data-ng-click="prevClick(paging.lastPage + 1)">Next</a></li>
-	</ul>
-	
 	<table class="table table-striped table-hover">
 		<thead>
-			<tr><td><a href="#/shareInsert" class="btn btn-primary">Append</a></td></tr>
-			<tr><th colspan="8">
-				<div data-uib-pagination 
-					 data-total-items="paging.totalItem" style="width:800px;" 
-					 data-ng-model="pageNo"
-					 data-max-size="10"
-					 data-ng-change="selectPage()"
-					 data-boundary-links="true">
-				</div>
-				</th>
-			</tr>
+			<tr><td><a href="#/shareInsert" class="btn btn-primary">게시글 등록</a></td></tr>
 			<tr>
-				<th>No</th>
+				<th>게시판번호</th>
 				<th>ID</th>
-				<th>Name</th>
-				<th>Title</th>
+				<th>작성자</th>
+				<th>제목</th>
 				<th>인원</th>
 				<th>비용</th>
 				<th>수정</th>
@@ -44,14 +26,25 @@
 		</thead>
 		<tbody>
 			<tr data-ng-repeat="share in shares">
-				<td>{{$index + 1}}</td>
-				<td><a href="#/detail/{{share.id}}">{{share.id}}</a></td>
+				<td>{{share.boardNum}}</td>
+				<td>{{share.id}}</td>
 				<td>{{share.name}}</td>
-				<td>{{share.title}}</td>
+				<td><a href="#/shareDetail/{{share.boardNum}}">{{share.title}}</a></td>
 				<td>{{share.number}}</td>
 				<td>{{share.cost}}</td>
-				<td><a href="{{share.id}}" class="btn btn-success">Edit...</a></td>
-				<td><a href="{{share.id}}" class="btn btn-info">Delete...</a></td>
+				<td><a href="#/shareModify/{{share.boardNum}}" class="btn btn-success">Edit...</a></td>
+				<td><a href="#/shareDelete/{{share.boardNum}}" class="btn btn-info">Delete...</a></td>
+			</tr>
+			<tr><th colspan="8">
+				<div 
+					 data-uib-pagination 
+					 data-total-items="paging.totalItem" style="width:800px;" 
+					 data-ng-model="pageNo"
+					 data-max-size="10"
+					 data-ng-change="selectPage()"
+					 data-boundary-links="true">
+				</div>
+				</th>
 			</tr>
 		</tbody>
 	</table>
