@@ -31,4 +31,5 @@ public class MemberRegisterService {
 		}
 		return num;
 	}
+	
 }

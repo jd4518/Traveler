@@ -16,17 +16,10 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	console.log("modifyController...");
 	console.log("URL.PUT_ITEM_MODIFY_BASE = " + URL.PUT_ITEM_MODIFY_BASE);
 	console.log("URL.GET_ITEM_BASE = " + URL.GET_ITEM_BASE);
-<<<<<<< HEAD
 	console.log("id = " + $routeParams.id);
 
 	$scope.$parent.title = "회원 정보 수정";
-	
-	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id);
-=======
-	console.log("num = " + $routeParams.num);
-	
 	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.num);
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 	ajax.then(function(value) {
 		console.dir(value);
 		$scope.member = value.data;
@@ -106,20 +99,12 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	};
 
 	$scope.submit = function() {
-<<<<<<< HEAD
-		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.memberForm.id, {
-			id : 			$scope.member.id,
-			password : 		$scope.member.password,
-			name : 			$scope.member.name,
-			regist_date : 	$scope.member.regist_date,
-=======
 		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.member.num, {
 			num : 			$scope.member.num,
 			id : 			$scope.member.id,
 			password : 		$scope.member.password,
 			name : 			$scope.member.name,
 			register_date : $scope.member.register_date,
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 			birthday : 		$scope.member.birthday,
 			tel : 			$scope.member.tel,
 			address : 		$scope.member.address,
