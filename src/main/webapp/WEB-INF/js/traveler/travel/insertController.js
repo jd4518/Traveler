@@ -2,22 +2,33 @@
  * @author java
  */
 app.config(function($routeProvider) {
-		console.log("/append config...")
+		console.log("/insert config...")
 		
 		$routeProvider.when("/shareInsert", {				
 			templateUrl: "shareInsert.html",				
-			controller: "appendController"			
+			controller: "shareController"			
 		});
 		
 	});
 
 
-	app.controller('appendController', function($scope, $http, $location, URL) {
-		console.log("appendController...");
+	app.controller('shareController', function($scope, $http, $location, URL) {
+		console.log("shareController...");
 		console.log("URL.POST_ITEM_APPEND =" + URL.POST_ITEM_APPEND);
 		
-		$scope.$parent.title = "Append Share View";		
+		$scope.$parent.title = "게시글 작성";		
 		$scope.share={};
+		
+		$scope.toggle = function(){
+			var p = $('#picture').val();
+			$scope.share.picture = p;
+			alert("성공");
+		};
+		
+		$scope.getTotal = function() {
+			var rtn =  $scope.cost1 + $scope.cost2 + $scope.cost3;
+			return angular.isNumber(rtn) == true ? rtn : false;
+		};
 		
 		$scope.submit = function()
 		{
@@ -30,11 +41,12 @@ app.config(function($routeProvider) {
 				title : $scope.share.title,
 				term : $scope.share.term,
 				number : $scope.share.number,
-				cost : $scope.share.cost,
+				cost : $scope.getTotal(),
 				content : $scope.share.content,
 				picture : $scope.share.picture,
 				map : $scope.share.map
 			});
+			
 			
 			ajax.then(function(value) {				//성공시
 				$location.path("/shareList");

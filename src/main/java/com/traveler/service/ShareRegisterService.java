@@ -1,5 +1,7 @@
 package com.traveler.service;
 
+
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -20,7 +22,7 @@ public class ShareRegisterService {
 	}
 	
 	@Transactional
-	public String regist(Share share)
+	public String regist(Share share) throws Exception
 	{
 		String id = null;
 		

@@ -3,11 +3,13 @@ package com.traveler.command;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.traveler.model.Share;
 
 @JsonIgnoreProperties(value="share")
-public class ShareCommand {
+public class ShareCommand {						//Server 측으로 데이터를 넘길때 
 	private int boardNum;
 	private String memberPicture;
 	private String id;
@@ -19,14 +21,15 @@ public class ShareCommand {
 	private int number;
 	private int cost;
 	private String content;
+	private String picture;
+	private String map;
+	
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	private String picture;
-	private String map;
 	
 	private Map<String, Object> errorMessage;
 	
@@ -66,7 +69,7 @@ public class ShareCommand {
 	{
 		Share s = new Share();
 		
-//		s.setBoardNum(boardNum);
+		s.setBoardNum(boardNum);
 		s.setCost(cost);
 		s.setId(id);
 		s.setMap(map);

@@ -26,8 +26,8 @@ public class ShareDao {		//Mapper와 연결 의존관계
 		return shareMapper.selectAll();
 	}
 
-	public Share selectById(int id) {
-		return shareMapper.selectById(id);
+	public Share selectByboardNum(int boardNum) {
+		return shareMapper.selectByboardNum(boardNum);
 	}
 	public List<Share> selectPage(Pagination paging)
 	{
@@ -39,6 +39,19 @@ public class ShareDao {		//Mapper와 연결 의존관계
 		int rtn = shareMapper.insert(share);
 		
 		return share.getId();
+	}
+	
+	public int update(Share share)
+	{
+		return shareMapper.update(share);
+	}
+	
+	public int deleteByboardNum(int boardNum) {
+		return shareMapper.deleteByboardNum(boardNum);
+	}
+	
+	public int deleteAll() {
+		return shareMapper.deleteAll();
 	}
 	
 }

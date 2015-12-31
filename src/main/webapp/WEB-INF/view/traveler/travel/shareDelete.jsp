@@ -6,13 +6,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>detail.jsp</title>
+<title>shareDelete.jsp</title>
 
 </head>
 <body class="container">
-
 <a class="btn btn-primary" href="#/shareList">list...</a>
-
 </body>
 </html>
 

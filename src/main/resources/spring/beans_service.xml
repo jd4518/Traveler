@@ -19,8 +19,19 @@
 <bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
     <property name="shareDao" ref="shareDao"/>
 </bean>
+
 <!-- ShareRegisterService -->
 <bean id="shareRegisterService" class="com.traveler.service.ShareRegisterService">
+	<property name="shareDao" ref="shareDao"></property>
+</bean>
+
+<!-- ShareUnRegisterService -->
+<bean id="shareUnRegisterService" class="com.traveler.service.ShareUnRegisterService">
+	<property name="shareDao" ref="shareDao"></property>
+</bean>
+
+<!-- ShareModifyService -->
+<bean id="shareModifyService" class="com.traveler.service.ShareModifyService">
 	<property name="shareDao" ref="shareDao"></property>
 </bean>
     

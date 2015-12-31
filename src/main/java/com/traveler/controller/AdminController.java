@@ -13,7 +13,6 @@ import com.traveler.service.MemberListService;
 
 
 @Controller
-@RequestMapping("/traveler")
 public class AdminController {
 	static Log log = LogFactory.getLog(AdminController.class);
 	
