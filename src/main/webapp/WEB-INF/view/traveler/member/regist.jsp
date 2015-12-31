@@ -12,7 +12,6 @@
 <%@ include file="/WEB-INF/view/common.jspf" %>
 <title>regist.jsp</title>
 
-<<<<<<< HEAD
 <c:url var="URL_POST_LIST_REGIST" 			value="/traveler/member/"/>
 <c:url var="URL_POST_ITEM_REGIST" 			value="/traveler/member/"/>
 
@@ -46,8 +45,6 @@
 	});
 	
 </script>
-=======
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 
 
 <c:url var="registController" value="/js/traveler/member/registController.js"/>
@@ -86,13 +83,8 @@
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-<<<<<<< HEAD
-                document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('sample4_roadAddress').value = fullRoadAddr;
-=======
                 document.getElementById('addressNum').value = data.zonecode; //5자리 새우편번호 사용
                 document.getElementById('address').value = fullRoadAddr;
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
                 if(data.autoRoadAddress) {
@@ -110,7 +102,6 @@
 
 </head>
 
-<<<<<<< HEAD
 <body class="container" data-ng-controller="mainController">
 
 	<div class="container col-sm-4 col-md-offset-4">
@@ -231,7 +222,6 @@
 			</div>
 		</form>
 	</div>
-=======
 <body class="container">
 
    <div class="container col-sm-4 col-md-offset-4">
@@ -346,6 +336,5 @@
          </div>
       </form>
    </div>
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 </body>
 </html>

@@ -106,7 +106,6 @@
 <!-- MemberDao -->
 <bean id="memberDao" class="com.traveler.dao.MemberDao">
 	<property name="adminMapper" ref="adminMapper"/>
-	<property name="memberMapper" ref="memberMapper"></property>
 </bean>
 
 

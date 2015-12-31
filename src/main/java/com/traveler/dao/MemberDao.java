@@ -8,11 +8,10 @@ import com.traveler.mapper.AdminMapper;
 import com.traveler.mapper.MemberMapper;
 import com.traveler.model.Member;
 import com.traveler.util.Pagination;
- 
- 
+
 public class MemberDao {
 	AdminMapper adminMapper;
-	
+
 	public void setAdminMapper(AdminMapper mapper) {
 		this.adminMapper = mapper;
 	}
@@ -28,31 +27,31 @@ public class MemberDao {
 	public List<Member> selectPage(Pagination paging) {
 		return adminMapper.selectPage(paging);
 	}
-	
+
 	public Member selectByNum(int num) {
 		return adminMapper.selectByNum(num);
 	}
-	
+
 	public int insert(Member member) {
 		int rtn = adminMapper.insert(member);
-		
+
 		return member.getNum();
 	}
-	
+
 	public int update(Member member) {
 		return adminMapper.update(member);
 	}
-	
+
 	public int deleteByNum(int num) {
 		return adminMapper.deleteByNum(num);
 	}
-	
+
 	MemberMapper memberMapper;
-	
-	public void setMemberMapper(MemberMapper mapper){
+
+	public void setMemberMapper(MemberMapper mapper) {
 		this.memberMapper = mapper;
 	}
-	
+
 	public int memberSelectCount() {
 		return adminMapper.selectCount();
 	}
@@ -64,27 +63,22 @@ public class MemberDao {
 	public List<Member> memberSelectPage(Pagination paging) {
 		return memberMapper.selectPage(paging);
 	}
-	
+
 	public String memberInsert(Member member) {
 		int rtn = adminMapper.insert(member);
-		
+
 		return member.getId();
 	}
-	
+
 	public int deleteAll() {
 		return memberMapper.deleteAll();
 	}
-	
+
 	public Member selectByIdAndPassword(String id, String password) {
-		
 		Map<String, Object> idAndPassword = new HashMap<String, Object>();
 		idAndPassword.put("id", id);
 		idAndPassword.put("password", password);
-		
+
 		return memberMapper.selectByIdAndPassword(idAndPassword);
 	}
-	
-	
-	
-	
 }

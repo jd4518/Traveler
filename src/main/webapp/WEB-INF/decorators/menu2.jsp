@@ -19,71 +19,100 @@ footer{
 
 
 </style>
+<!-- Bootstrap Core CSS -->
+    <link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	app.controller("navController", function($scope, $http){
+		
+		var ajax = $http.get("<c:url value="/user/logincheck"/>");
+		ajax.then(function(value) {
+			$scope.$parent.loginstatus = value.data.login;
+		});
+	});
+</script>
 </head>
 <body data-ng-controller="mainController" class="container">
-  <!-- Static navbar -->
-    <nav class="navbar navbar-default {{staticOrFixed}}">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Traveler</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            
-            <li><a href="#">추천 여행지</a></li>
-            
-            <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">여행 친구 <span class="caret"></span> </a>
-            	<ul class="dropdown-menu">
-	                <li><a href="#">친구 모집</a></li>
-	                <li><a href="#">~밥</a></li>
+  <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper" data-ng-controller="navController">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top"  onclick = $("#menu-close").click(); >Traveler</a>
+            </li>
+            <li>
+                <a href="/Traveler/traveler/member/main.html" onclick = $("#menu-close").click(); >Home</a>
+            </li>
+            <li>
+            	<a href="#">Service <span class="caret"></span> </a>
+            	<ul>
+	                <li><a href="#" onclick = $("#menu-close").click();>추천 여행지</a></li>
+	                <li><a href="#" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
+	                <li><a href="#" onclick = $("#menu-close").click();>여행 멤버 모집</a></li>
+	                <li><a href="#" onclick = $("#menu-close").click();>실시간 게시판</a></li>
              	</ul>
             </li>
-            
-            <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">여행 정보<span class="caret"></span></a>
-            	<ul class="dropdown-menu">
-	                <li><a href="#">회원 추천 여행지</a></li>
-	                <li><a href="#">여행 후기</a></li>
-             	</ul>
+            <li>
+                <a href="/Traveler/traveler/admin/memberappend.html" onclick = $("#menu-close").click(); >SignUp</a>
             </li>
-          </ul>
-          
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="" data-ng-click="setMenuStyle('navbar-static-top')">Default</a></li>
-            <li><a href="" data-ng-click="setMenuStyle('navbar-static-top')">Static top</a></li>
-            <li><a href="" data-ng-click="setMenuStyle('navbar-fixed-top')">Fixed top</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div><!--/.container-fluid -->
+            
+            <li data-ng-hide="loginstatus">{{loginstatus}}<a href="<c:url value="/traveler/member/login.html"/>">
+                <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Login</a>
+            </li>
+            
+            <li data-ng-show="loginstatus">{{loginstatus}}<a href="<c:url value="/traveler/member/logout"/>">
+                <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Logout</a>
+            </li>
+        </ul>
     </nav>
+    <!-- jQuery -->
+    <script src="/Traveler/jquery/dist/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/Traveler/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
 
 <sitemesh:write property='body'/>
 
-<sitemesh:write property='footer'/>
-<footer>
-		<div class="container">
-				<div class="row" >
-					<div class="col-sm-12" align="center">
-						<h3>Traveler</h3>
-						<p>여행 정보가 필요할떈 Traveler</p>
-					</div>
-				</div>
-		</div>
-</footer>
 
-	<hr>
-	<hr>
-<hr>
-<hr>
 
 </body>
 </html>
