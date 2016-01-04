@@ -4,11 +4,13 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-
+ 
 <!-- LogAspect -->
 <aop:aspectj-autoproxy/>
 <bean class="com.traveler.aspect.LogAspect"/>
@@ -34,6 +36,14 @@
 	</property>
 </bean>
 
+ <!-- MultipartResolver 설정 -->		<!-- spring에서 파일업로드 기능을 구현해놓은 클래스 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000" />
+        <property name="maxInMemorySize" value="100000000" />
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+    
+
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"/>
 	<property name="databaseIdProvider">
@@ -41,23 +51,40 @@
 			<property name="properties">
 				<props>
 					<prop key="MySQL">mysql</prop>
-					<prop key="Oracle">oracle</prop>
 				</props>			
 			</property>
 		</bean>
 	</property>
-</bean>
-
-
-<!-- AdminMapper -->
-<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-	<property name="mapperInterface" value="com.traveler.mapper.adminMapper"/>
-	<property name="sqlSessionTemplate" ref="sqlSession"/>
+	
+<!-- 	<property name="mapperLocations"> -->
+<!-- 		<list> -->
+<!-- 			<value>classpath:com/traveler/mapper/MemberMapper.xml</value> -->
+<!-- 		</list> -->
+<!-- 	</property> -->
 </bean>
 
 <!-- SqlSessionTemplate -->
 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="sqlSessionFactory"/>
+</bean>
+
+<!-- ShareMapper -->
+<bean id="shareMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.ShareMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"></property>
+</bean>
+
+
+<!-- AdminMapper -->
+<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.AdminMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- MemberMapper -->
+<bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.MemberMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
 
 <!-- travelMapper -->
@@ -70,10 +97,15 @@
 <bean id="recommandDao" class="com.traveler.dao.RecommandDao">
 	<property name="travelMapper" ref="recommandMapper"/>
 </bean>
+<!-- ShareDao -->
+<bean id="shareDao" class="com.traveler.dao.ShareDao">
+	<property name="shareMapper" ref="shareMapper"/>
+</bean>
 
 <!-- MemberDao -->
 <bean id="memberDao" class="com.traveler.dao.MemberDao">
 	<property name="adminMapper" ref="adminMapper"/>
+	<property name="memberMapper" ref="memberMapper"/>
 </bean>
 
 

@@ -1,15 +1,14 @@
 /**
  * @author java
  */
-
 app.config(function($routeProvider) {
-	console.log("/recommandList config...")
-	
-	$routeProvider.when("/list", {
-		templateUrl: "list.html",
-		controller: "recommandListController"
-	});
-	
+
+		console.log("/recommandList config...")
+		
+		$routeProvider.when("/list", {
+			templateUrl: "list.html",
+			controller: "recommandListController"
+		});
 });
 
 app.controller('recommandListController', function($scope, $http, URL) {
@@ -32,25 +31,26 @@ app.controller('recommandListController', function($scope, $http, URL) {
 	
 	$scope.selectPage();
 	
-	$scope.prevClick = function(pageNo) {
-		console.log("prevClick()... pageNo = " + pageNo);
-		$scope.pageNo = pageNo
-		$scope.selectPage();
+		$scope.prevClick = function(pageNo) {
+			console.log("prevClick()... pageNo = " + pageNo);
+			$scope.pageNo = pageNo
+			$scope.selectPage();
 // 			alert("pageNo=" + pageNo);
-	};
-	
-	$scope.pageClick = function(pageNo) {
-		console.log("pageClick()... pageNo = " + pageNo);
-		$scope.pageNo = pageNo
-		$scope.selectPage();
+		};
+		
+		$scope.pageClick = function(pageNo) {
+			console.log("pageClick()... pageNo = " + pageNo);
+			$scope.pageNo = pageNo
+			$scope.selectPage();
 // 			alert("pageNo=" + pageNo);
-	};
-	
-	$scope.nextClick = function(pageNo) {
-		console.log("nextClick()... pageNo = " + pageNo);
-		$scope.pageNo = pageNo
-		$scope.selectPage();
+		};
+		
+		$scope.nextClick = function(pageNo) {
+			console.log("nextClick()... pageNo = " + pageNo);
+			$scope.pageNo = pageNo
+			$scope.selectPage();
 // 			alert("pageNo=" + pageNo);
-	};
-	
+		};
+		
 });
+
