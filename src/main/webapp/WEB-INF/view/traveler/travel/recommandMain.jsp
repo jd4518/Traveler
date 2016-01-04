@@ -67,12 +67,18 @@
 
 <c:url var="recommandListController" value="/js/traveler/travel/recommandListController.js"/>
 <c:url var="recommandInsertController" value="/js/traveler/travel/recommandInsertController.js"/>
+<c:url var="recommandModifyController" value="/js/traveler/travel/recommandModifyController.js"/>
+<c:url var="recommandDeleteController" value="/js/traveler/travel/recommandDeleteController.js"/>
+<c:url var="recommandDetailController" value="/js/traveler/travel/recommandDetailController.js"/>
 
 <script type="text/javascript" src="${recommandListController}"></script>
 <script type="text/javascript" src="${recommandInsertController}"></script>
+<script type="text/javascript" src="${recommandModifyController}"></script>
+<script type="text/javascript" src="${recommandDeleteController}"></script>
+<script type="text/javascript" src="${recommandDetailController}"></script>
 
 </head>
-<body data-ng-controller="mainController" class="container">
+<body  class="container">
 <h1><a href="" class="btn btn-primary">{{title}}</a></h1>
 <div data-ng-view>
 </div>

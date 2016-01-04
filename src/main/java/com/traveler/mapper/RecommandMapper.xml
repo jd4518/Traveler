@@ -28,13 +28,22 @@
 		 order by listNo desc 
 		 limit #{start}, #{length} 
     </select>
-
+    
+	 <select id="selectByTitle" parameterType="int" resultType="com.traveler.model.Recommand">	     
+	     select listNo,
+	     	 	title,
+	     	 	area,
+	     	 	name,
+	     	 	content,
+	     	 	picture
+	       from RecommandList
+	      where listNo=#{listNo}
+	 </select>
 
 	<insert id="recommandInsert" 
         	parameterType="com.traveler.model.Recommand">
         insert into RecommandList
 		(
-			   listNo,
 			   title,
 			   area,
 			   name,
@@ -43,13 +52,28 @@
 		)
 		values
 		(
-			#{listNo, jdbcType=VARCHAR},
 			#{title, jdbcType=VARCHAR},
 			#{area, jdbcType=VARCHAR},
-			#{name, jdbcType=NUMERIC},
-			#{content, jdbcType=NUMERIC},
-			#{picture, jdbcType=NUMERIC}
+			#{name, jdbcType=VARCHAR},
+			#{content, jdbcType=VARCHAR},
+			#{picture, jdbcType=VARCHAR}
 		)
     </insert>
+    
+	<update id="recommandUpdate" parameterType="com.traveler.model.Recommand">
+	     update	RecommandList
+	     	set title	 =#{title},
+	     	 	area	 =#{area},
+	     	 	name	 =#{name},
+	     	 	content	 =#{content},
+	     	 	picture	 =#{picture}
+	      where listNo=#{listNo}
+	</update>
+    
+	<delete id="recommandDelete" parameterType="int">
+	     delete 
+	       from RecommandList
+	      where listNo=#{listNo}
+	</delete>
 
 </mapper>

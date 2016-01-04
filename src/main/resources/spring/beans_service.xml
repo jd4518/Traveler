@@ -17,6 +17,19 @@
 <bean id="recommandRegisterService" class="com.traveler.service.RecommandRegisterService">
     <property name="recommandDao" ref="recommandDao"/>
 </bean>
+
+<bean id="recommandUnRegisterService" class="com.traveler.service.RecommandUnRegisterService">
+    <property name="recommandDao" ref="recommandDao"/>
+</bean>
+
+<bean id="recommandDetailService" class="com.traveler.service.RecommandDetailService">
+    <property name="recommandDao" ref="recommandDao"/>
+</bean>
+
+<bean id="recommandModifyService" class="com.traveler.service.RecommandModifyService">
+    <property name="recommandDao" ref="recommandDao"/>
+</bean>
+
     
     <!-- MemberListService -->
 <bean id="memberListService" class="com.traveler.service.MemberListService">

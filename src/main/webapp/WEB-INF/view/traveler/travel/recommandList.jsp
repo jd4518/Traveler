@@ -56,11 +56,11 @@
 		<tbody>
 			<tr data-ng-repeat="recommand in recommandLists">
 				<td>{{recommand.listNo}}</td>
-				<td>{{recommand.title}}</td>
+				<td><a href="#/recommandDetail/{{recommand.listNo}}">{{recommand.title}}</a></td>
 				<td>{{recommand.area}}</td>
 				<td>{{recommand.name}}</td>
-				<td><a href="#" class="btn btn-success">Edit...</a></td>
-				<td><a href="#" class="btn btn-info">Delete...</a></td>
+				<td><a href="#/recommandModify/{{recommand.listNo}}" class="btn btn-success">Edit...</a></td>
+				<td><a href="#/recommandDelete/{{recommand.listNo}}" class="btn btn-info">Delete...</a></td>
 			</tr>
 		</tbody>
 	</table>

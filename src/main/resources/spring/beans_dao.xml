@@ -23,7 +23,6 @@
 </bean>
 
 
-<context:property-placeholder location="classpath:database/db.properties"/>
 
 <!-- DataSource -->
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -62,14 +61,14 @@
 </bean>
 
 <!-- travelMapper -->
-<bean id="travelMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+<bean id="recommandMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="mapperInterface" value="com.traveler.mapper.RecommandMapper"/>
 	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
 
 <!-- recommandDao -->
 <bean id="recommandDao" class="com.traveler.dao.RecommandDao">
-	<property name="travelMapper" ref="travelMapper"/>
+	<property name="travelMapper" ref="recommandMapper"/>
 </bean>
 
 <!-- MemberDao -->
