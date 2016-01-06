@@ -14,9 +14,9 @@ public class MemberCommand {
 	private String 	id;
 	private String 	password;
 	private String 	name;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date 	register_date;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
@@ -146,7 +146,4 @@ public class MemberCommand {
 		this.addressNum = addressNum;
 	}
 
-	
-	
-	
 }

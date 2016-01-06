@@ -6,10 +6,11 @@
 <!DOCTYPE html>
 <html lang="ko" data-ng-app="travelerApp">
 
+<%@ include file="/WEB-INF/view/common.jspf" %>
 <head>
 
     <meta charset="UTF-8">
-    <%@ include file="/WEB-INF/view/common.jspf" %>
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -36,8 +37,7 @@
 		
 	});
 	
-</script>
-
+	</script>
     <!-- Bootstrap Core CSS -->
     <link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -136,7 +136,7 @@
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
-                                <a href="#" class="btn btn-light">여행 정보 공유 게시판</a>
+                                <a href="/shareList.html" class="btn btn-light">여행 정보 공유 게시판</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -176,9 +176,9 @@
     </section>
 
     <!-- Callout -->
-    <aside class="callout">
+    <aside class="">
         <div class="text-vertical-center">
-            
+            <img alt="" src="/Traveler/img/풍경.jpg" class="img-responsive" width="1500">
         </div>
     </aside>
 
@@ -193,34 +193,34 @@
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-1.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/제주도_마방목지.jpg" data-toggle="tooltip" title="제주도 마방목지" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-2.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/수월봉_001.png" data-toggle="tooltip" title="제주도 수월봉" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-3.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/전라남도_영암군.jpg" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-4.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/경기도_양평군_두물머리.png" data-toggle="tooltip" title="경기도 양평군 두물머리" data-placement="top">
                                 </a>
                             </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">추천 여행지 게시판</a>
+                    
                 </div>
                 <!-- /.col-lg-10 -->
             </div>

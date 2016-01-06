@@ -3,6 +3,7 @@ package com.traveler.model;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.traveler.exception.PasswordNotMatchingException;
 
 public class Member {
 	
@@ -10,9 +11,9 @@ public class Member {
 	private String 	id;
 	private String 	password;
 	private String 	name;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date 	register_date;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date	birthday;
 	private String 	tel;
 	private String 	address;
@@ -72,5 +73,12 @@ public class Member {
 	}
 	public void setAddressNum(Integer addressNum) {
 		this.addressNum = addressNum;
+	}
+	
+	public void changePassword(String oldPassword, String newPassword) {
+		if (!this.password.equals(oldPassword)) {
+			throw new PasswordNotMatchingException();
+		}
+		this.password = newPassword;
 	}
 }

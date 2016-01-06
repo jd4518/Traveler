@@ -26,7 +26,6 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	  $scope.clear = function () {
 	    $scope.dt = null;
 	  };
-
 	  // Disable weekend selection
 	  $scope.disabled = function(date, mode) {
 	    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
@@ -37,6 +36,8 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	  $scope.open = function($event) {
 	    $scope.status.opened = true;
 	  };
+	  
+	  
 
 	  $scope.setDate = function(year, month, day) {
 	    $scope.dt = new Date(year, month, day);
@@ -90,6 +91,7 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	
 	
 	$scope.submit = function() {
+		console.log("submit...");
 		var ajax = $http.post(URL.POST_ITEM_APPEND, {
 			num : $scope.member.num,
 			id : $scope.member.id,
@@ -104,7 +106,8 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		});
 		
 		ajax.then(function(value) {
-			$location.path("/memberList");
+			console.log("success...");
+			$location.path("/main.html");
 		}, function(reason) {
 			console.dir(reason)
 			$scope.member = reason.data;

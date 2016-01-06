@@ -28,6 +28,8 @@ footer{
     <!-- Custom Fonts -->
     <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- 로그인처리 -->
 <script type="text/javascript">
 	app.controller("navController", function($scope, $http){
 		
@@ -37,6 +39,9 @@ footer{
 		});
 	});
 </script>
+
+
+
 </head>
 <body data-ng-controller="mainController" class="container">
   <!-- Navigation -->
@@ -45,7 +50,7 @@ footer{
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >Traveler</a>
+                <a href=""  onclick = $("#menu-close").click(); >Traveler</a>
             </li>
             <li>
                 <a href="/Traveler/traveler/member/main.html" onclick = $("#menu-close").click(); >Home</a>
@@ -60,15 +65,15 @@ footer{
              	</ul>
             </li>
             <li>
-                <a href="/Traveler/traveler/admin/memberappend.html" onclick = $("#menu-close").click(); >SignUp</a>
+                <a href="/Traveler/traveler/admin/main.html#/memberappend" onclick = $("#menu-close").click(); >SignUp</a>
             </li>
             
-            <li data-ng-hide="loginstatus">{{loginstatus}}<a href="<c:url value="/traveler/member/login.html"/>">
-                <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Login</a>
+            <li data-ng-hide="loginstatus">{{loginstatus}}
+                <a href="<c:url value="/traveler/member/login.html"/>" onclick = $("#menu-close").click(); >Login</a>
             </li>
             
-            <li data-ng-show="loginstatus">{{loginstatus}}<a href="<c:url value="/traveler/member/logout"/>">
-                <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Logout</a>
+            <li data-ng-show="loginstatus">{{loginstatus}}
+                <a href="<c:url value="/traveler/member/logout"/>" onclick = $("#menu-close").click(); >Logout</a>
             </li>
         </ul>
     </nav>

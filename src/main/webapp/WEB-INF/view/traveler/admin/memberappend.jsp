@@ -93,12 +93,12 @@
             <div class="form-group">
                <label for="birthday">생년월일:</label> 
                <div align="right">
-              		<input  type="date"
+              		<input  type="text"
               				id="birthday"
               				name="birthday"
-              				class="form-control" 
+              				class="form-control"
               				uib-datepicker-popup 
-              				data-ng-model="member.birthday" 
+              				data-ng-model="member.birthday"
               				is-open="status.opened" 
               				max-date="maxDate"
               				datepicker-options="dateOptions" 

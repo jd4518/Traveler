@@ -1,5 +1,9 @@
 package com.traveler.model;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class Share {
 	private int boardNum;
 	private String memberPicture;
@@ -15,7 +19,15 @@ public class Share {
 	private String map;
 	private String content;
 	
+	private List<MultipartFile> files;
 	
+
+	public List<MultipartFile> getFiles() {
+		return files;
+	}
+	public void setFiles(List<MultipartFile> files) {
+		this.files = files;
+	}
 	public String getContent() {
 		return content;
 	}

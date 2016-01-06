@@ -1,22 +1,21 @@
 
+<<<<<<< HEAD
+=======
 select * from Travelmember;
 
 drop table Travelmember
 
 insert into Travelmember
-(id, password, name,  birthday, tel, address, addressNum) 
+(id, password, name, register_date, birthday, tel, address, addressNum) 
 values
-<<<<<<< HEAD
-('lol330', '12341234', '홍길동','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
-=======
-('master', 'master', '마스터','1111/11/11','1111/11/11','010-0000-0000', '관리자전용 아이디', '11111')
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
+('lol330', '12341234', '홍길동',,'2015-12-12','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
 
 create table Travelmember(
    num				integer(100) auto_increment not null,
    id               varchar(255) not null unique,
    password         varchar(255),
    name             varchar(255),
+   register_date	date,
    birthday			date,
    tel              varchar(255),
    address          varchar(255),
@@ -24,6 +23,7 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
+>>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
 drop table RecommandList;
 
 create table RecommandList (
@@ -41,6 +41,7 @@ insert into RecommandList(title,area,name,content,picture) values('우와된당'
 
 select * from RecommandList;
 select count(*) from RecommandList;
+
 create table TravelShareBoard(
 	memberPicture varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
 	boardNum int auto_increment,
@@ -63,6 +64,8 @@ create table TravelShareBoard(
 insert into TravelShareBoard (memberPicture,boardNum,id,name,memberAge,memberTel,title,term,number,cost,content,picture,map)
 values('Hong','1','gusdn','홍현우','26','010-5170-7855','낭만적인부산','3개월','4','45000','겨울바다이야기','aaa','Busan')
 
+delete from TravelShareBoard
+
 select * from TravelShareBoard
 drop table TravelShareBoard
 
@@ -78,9 +81,15 @@ create table Travelmember(
 	constraint pk_id primary key(id)
 );
 insert into Travelmember(id,memberPicture,password,name,register_date,tel,address,addressNum)
-values('gusdn','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
+values('asas','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
 
 drop table Travelmember
 
 select * from Travelmember
 select count(*) from RecommandList
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7

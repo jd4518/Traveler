@@ -17,10 +17,6 @@ import com.traveler.service.MemberRegisterService;
 public class MemberController {
 	static Log log = LogFactory.getLog(MemberController.class);
 	
-	@Autowired
-	MemberRegisterService memberRegisterService;
-	
-	
 	@RequestMapping(value="login.html")
 	public String getLoginView(){
 		log.info("getLoginView()...");
@@ -28,12 +24,7 @@ public class MemberController {
 		return "traveler/member/loginForm";
 	}
 	
-	@RequestMapping(value="index.html")
-	public String getBootstrapView(){
-		log.info("getLoginView()...");
-		
-		return "traveler/member/startbootstrap/template";
-	}
+	
 	
 	@RequestMapping(value="main.html")
 	public String getMainView(){
@@ -42,12 +33,6 @@ public class MemberController {
 		return "traveler/member/main";
 	}
 	
-	@RequestMapping(value="regist.html")
-	public String getRegistView(){
-		log.info("getRegistView()...");
-		
-		return "traveler/member/regist";
-	}
 	
 	
 }

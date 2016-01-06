@@ -24,66 +24,12 @@
   }
 </style>
 </head>
-
-<<<<<<< HEAD
 <a class="btn btn-primary" href="#/memberList">목록</a>
-=======
 <body class="container">
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 <div class="row">
 <div class="col-sm-6 col-sm-offset-3">
 	<div class="panel panel-default">
-<<<<<<< HEAD
 		<div class="panel-heading">회원 정보 수정</div>
-		<div class="panel-body">
-		<form name="memberForm" novalidate="novalidate" data-ng-submit="submit()">
-			<!-- ID -->
-			<div class="form-group">
-				<label for="id">ID : </label>
-				<input id="id"
-					   name="id"
-					   type="text" 
-					   class="form-control"
-					   data-ng-model="member.id"
-					   readonly="readonly"
-					   />
-			</div>
-			<!-- Password -->
-			<div class="form-group">
-				<label for="password">PASSWORD : </label>
-				<input id="password"
-					   name="password"
-					   type="text"
-					   class="form-control"
-					   required="required"
-					   data-ng-model="member.password"
-					   data-ng-maxlength="12"
-					   />
-				<div data-ng-show="memberForm.password.$dirty">
-					<div class="alert alert-warning" data-ng-show="memberForm.password.$error.required">필수 입력 항목입니다.</div>
-					<div class="alert alert-warning" data-ng-show="memberForm.password.$error.maxlength">12자리까지 입력가능합니다.</div>
-				</div>
-			</div>
-			<!-- Name -->
-			<div class="form-group">
-				<label for="name">Name : </label>
-				<input id="name"
-					   name="name"
-					   type="text" 
-					   class="form-control"
-					   required="required"
-					   data-ng-model="member.name"
-					   data-ng-maxlength="10"
-					   />
-				<div>memberForm.name.$invalid = {{memberForm.name.$invalid}}</div>
-				<div>memberForm.name.$error.required = {{memberForm.name.$error.required}}</div>
-				<div>memberForm.name.$error.maxlength = {{memberForm.name.$error.maxlength}}</div>
-				<div data-ng-show="memberForm.name.$dirty">
-					<div class="alert alert-warning" data-ng-show="memberForm.name.$error.required">필수 입력 항목입니다.</div>
-					<div class="alert alert-warning" data-ng-show="memberForm.name.$error.maxlength">10자리까지 입력가능합니다.</div>
-=======
-		<div class="panel-heading">회원 가입</div>
-		<pre>{{member}}</pre>
 		<div class="panel-body">
         <form name="modifyForm" novalidate="novalidate" data-ng-submit="submit()">
          <!-- 로그인정보   -->
@@ -117,7 +63,6 @@
 					<div class="alert alert-warning" data-ng-show="modifyForm.password.$error.required">필수 입력 항목입니다.</div>
 					<div class="alert alert-warning" data-ng-show="modifyForm.password.$error.minlength">최소 4자이상 입력가능합니다.</div>
 					<div class="alert alert-warning" data-ng-show="modifyForm.password.$error.maxlength">최대 12자까지 입력가능합니다.</div>
->>>>>>> 190b08a3af0f2306860d394baf0431f2e6ca81d2
 				</div>
             </div>
          
