@@ -147,7 +147,6 @@ function chkId(){
 <div class="col-sm-6 col-sm-offset-3">
 	<div class="panel panel-default">
 		<div class="panel-heading">회원 가입</div>
-		<pre>{{member}}</pre>
 		<div class="panel-body">
         <form name="AppendForm" novalidate="novalidate" data-ng-submit="submit()">
          <!-- 로그인정보   -->
