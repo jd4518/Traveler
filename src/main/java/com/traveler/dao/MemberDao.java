@@ -62,4 +62,8 @@ public class MemberDao {
 
 		return memberMapper.selectByIdAndPassword(idAndPassword);
 	}
+	
+	public int chkId(String ckid) {
+		return adminMapper.chkId(ckid);
+	}
 }

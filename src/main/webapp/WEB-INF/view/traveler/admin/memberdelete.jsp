@@ -38,6 +38,9 @@
 		</div>
         <form name="deleteForm" novalidate="novalidate" data-ng-submit="submit()">
           <!-- 로그인정보   -->
+          	<div class="form-group">
+          		<img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="150" height="150">
+          	</div>
             <div class="form-group">
                <label for="id">아이디:</label> 
                <input type="text"

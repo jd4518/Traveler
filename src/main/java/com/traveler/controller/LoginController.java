@@ -35,7 +35,7 @@ public class LoginController {
 	public String getLoginView(){
 		log.info("getLoginView()...");
 		
-		return "/traveler/member/loginForm";
+		return "traveler/member/loginForm";
 	}
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
@@ -59,8 +59,9 @@ public class LoginController {
 		return "redirect:/traveler/member/login.html";
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping(value = "/logincheck", method = RequestMethod.GET)
+	@ResponseBody
 	public Map<String, Object> loginCheck(HttpSession session){
 		Map<String, Object> map = new HashMap<>();
 		
@@ -68,13 +69,12 @@ public class LoginController {
 		if (login != null && login == true) {
 			map.put("login", true);
 			map.put("member", session.getAttribute("member"));
-		} else {
+		}else{
 			map.put("login", false);
 		}
 		
 		return map;
 	}
-	
 	
 	@ExceptionHandler
 	@ResponseBody

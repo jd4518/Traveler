@@ -16,4 +16,5 @@ public interface AdminMapper {
 	
 	int update(Member member);
 	int deleteByNum(int num);
+	int chkId(String ckid); 
 }

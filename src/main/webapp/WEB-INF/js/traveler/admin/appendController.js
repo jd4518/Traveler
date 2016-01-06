@@ -18,6 +18,12 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	
 	$scope.member = {};
 	
+	$scope.toggle = function(){
+		var p = $('#memberPicture').val();
+		$scope.member.memberPicture = p;
+		alert("등록 성공");
+	};
+	
 	$scope.today = function() {
 	    $scope.dt = new Date();
 	  };
@@ -88,10 +94,10 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 
 	    return '';
 	};
-	
-	
+	 
 	$scope.submit = function() {
 		var ajax = $http.post(URL.POST_ITEM_APPEND, {
+			memberPicture : $scope.member.memberPicture,
 			num : $scope.member.num,
 			id : $scope.member.id,
 			password : $scope.member.password,

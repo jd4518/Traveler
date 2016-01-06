@@ -13,6 +13,7 @@
 
 <c:url var="LOGIN_URL" value="/traveler/member/login"></c:url>
 <c:url var="REDIRECT_URL" value="/traveler/member/main.html"></c:url>
+<c:url var="MASTER_URL" value="/traveler/admin/main.html"></c:url>
 
 <script type="text/javascript">
 
@@ -37,7 +38,6 @@
 		$scope.login = {};
 		
 		$scope.submit = function() {
-			alert("submit...");
 			console.log("submit()...");
 			
 			var ajax = $http.post("${LOGIN_URL}", {
@@ -47,9 +47,14 @@
 			
 			ajax.then(function(value) {
 				console.dir(value);
-				location.href = "${REDIRECT_URL}";
-			}, function(reason) {
+				if($scope.login.id=="master" && $scope.login.password=="master"){
+					location.href = "${MASTER_URL}";
+				}else{
+					location.href = "${REDIRECT_URL}";
+				}
+			},function(reason) {
 				console.dir(reason);
+				alert("입력하신 회원 정보를 확인하세요.");
 				$scope.error = reason.data;
 			});
 			
@@ -76,27 +81,32 @@
 						data-ng-submit="submit()">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="ID" name="id"
-									type="text" autofocus required="required"
-									data-ng-model="login.id">
+								<input class="form-control" 
+									   placeholder="ID" 
+									   name="id"
+									   type="text" 
+									   autofocus required="required"
+									   data-ng-model="login.id">
 								<div data-ng-show="loginForm.id.$dirty && loginForm.id.$invalid">
-									<div data-ng-show="loginForm.id.$error.required">필수 입력
-										항목입니다</div>
+									<div data-ng-show="loginForm.id.$error.required">필수 입력 항목입니다</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password"
-									name="password" type="password" required="required"
-									data-ng-model="login.password">
-								<div
-									data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-									<div data-ng-show="loginForm.password.$error.required">
-										패스워드는 필수 입력 항목입니다</div>
-								</div>
+								<input class="form-control" 
+									   placeholder="Password"
+									   name="password" 
+									   type="password" 
+									   required="required"
+									   data-ng-model="login.password">
+								<div data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+								<div data-ng-show="loginForm.password.$error.required">패스워드는 필수 입력 항목입니다</div>
 							</div>
+							</div>
+							<div>{{error.message}}</div>
+							<br>
 							<div class="form-group" align="right">
-								<a href="<c:url value="/traveler/admin/main.html#/memberappend"/>" class="btn btn-default btn-sm"> <font
-									color="#5cb85c"><b>회원가입</b></font></a> 
+								<a href="<c:url value="/traveler/admin/main.html#/memberappend"/>" class="btn btn-default btn-sm"> 
+								<font color="#5cb85c"><b>회원가입</b></font></a> 
 									<a href="" class="btn btn-default btn-sm"> 
 										<font color="#5cb85c">
 											<b>아이디	찾기</b>
@@ -113,7 +123,7 @@
 						</fieldset>
 					</form>
 				</div>
-			</div>
+			</div> 
 		</div>
 	</div>
 </body>

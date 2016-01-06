@@ -43,12 +43,13 @@ footer{
 
 
 </head>
-<body data-ng-controller="mainController" class="container">
+<body data-ng-controller="mainController">
   <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper" data-ng-controller="navController">
+    <nav data-ng-controller="navController" id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <c:url var="member_logout" value="/traveler/member/logout"></c:url>
             <li class="sidebar-brand">
                 <a href=""  onclick = $("#menu-close").click(); >Traveler</a>
             </li>
@@ -64,15 +65,15 @@ footer{
 	                <li><a href="#" onclick = $("#menu-close").click();>실시간 게시판</a></li>
              	</ul>
             </li>
-            <li>
+            <li data-ng-hide="loginstatus">
                 <a href="/Traveler/traveler/admin/main.html#/memberappend" onclick = $("#menu-close").click(); >SignUp</a>
             </li>
             
-            <li data-ng-hide="loginstatus">{{loginstatus}}
+            <li data-ng-hide="loginstatus">
                 <a href="<c:url value="/traveler/member/login.html"/>" onclick = $("#menu-close").click(); >Login</a>
             </li>
             
-            <li data-ng-show="loginstatus">{{loginstatus}}
+            <li data-ng-show="loginstatus">
                 <a href="<c:url value="/traveler/member/logout"/>" onclick = $("#menu-close").click(); >Logout</a>
             </li>
         </ul>

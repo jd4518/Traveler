@@ -9,5 +9,5 @@ public interface MemberMapper {
 	
 	List<Member> loginselectAll();
 	Member selectByIdAndPassword(Map<String, Object> idAndPassword);
-
+	
 }

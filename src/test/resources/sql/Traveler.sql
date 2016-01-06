@@ -1,16 +1,15 @@
 
-<<<<<<< HEAD
-=======
 select * from Travelmember;
 
 drop table Travelmember
 
 insert into Travelmember
-(id, password, name,  birthday, tel, address, addressNum) 
+(memberPicture, id, password, name,  birthday, tel, address, addressNum) 
 values
-('lol330', '12341234', '홍길동','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+('KakaoTal.jpg','lol330', '12341234', '홍길동','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
 
 create table Travelmember(
+   memberPicture    varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
    num				integer(100) auto_increment not null,
    id               varchar(255) not null unique,
    password         varchar(255),
@@ -23,7 +22,6 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
->>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
 drop table RecommandList;
 
 create table RecommandList (

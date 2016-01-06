@@ -10,6 +10,7 @@ import com.traveler.model.Member;
 
 @JsonIgnoreProperties(value = "member")
 public class MemberCommand {
+	private String memberPicture;
 	private int num;
 	private String 	id;
 	private String 	password;
@@ -61,6 +62,7 @@ public class MemberCommand {
 	public Member getMember() {
 		Member m = new Member();
 		
+		m.setMemberPicture(memberPicture);
 		m.setNum(num);
 		m.setId(id);
 		m.setPassword(password);
@@ -72,6 +74,14 @@ public class MemberCommand {
 		m.setAddressNum(addressNum);
 		
 		return m;
+	}
+
+	public String getMemberPicture() {
+		return memberPicture;
+	}
+
+	public void setMemberPicture(String memberPicture) {
+		this.memberPicture = memberPicture;
 	}
 
 	public int getNum() {

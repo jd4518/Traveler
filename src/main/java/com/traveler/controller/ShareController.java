@@ -32,9 +32,6 @@ public class ShareController implements ServletContextAware {
 
 	private Object servletContext;
 	
-
-	
-	
 	 @Autowired		//필드 주입
 	 ShareListService shareListService;
 	 
