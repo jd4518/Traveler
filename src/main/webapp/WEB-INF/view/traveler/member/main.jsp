@@ -143,8 +143,8 @@ app.controller("mainController", function($scope, $http, $location) {
 
     <!-- Callout -->
     <aside class="">
-        <div class="text-vertical-center">
-            <img alt="" src="/Traveler/img/풍경.jpg" class="img-responsive" width="1500">
+        <div class="">
+            <img alt="" src="/Traveler/img/풍경.jpg" class="img-responsive">
         </div>
     </aside>
 
