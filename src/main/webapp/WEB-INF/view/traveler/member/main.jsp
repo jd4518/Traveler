@@ -5,83 +5,49 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html lang="ko" data-ng-app="travelerApp">
-
 <head>
+<meta charset="UTF-8">
+<%@ include file="/WEB-INF/view/common.jspf" %>
 
-    <meta charset="UTF-8">
-    <%@ include file="/WEB-INF/view/common.jspf" %>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>Traveler</title>
-    
-    <script type="text/javascript">
-	var deps = ['ngRoute',
-	            'ngAnimate',
-	            'ngTouch',
-	            'angular-loading-bar',
-	            'ui.bootstrap'
-	           ];
+<title>Traveler</title>
 
-	var app = angular.module("travelerApp", deps);
+<script type="text/javascript">
+var deps = ['ngRoute',
+            'ngAnimate',
+            'ngTouch',
+            'angular-loading-bar',
+            'ui.bootstrap'
+           ];
+
+var app = angular.module("travelerApp", deps);
+
+app.controller("mainController", function($scope, $http, $location) {
 	
-	app.controller("mainController", function($scope, $http) {
-		
-		console.log("mainController...");
-		
-		$scope.title = "main"
-		
-		
-	});
+	console.log("mainController...");
 	
+	
+});
+
 </script>
+<!-- Bootstrap Core CSS -->
+<link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- Custom Fonts -->
+<link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
 
 <body data-ng-controller="mainController">
-
-<!--     Navigation -->
-<!--     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a> -->
-<!--     <nav id="sidebar-wrapper"> -->
-<!--         <ul class="sidebar-nav"> -->
-<!--             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a> -->
-<!--             <li class="sidebar-brand"> -->
-<!--                 <a href="#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a> -->
-<!--             </li> -->
-<!--             <li> -->
-<!--                 <a href="/Traveler/traveler/member/main.html" onclick = $("#menu-close").click(); >Home</a> -->
-<!--             </li> -->
-<!--             <li> -->
-<!--                 <a href="#services" onclick = $("#menu-close").click(); >Services</a> -->
-<!--             </li> -->
-<!--             <li> -->
-<!--                 <a href="#portfolio" onclick = $("#menu-close").click(); >Portfolio</a> -->
-<!--             </li> -->
-<!--             <li> -->
-<!--                 <a href="/Traveler/traveler/member/login.html" onclick = $("#menu-close").click(); >Login</a> -->
-<!--             </li> -->
-<!--         </ul> -->
-<!--     </nav> -->
-
+	<pre>{{login}}</pre>
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
@@ -136,7 +102,7 @@
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
-                                <a href="#" class="btn btn-light">여행 정보 공유 게시판</a>
+                                <a href="/shareList.html" class="btn btn-light">여행 정보 공유 게시판</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -176,9 +142,9 @@
     </section>
 
     <!-- Callout -->
-    <aside class="callout">
-        <div class="text-vertical-center">
-            
+    <aside class="">
+        <div class="">
+            <img alt="" src="/Traveler/img/풍경.jpg" class="img-responsive">
         </div>
     </aside>
 
@@ -193,34 +159,34 @@
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-1.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/제주도_마방목지.jpg" data-toggle="tooltip" title="제주도 마방목지" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-2.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/수월봉_001.png" data-toggle="tooltip" title="제주도 수월봉" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-3.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/전라남도_영암군.jpg" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/mainbootstrap/img/portfolio-4.jpg">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/경기도_양평군_두물머리.png" data-toggle="tooltip" title="경기도 양평군 두물머리" data-placement="top">
                                 </a>
                             </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">추천 여행지 게시판</a>
+                    
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -228,49 +194,6 @@
         </div>
         <!-- /.container -->
     </section>
-
-    
-
-   
-
-<!--     jQuery -->
-<!--     <script src="js/jquery.js"></script> -->
-
-<!--     Bootstrap Core JavaScript -->
-<!--     <script src="js/bootstrap.min.js"></script> -->
-
-<!--     Custom Theme JavaScript -->
-<!--     <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    </script> -->
-
 </body>
 
 </html>

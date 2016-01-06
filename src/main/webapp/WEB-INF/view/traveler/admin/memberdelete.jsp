@@ -25,19 +25,28 @@
     border-radius: 32px;
     color: black;
   }
+  .btn{
+	font-weight: bold;
+  }
 </style>
 </head>
 <body class="container">
 <div class="row">
 <div class="col-sm-8 col-sm-offset-2">
 	<div class="panel panel-default">
-		<div class="panel-heading">회원 삭제</div>
+		<div class="panel-heading">회원 탈퇴</div>
 		<div class="panel-body">
 		<div align="center">
-			<h1>정말 삭제 하시겠습니까?</h1>
+			<input type="button"
+                   class="btn btn-primary btn-lg btn-block"
+                   value="정말 탈퇴 하시겠습니까?"
+                   />
 		</div>
         <form name="deleteForm" novalidate="novalidate" data-ng-submit="submit()">
           <!-- 로그인정보   -->
+          	<div class="form-group" align="center">
+          		<img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="150" height="150">
+          	</div>
             <div class="form-group">
                <label for="id">아이디:</label> 
                <input type="text"
@@ -74,7 +83,7 @@
             
             <div class="form-group">
                <label for="birthday">생년월일:</label> 
-               <div>
+               <div align="right">
               		<input  type="text"
               				id="birthday"
               				name="birthday"

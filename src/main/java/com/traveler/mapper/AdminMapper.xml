@@ -5,8 +5,8 @@
         select count(*) from Travelmember
     </select>
     <select id="selectAll" resultType="com.traveler.model.Member">
-        select num,
-        	   memberPicture,
+        select memberPicture,
+        	   num,
         	   id,
 			   password,
 			   name,
@@ -21,8 +21,8 @@
      	parameterType="com.traveler.util.Pagination" 
      	resultType="com.traveler.model.Member"
      	databaseId="mysql">
-			select num,
-				   memberPicture,
+			select memberPicture,
+			       num,
 			       id,
 				   password,
 				   name,
@@ -37,8 +37,8 @@
     </select>
     
     <select id="selectByNum" parameterType="int" resultType="com.traveler.model.Member">
-        select num,
-        	   memberPicture,
+        select memberPicture,
+        	   num,
         	   id,
 			   password,
 			   name,
@@ -58,6 +58,7 @@
         	databaseId="mysql">
         insert into Travelmember
 		(
+			 memberPicture,
 			 num,
 			 memberPicture,
 	         id,
@@ -71,15 +72,12 @@
 		)
 		values
 		(
+			#{memberPicture, jdbcType=VARCHAR},
 			#{num, jdbcType=NUMERIC},
 			#{memberPicture, jdbcType=VARCHAR},
 			#{id, jdbcType=VARCHAR},
 			#{password, jdbcType=VARCHAR},
 			#{name, jdbcType=VARCHAR},
-			#{register_date, jdbcType=DATE}
-			#{birthday, jdbcType=DATE}
-			#{tel, jdbcType=VARCHAR}
-			#{address, jdbcType=VARCHAR}
 			now(),
 			#{birthday, jdbcType=DATE},
 			#{tel, jdbcType=VARCHAR},
@@ -90,9 +88,8 @@
     
     <update id="update" parameterType="com.traveler.model.Member">
         update Travelmember
-           set 
-			   memberPicture    = #{memberPicture},
-           	   id				= #{id},
+           set memberPicture	= #{memberPicture},
+               id				= #{id},
 		 	   password			= #{password},
 			   name				= #{name},
 			   birthday			= #{birthday},
@@ -105,5 +102,11 @@
     <delete id="deleteByNum" parameterType="int">
         delete from Travelmember where num = #{num}
     </delete>
+    
+    <select id="chkId" resultType="int">
+		 select count(*)
+		   from Travelmember
+		  where id = #{id} 
+	</select>
 
 </mapper>

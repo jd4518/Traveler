@@ -18,11 +18,19 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	console.log("URL.GET_ITEM_BASE = " + URL.GET_ITEM_BASE);
 	console.log("id = " + $routeParams.id);
 
-	$scope.$parent.title = "회원 정보 수정";
 	
+<<<<<<< HEAD
 	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id);
 	console.log("num = " + $routeParams.num);
+=======
+	$scope.toggle = function(){
+		var p = $('#memberPicture').val();
+		$scope.member.memberPicture = p;
+		alert("등록 성공");
+	};
+>>>>>>> 870a6f65b0198c455f7eb71fe91cf725ff103c90
 	
+	$scope.$parent.title = "회원 정보 수정";
 	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.num);
 	ajax.then(function(value) {
 		console.dir(value);
@@ -103,7 +111,12 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	};
 
 	$scope.submit = function() {
+<<<<<<< HEAD
 			var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.member.num, {
+=======
+		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.member.num, {
+			memberPicture:  $scope.member.memberPicture,
+>>>>>>> 870a6f65b0198c455f7eb71fe91cf725ff103c90
 			num : 			$scope.member.num,
 			memberPicture : $scope.member.memberPicture,
 			id : 			$scope.member.id,

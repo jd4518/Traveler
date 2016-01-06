@@ -1,3 +1,5 @@
+<%@page import="com.traveler.dao.MemberDao"%>
+<%@page import="com.traveler.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -78,10 +80,8 @@
 <script type="text/javascript" src="${modifyController}"></script>
 <script type="text/javascript" src="${deleteController}"></script>
 
-
 </head>
 <body class="container">
-<h1>{{title}}</h1>
 <div data-ng-view>
 
 </div>

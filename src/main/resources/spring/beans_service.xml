@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+    
+    
 
 	<!-- ShareDetailService -->
 	<bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
@@ -53,6 +55,10 @@
 		<property name="realTimeDao" ref="realTimeDao"></property>
 	</bean>
 
+	
+	<bean id="recommandDetailService" class="com.traveler.service.RecommandDetailService">
+		<property name="recommandDao" ref="recommandDao" />
+	</bean>
 
 	<bean id="recommandListService" class="com.traveler.service.RecommandListService">
 		<property name="recommandDao" ref="recommandDao" />
@@ -61,16 +67,25 @@
 	<bean id="recommandPageService" class="com.traveler.service.RecommandPageService">
 		<property name="recommandDao" ref="recommandDao" />
 	</bean>
+	
+	<bean id="recommandModifyService" class="com.traveler.service.RecommandModifyService">
+		<property name="recommandDao" ref="recommandDao" />
+	</bean>
 
 	<bean id="recommandRegisterService" class="com.traveler.service.RecommandRegisterService">
 		<property name="recommandDao" ref="recommandDao" />
 	</bean>
+	
+	<bean id="recommandUnRegisterService" class="com.traveler.service.RecommandUnRegisterService">
+		<property name="recommandDao" ref="recommandDao" />
+	</bean>
+	
+	
 
 	<!-- LoginService -->
 	<bean id="loginService" class="com.traveler.service.LoginService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
-
 
 	<!-- MemberListService -->
 	<bean id="memberListService" class="com.traveler.service.MemberListService">

@@ -13,7 +13,7 @@ import com.traveler.model.Member;
 public class MemberRegisterService {
 	static Log log = LogFactory.getLog(ShareRegisterService.class);
 
-	MemberDao memberDao;
+	static MemberDao memberDao;
 	
 	public void setMemberDao(MemberDao dao) {
 		this.memberDao = dao;
@@ -31,4 +31,9 @@ public class MemberRegisterService {
 		}
 		return num;
 	}
+	
+	public static int chkId(String ckid) throws Exception {
+		  return memberDao.chkId(ckid);
+	}
+	
 }

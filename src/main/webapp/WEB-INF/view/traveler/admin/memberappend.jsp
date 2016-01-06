@@ -22,9 +22,123 @@
     border-radius: 32px;
     color: black;
   }
-</style>
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+}
 
-<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+.filebox.bs3-success label {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.btn{
+	font-weight: bold;
+}
+ 
+</style>
+<script type="text/javascript">
+
+	var deps = ['ngRoute',
+	            'ngAnimate',
+	            'ngTouch',
+	            'angular-loading-bar'
+	           ];
+
+	var app = angular.module("travelerApp", deps);
+	
+	app.controller("mainController", function($scope, $http) {
+		console.log("mainController...");
+		
+		$scope.$watch("loginstatus", function() {
+			console.log("$watch... loginstatus");
+			if ($scope.loginstatus == true) {
+				location.href = "/traveler/member/logout";
+			}	
+		});
+		
+		$scope.login = {};
+		
+		$scope.submit = function() {
+			console.log("submit()...");
+			
+			var ajax = $http.post("${LOGIN_URL}", {
+				id : $scope.login.id,
+				password : $scope.login.password
+			});
+			
+			ajax.then(function(value) {
+				console.dir(value);
+				if($scope.login.id=="master" && $scope.login.password=="master"){
+					location.href = "${MASTER_URL}";
+				}else{
+					location.href = "${REDIRECT_URL}";
+				}
+			},function(reason) {
+				console.dir(reason);
+				alert("입력하신 회원 정보를 확인하세요.");
+				$scope.error = reason.data;
+			});
+			
+			
+		};
+		
+	});
+</script>
+
+<script type="text/javascript">
+function chkId(){
+	$.ajax({
+	 	url  : "/Traveler/traveler/admin/chkId",
+	 	type : "post",
+	 	data : {
+	 			ckid : $("#ckid").val()
+	 		   },
+	 	dataType : "json",
+	 	success : function(data){
+	  
+	 	alert(data.resultMsg);
+	    $("<div style='text-align:center;'>"+data.resultMsg+"</div>").dialog({
+	    	modal 		: true,
+	    	resizable 	: false,
+	    	buttons 	: [{
+	     					text : "확인",
+	     	click 		: function() {
+	    		$(this).dialog("close");
+	     	}
+	    }]
+	});
+	$(".ui-dialog-titlebar").hide();
+	  
+	if ( data.result == "success") {
+	   
+	} else {
+	   
+	}
+	}
+	});
+ }
+ </script>
 
 </head>
 
@@ -33,21 +147,59 @@
 <div class="col-sm-6 col-sm-offset-3">
 	<div class="panel panel-default">
 		<div class="panel-heading">회원 가입</div>
-		<pre>{{member}}</pre>
 		<div class="panel-body">
         <form name="AppendForm" novalidate="novalidate" data-ng-submit="submit()">
          <!-- 로그인정보   -->
+         	<div class="form-group">
+				<!-- picture -->
+				<label for="memberPicture">사진등록:</label>
+				<div style="display: inline;">
+					<div align="center">
+						<img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="150" height="150">
+					</div>
+					<div style="display: inline;" align="right">
+						<div class="filebox bs3-success">
+							<label for="memberPicture">파일 찾기</label>
+							<input id="memberPicture" 
+							       name="memberPicture" 
+							       type="file"
+								   required="required"
+								   value="파일찾기"
+								   data-ng-model="member.memberPicture"
+								   data-ng-maxlength="15"
+								   />
+						</div>
+						<div>
+							<input type="button"
+								   class="btn btn-success" 
+								   data-ng-click="toggle()" 
+								   value="올리기"
+								   />
+						</div>
+					</div>
+				</div>
+				<div data-ng-show="AppendForm.memberPicture.$dirty">
+					<div class="alert alert-warning" data-ng-show="AppendForm.memberPicture.$error.required">사진을 등록해 주시기 바랍니다.</div>
+					<div class="alert alert-warning" data-ng-show="AppendForm.memberPicture.$error.maxlength">파일명은 최대 15자까지 입력가능합니다.</div>
+				</div>
+			</div>
             <div class="form-group">
-               <label for="id">아이디:</label> 
+               <label for="ckid">아이디:</label> 
                <input type="text"
-               		  id="id"
-                      name="id"    
+               		  id="ckid"
+                      name="ckid"    
                       class="form-control" 
                       placeholder="사용할 ID를 입력하세요"
                       required="required"
                       data-ng-minlength="4"
                       data-ng-maxlength="12"
                       data-ng-model="member.id"/>
+                <div align="right">
+               	<input type="button" 
+               		   value="중복 체크" 
+               		   class="btn btn-success"
+               		   onclick="chkId();"/>
+               	</div>
                 <div data-ng-show="AppendForm.id.$dirty">
 					<div class="alert alert-warning" data-ng-show="AppendForm.id.$error.required">필수 입력 항목입니다.</div>
 					<div class="alert alert-warning" data-ng-show="AppendForm.id.$error.minlength">최소 4자이상 입력가능합니다.</div>
@@ -73,7 +225,7 @@
 					<div class="alert alert-warning" data-ng-show="AppendForm.password.$error.maxlength">최대 12자까지 입력가능합니다.</div>
 				</div>
             </div>
-         
+            
          	<!-- 개인정보 -->
             <div class="form-group">
                <label for="name">이름:</label> 
@@ -93,12 +245,12 @@
             <div class="form-group">
                <label for="birthday">생년월일:</label> 
                <div align="right">
-              		<input  type="date"
+              		<input  type="text"
               				id="birthday"
               				name="birthday"
-              				class="form-control" 
+              				class="form-control"
               				uib-datepicker-popup 
-              				data-ng-model="member.birthday" 
+              				data-ng-model="member.birthday"
               				is-open="status.opened" 
               				max-date="maxDate"
               				datepicker-options="dateOptions" 

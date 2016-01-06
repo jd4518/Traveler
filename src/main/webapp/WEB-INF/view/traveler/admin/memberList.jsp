@@ -1,6 +1,7 @@
+<%@page import="com.traveler.dao.MemberDao"%>
+<%@page import="com.traveler.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false" trimDirectiveWhitespaces="true"%>
-<%@page import="java.util.Date"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
@@ -18,14 +19,13 @@ th {
 }
 
 td {
+	valign:top;
 	text-align: center;
 }
 </style>
 
 </head>
-
 <body class="container">
-
 <div class="table-responsive">
 	<div>
 		<div class="col-lg-12">
@@ -50,9 +50,10 @@ td {
 					</a>
 				</div>
 					<div>
-						<table class="table table-striped table-bordered table-hover">
+						<table class="table table-striped table-bordered table-hover" align="center">
 							<thead>
 								<tr class="center">
+									<th class="col-sm-1">회원사진</th>
 									<th class="col-sm-1">회원번호</th>
 									<th class="col-sm-1">이름</th>
 									<th class="col-sm-1">아이디</th>
@@ -61,38 +62,38 @@ td {
 									<th class="col-sm-1">우편번호</th>
 									<th class="col-sm-1">전화번호</th>
 									<th class="col-sm-1">가입 날짜</th>
-									<th class="col-sm-1">수정</th>
-									<th class="col-sm-1">삭제</th>
+									<th class="col-sm-1" colspan="2">수정  / 삭제</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr data-ng-repeat="member in members" align="center">
-									<td>{{member.num}}</td>
-									<td>{{member.name}}</td>
-									<td>{{member.id}}</td>
-									<td>{{member.birthday}}</td>
-									<td>{{member.address}}</td>
-									<td>{{member.addressNum}}</td>
-									<td>{{member.tel}}</td>
-									<td>{{member.register_date}}</td>
-									<td>
-										<a href="#/membermodify/{{member.num}}" class="center">
-											<button class="btn btn-info" type="button">
-										      <i class='fa fa-pencil fa-lg'></i>
+								<tr data-ng-repeat="member in members">
+									<td><img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="100" height="100"></td>
+									<td style="padding-top: 45px">{{member.num}}</td>
+									<td style="padding-top: 45px">{{member.name}}</td>
+									<td style="padding-top: 45px">{{member.id}}</td>
+									<td style="padding-top: 45px">{{member.birthday}}</td>
+									<td style="padding-top: 45px">{{member.address}}</td>
+									<td style="padding-top: 45px">{{member.addressNum}}</td>
+									<td style="padding-top: 45px">{{member.tel}}</td>
+									<td style="padding-top: 45px">{{member.register_date}}</td>
+									<td style="padding-top: 40px">
+										<a href="#/membermodify/{{member.num}}">
+											<button class="btn btn-info btn" type="button">
+										      <i class='fa fa-pencil'></i>
 										    </button>
 										</a>
 									</td>
-									<td>
-										<a href="#/memberdelete/{{member.num}}" class="center">
+									<td style="padding-top: 38px">
+										<a href="#/memberdelete/{{member.num}}">
 											<button class="btn btn-danger" type="button">
-										      <i class='fa fa-trash fa-lg'></i>
+										      <i class='fa fa-trash'></i>
 										    </button>
 										</a>
 									</td>
 								</tr>
 							</tbody>
-							<tr align="center"><td colspan="10">
-								<uib-pagination 
+							<tr align="center"><td colspan="11">
+								<uib-pagination
 										data-total-items="paging.totalItem"
 										data-ng-model="pageNo"
 										data-max-size="10"

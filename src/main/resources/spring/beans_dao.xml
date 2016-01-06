@@ -25,7 +25,6 @@
 </bean>
 
 
-<context:property-placeholder location="classpath:database/db.properties"/>
 
 <!-- DataSource -->
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -81,7 +80,7 @@
 </bean>
 
 <!-- travelMapper -->
-<bean id="travelMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+<bean id="recommandMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="mapperInterface" value="com.traveler.mapper.RecommandMapper"/>
 	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
@@ -94,8 +93,9 @@
 
 <!-- recommandDao -->
 <bean id="recommandDao" class="com.traveler.dao.RecommandDao">
-	<property name="travelMapper" ref="travelMapper"/>
+	<property name="travelMapper" ref="recommandMapper"/>
 </bean>
+
 <!-- ShareDao -->
 <bean id="shareDao" class="com.traveler.dao.ShareDao">
 	<property name="shareMapper" ref="shareMapper"/>
@@ -104,6 +104,7 @@
 <!-- MemberDao -->
 <bean id="memberDao" class="com.traveler.dao.MemberDao">
 	<property name="adminMapper" ref="adminMapper"/>
+	<property name="memberMapper" ref="memberMapper"/>
 </bean>
 
 <!-- RealTimeDao -->

@@ -22,9 +22,43 @@
     border-radius: 32px;
     color: black;
   }
-</style>
-</head>
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+}
 
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+.filebox.bs3-success label {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.btn{
+	font-weight: bold;
+}
+ 
+</style>
+
+</head>
 <a class="btn btn-primary" href="#/memberList">목록</a>
 <body class="container">
 <div class="row">
@@ -32,56 +66,42 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">회원 정보 수정</div>
 		<div class="panel-body">
-		<form name="memberForm" novalidate="novalidate" data-ng-submit="submit()">
-			<!-- ID -->
-			<div class="form-group">
-				<label for="id">ID : </label>
-				<input id="id"
-					   name="id"
-					   type="text" 
-					   class="form-control"
-					   data-ng-model="member.id"
-					   readonly="readonly"
-					   />
-			</div>
-			<!-- Password -->
-			<div class="form-group">
-				<label for="password">PASSWORD : </label>
-				<input id="password"
-					   name="password"
-					   type="text"
-					   class="form-control"
-					   required="required"
-					   data-ng-model="member.password"
-					   data-ng-maxlength="12"
-					   />
-				<div data-ng-show="memberForm.password.$dirty">
-					<div class="alert alert-warning" data-ng-show="memberForm.password.$error.required">필수 입력 항목입니다.</div>
-					<div class="alert alert-warning" data-ng-show="memberForm.password.$error.maxlength">12자리까지 입력가능합니다.</div>
-				</div>
-			</div>
-			<!-- Name -->
-			<div class="form-group">
-				<label for="name">Name : </label>
-				<input id="name"
-					   name="name"
-					   type="text" 
-					   class="form-control"
-					   required="required"
-					   data-ng-model="member.name"
-					   data-ng-maxlength="10"
-					   />
-				<div>memberForm.name.$invalid = {{memberForm.name.$invalid}}</div>
-				<div>memberForm.name.$error.required = {{memberForm.name.$error.required}}</div>
-				<div>memberForm.name.$error.maxlength = {{memberForm.name.$error.maxlength}}</div>
-				<div data-ng-show="memberForm.name.$dirty">
-					<div class="alert alert-warning" data-ng-show="memberForm.name.$error.required">필수 입력 항목입니다.</div>
-					<div class="alert alert-warning" data-ng-show="memberForm.name.$error.maxlength">10자리까지 입력가능합니다.</div>
-		<div class="panel-heading">회원 가입</div>
-		<pre>{{member}}</pre>
-		<div class="panel-body">
         <form name="modifyForm" novalidate="novalidate" data-ng-submit="submit()">
          <!-- 로그인정보   -->
+            <div class="form-group">
+				<!-- picture -->
+				<label for="memberPicture">사진등록:</label>
+				<div style="display: inline;">
+					<div align="center">
+						<img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="150" height="150">
+					</div>
+					<div style="display: inline;" align="right">
+						<div class="filebox bs3-success">
+							<label for="memberPicture">파일 찾기</label>
+							<input id="memberPicture" 
+							       name="memberPicture" 
+							       type="file"
+								   required="required"
+								   value="파일찾기"
+								   data-ng-model="member.memberPicture"
+								   data-ng-maxlength="15"
+								   />
+						</div>
+						<div>
+							<input type="button"
+								   class="btn btn-success" 
+								   data-ng-click="toggle()" 
+								   value="올리기"
+								   />
+						</div>
+					</div>
+				</div>
+				<div data-ng-show="AppendForm.memberPicture.$dirty">
+					<div class="alert alert-warning" data-ng-show="AppendForm.memberPicture.$error.required">사진을 등록해 주시기 바랍니다.</div>
+					<div class="alert alert-warning" data-ng-show="AppendForm.memberPicture.$error.maxlength">파일명은 최대 15자까지 입력가능합니다.</div>
+				</div>
+			</div>
+			
             <div class="form-group">
                <label for="id">아이디:</label> 
                <input type="text"
@@ -93,7 +113,14 @@
                       readonly="readonly"
                       data-ng-minlength="4"
                       data-ng-maxlength="12"
-                      data-ng-model="member.id"/>
+                      data-ng-model="member.id"
+                      />
+                      <div align="right">
+                <div data-ng-show="AppendForm.id.$dirty">
+					<div class="alert alert-warning" data-ng-show="AppendForm.id.$error.required">필수 입력 항목입니다.</div>
+					<div class="alert alert-warning" data-ng-show="AppendForm.id.$error.minlength">최소 4자이상 입력가능합니다.</div>
+					<div class="alert alert-warning" data-ng-show="AppendForm.id.$error.maxlength">최대 12자까지 입력가능합니다.</div>
+				</div>
             </div>
             
              

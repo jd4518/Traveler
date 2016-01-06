@@ -12,24 +12,15 @@ import com.traveler.model.Member;
 public class MemberCommand {
 	private String memberPicture;
 	private int num;
-
-	public String getMemberPicture() {
-		return memberPicture;
-	}
-
-	public void setMemberPicture(String memberPicture) {
-		this.memberPicture = memberPicture;
-	}
-
 	private String id;
 	private String password;
 	private String name;
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date register_date;
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date birthday;
 	private String tel;
 	private String address;
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+	private Date 	register_date;
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+	private Date	birthday;
 	private Integer addressNum;
 
 	private Map<String, Object> errorMessage;
@@ -83,6 +74,14 @@ public class MemberCommand {
 		m.setAddressNum(addressNum);
 
 		return m;
+	}
+
+	public String getMemberPicture() {
+		return memberPicture;
+	}
+
+	public void setMemberPicture(String memberPicture) {
+		this.memberPicture = memberPicture;
 	}
 
 	public int getNum() {

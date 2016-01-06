@@ -6,7 +6,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.traveler.model.Recommand;
 
-@JsonIgnoreProperties(value = "city")
+@JsonIgnoreProperties(value = "recommand")
 public class RecommandCommand {
 	private int listNo;
 	private	String title;
@@ -54,9 +54,9 @@ public class RecommandCommand {
 	
 	public Recommand getRecommand() {
 		Recommand r = new Recommand();
+		r.setListNo(listNo);
 		r.setArea(area);
 		r.setContent(content);
-		r.setListNo(listNo);
 		r.setName(name);
 		r.setPicture(picture);
 		r.setTitle(title);

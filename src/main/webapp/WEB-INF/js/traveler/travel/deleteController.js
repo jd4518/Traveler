@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
 	});
 
 
-	app.controller('shareDeleteController', function($scope, $http, URL, $routeParams) {
+app.controller('shareDeleteController', function($scope, $http, URL, $routeParams) {
 		console.log("shareDeleteController...");
 		console.log("URL.DELETE_ITEM_DELETE_BASE =" + URL.DELETE_ITEM_DELETE_BASE);
 		console.log("boardNum = " + $routeParams.boardNum);

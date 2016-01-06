@@ -31,11 +31,18 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
+	@RequestMapping(value = "/nameAndTel.html", method = RequestMethod.GET)
+	public String getIdAndPwdView(){
+		log.info("getNameAndTelView()...");
+		
+		return "/traveler/member/nameAndTel";
+	}
+	
 	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
 	public String getLoginView(){
 		log.info("getLoginView()...");
 		
-		return "/traveler/member/loginForm";
+		return "traveler/member/loginForm";
 	}
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
@@ -51,6 +58,19 @@ public class LoginController {
 		return command;
 	}
 	
+	@RequestMapping(value="/nameAndTel",method = RequestMethod.POST)
+	@ResponseBody
+	public LoginCommand idAndPwd(@RequestBody LoginCommand command, HttpSession session){
+		log.info("name = " + command.getName());
+		log.info("tel = " + command.getTel());
+		
+		Member member = loginService.nameAndTel(command.getName(), command.getTel());
+		session.setAttribute("nameAndTel", true);
+		session.setAttribute("member", member);
+		
+		return command;
+	}
+	
 	@RequestMapping(value="/logout",method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		log.info("logout()...");
@@ -59,8 +79,9 @@ public class LoginController {
 		return "redirect:/traveler/member/login.html";
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping(value = "/logincheck", method = RequestMethod.GET)
+	@ResponseBody
 	public Map<String, Object> loginCheck(HttpSession session){
 		Map<String, Object> map = new HashMap<>();
 		
@@ -68,13 +89,12 @@ public class LoginController {
 		if (login != null && login == true) {
 			map.put("login", true);
 			map.put("member", session.getAttribute("member"));
-		} else {
+		}else{
 			map.put("login", false);
 		}
 		
 		return map;
 	}
-	
 	
 	@ExceptionHandler
 	@ResponseBody

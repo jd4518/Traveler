@@ -27,7 +27,6 @@ import com.traveler.service.ShareUnRegisterService;
 public class ShareController{
 	static Log log = LogFactory.getLog(ShareController.class);
 
-	
 	 @Autowired		//필드 주입
 	 ShareListService shareListService;
 	 

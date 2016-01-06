@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-=======
 /**
  * @author java
  */
 app.config(function($routeProvider) {
 
-		console.log("route config...")
-		
-		$routeProvider.when("/shareList", {				
-			templateUrl: "shareList.html",				
-			controller: "listController"			
-		}); 
- 
 		console.log("/recommandList config...")
 		
 		$routeProvider.when("/list", {
@@ -62,5 +53,3 @@ app.controller('recommandListController', function($scope, $http, URL) {
 		};
 		
 });
-
->>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
