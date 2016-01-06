@@ -18,6 +18,13 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	console.log("URL.GET_ITEM_BASE = " + URL.GET_ITEM_BASE);
 	console.log("id = " + $routeParams.id);
 
+	
+	$scope.toggle = function(){
+		var p = $('#memberPicture').val();
+		$scope.member.memberPicture = p;
+		alert("등록 성공");
+	};
+	
 	$scope.$parent.title = "회원 정보 수정";
 	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.num);
 	ajax.then(function(value) {
@@ -100,6 +107,7 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 
 	$scope.submit = function() {
 		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.member.num, {
+			memberPicture:  $scope.member.memberPicture,
 			num : 			$scope.member.num,
 			id : 			$scope.member.id,
 			password : 		$scope.member.password,

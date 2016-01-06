@@ -26,6 +26,19 @@ public class RecommandDao {
 	}
 	
 	public int recommandInsert(Recommand recommand){
+		
 		return travelMapper.recommandInsert(recommand);
+	}
+	
+	public Recommand selectByTitle(int listNo){
+		return travelMapper.selectByTitle(listNo);
+	}
+	
+	public int recommandDelete(int listNo){
+		return travelMapper.recommandDelete(listNo);
+	}
+	
+	public int recommandUpdate(Recommand recommand){
+		return travelMapper.recommandUpdate(recommand);
 	}
 }

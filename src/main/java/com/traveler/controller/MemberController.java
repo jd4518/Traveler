@@ -1,5 +1,7 @@
 package com.traveler.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,9 @@ public class MemberController {
 	@RequestMapping(value="login.html")
 	public String getLoginView(){
 		log.info("getLoginView()...");
-		 
+		
 		return "traveler/member/loginForm";
 	}
-	
-	
 	
 	@RequestMapping(value="main.html")
 	public String getMainView(){
@@ -32,7 +32,4 @@ public class MemberController {
 		
 		return "traveler/member/main";
 	}
-	
-	
-	
 }

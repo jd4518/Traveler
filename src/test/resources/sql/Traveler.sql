@@ -1,16 +1,35 @@
+CREATE TABLE TB_FILE
+(
+  IDX  int auto_increment,
+  BOARD_IDX int NOT NULL,
+  ORIGINAL_FILE_NAME CHAR(255) NOT NULL,
+  STORED_FILE_NAME CHAR(36) NOT NULL,
+  FILE_SIZE int,
+  CREA_DTM  date,
+  CREA_ID   CHAR(30) NOT NULL,
+  DEL_GB    CHAR(5)  NOT NULL,
+  PRIMARY KEY (IDX)
+);
 
-<<<<<<< HEAD
-=======
+
+
 select * from Travelmember;
 
 drop table Travelmember
 
 insert into Travelmember
+<<<<<<< HEAD
 (id, password, name, register_date, birthday, tel, address, addressNum) 
 values
 ('lol330', '12341234', '홍길동',,'2015-12-12','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+=======
+(memberPicture, id, password, name,  birthday, tel, address, addressNum) 
+values
+('KakaoTal.jpg','lol330', '12341234', '홍길동','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+>>>>>>> 476315351a9fbbaa5f614da2095cd5b10c85b743
 
 create table Travelmember(
+   memberPicture    varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
    num				integer(100) auto_increment not null,
    id               varchar(255) not null unique,
    password         varchar(255),
@@ -23,21 +42,21 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
->>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
 drop table RecommandList;
 
 create table RecommandList (
-  listNo int(11) NOT NULL auto_increment,
+  listNo int(11) auto_increment,
   title char(35) NOT NULL,
-  area char(20) NOT NULL,
+  area char(20),
   name char(20) NOT NULL,
   content longtext NOT NULL,
   picture char(100) default 'nothing.jpg , nothing.png, nothing.gif',
   PRIMARY KEY (listNo)
 );
+alter table RecommandList MODIFY area char(20);
+alter table RecommandList MODIFY listNo int(11) auto_increment
 
-
-insert into RecommandList(title,area,name,content,picture) values('우와된당','서울','홍현우','너는누구냐나야야누이할','1')
+insert into RecommandList(title,name,content,picture) values('우와된당','홍우','너는누구냐나야야누이할','1')
 
 select * from RecommandList;
 select count(*) from RecommandList;

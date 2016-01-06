@@ -7,6 +7,7 @@ import com.traveler.exception.PasswordNotMatchingException;
 
 public class Member {
 	
+	private String memberPicture;
 	private int num;
 	private String 	id;
 	private String 	password;
@@ -19,6 +20,13 @@ public class Member {
 	private String 	address;
 	private Integer addressNum;
 	
+	
+	public String getMemberPicture() {
+		return memberPicture;
+	}
+	public void setMemberPicture(String memberPicture) {
+		this.memberPicture = memberPicture;
+	}
 	
 	public int getNum() {
 		return num;
@@ -81,4 +89,5 @@ public class Member {
 		}
 		this.password = newPassword;
 	}
+	
 }

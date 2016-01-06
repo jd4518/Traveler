@@ -19,15 +19,6 @@ public class Share {
 	private String map;
 	private String content;
 	
-	private List<MultipartFile> files;
-	
-
-	public List<MultipartFile> getFiles() {
-		return files;
-	}
-	public void setFiles(List<MultipartFile> files) {
-		this.files = files;
-	}
 	public String getContent() {
 		return content;
 	}

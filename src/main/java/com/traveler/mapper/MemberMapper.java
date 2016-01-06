@@ -11,4 +11,5 @@ public interface MemberMapper {
 	Member selectByIdAndPassword(Map<String, Object> idAndPassword);
 	Member selectByNameAndTel(Map<String, Object> nameAndTel);
 
+	
 }

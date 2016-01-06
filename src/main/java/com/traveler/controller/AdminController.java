@@ -1,5 +1,8 @@
 package com.traveler.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -189,4 +192,27 @@ public class AdminController {
 
 		memberUnRegisterService.unregist(num);
 	}
+	
+	@RequestMapping("/chkId")
+	@ResponseBody
+	public Map<String, String> chkId(String ckid) throws Exception {
+	  
+		  Map<String, String> resultMap = new HashMap<String, String>();
+		  
+		  int resultCnt = MemberRegisterService.chkId(ckid);
+		  String result = "";
+		  String resultMsg = "";
+		  if ( resultCnt == 0 ){
+		   result = "success";
+		   resultMsg = "사용가능한 아이디입니다.";
+		  } else {
+		   result = "failure";
+		   resultMsg = "이미 사용중인 아이디입니다.";
+		  }
+		  
+		  resultMap.put("result", result);
+		  resultMap.put("resultMsg", resultMsg);
+		  
+		  return resultMap;
+	 } 
 }

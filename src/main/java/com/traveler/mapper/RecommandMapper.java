@@ -11,4 +11,7 @@ public interface RecommandMapper {
 	
 	int selectCount();
 	int recommandInsert(Recommand recommand);
+	Recommand selectByTitle(int listNo);
+	int recommandDelete(int listNo);
+	int recommandUpdate(Recommand recommand);
 }

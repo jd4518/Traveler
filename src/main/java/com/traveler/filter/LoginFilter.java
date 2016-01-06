@@ -41,8 +41,8 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		log.info("doFilter()...");
 		
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse res = (HttpServletResponse) response;
+		HttpServletRequest req = (HttpServletRequest)request;
+		HttpServletResponse res = (HttpServletResponse)response;
 		
 		HttpSession session = req.getSession();
 		
@@ -53,7 +53,7 @@ public class LoginFilter implements Filter {
 		}
 		else {
 			String context = req.getContextPath();
-			res.sendRedirect(context + "traveler/member/login.html");
+			res.sendRedirect(context + "/traveler/member/login.html");
 		}
 	}
 	

@@ -11,14 +11,9 @@ app.config(function($routeProvider) {
 		
 	});
 
-<<<<<<< HEAD:src/main/webapp/WEB-INF/js/traveler/travel/appendController.js
-	app.controller('appendController', function($scope, $http, $location, URL) {
-		console.log("appendController...");
-=======
 
 	app.controller('shareController', function($scope, $http, $location, URL) {
 		console.log("shareController...");
->>>>>>> f46117e114e40afed57f938b95053c2373a755fa:src/main/webapp/WEB-INF/js/traveler/travel/insertController.js
 		console.log("URL.POST_ITEM_APPEND =" + URL.POST_ITEM_APPEND);
 		
 		$scope.$parent.title = "게시글 작성";		

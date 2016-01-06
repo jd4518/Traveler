@@ -73,5 +73,7 @@ public class MemberDao {
 	
 	
 	
-	
+	public int chkId(String ckid) {
+		return adminMapper.chkId(ckid);
+	}
 }

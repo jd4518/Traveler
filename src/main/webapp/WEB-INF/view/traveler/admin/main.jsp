@@ -1,3 +1,5 @@
+<%@page import="com.traveler.dao.MemberDao"%>
+<%@page import="com.traveler.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
