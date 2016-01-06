@@ -3,13 +3,6 @@
  */
 app.config(function($routeProvider) {
 
-		console.log("route config...")
-		
-		$routeProvider.when("/shareList", {				
-			templateUrl: "shareList.html",				
-			controller: "listController"			
-		}); 
- 
 		console.log("/recommandList config...")
 		
 		$routeProvider.when("/list", {

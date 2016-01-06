@@ -11,6 +11,7 @@ app.config(function($routeProvider) {
 		
 	});
 
+
 	app.controller('shareController', function($scope, $http, $location, URL) {
 		console.log("shareController...");
 		console.log("URL.POST_ITEM_APPEND =" + URL.POST_ITEM_APPEND);

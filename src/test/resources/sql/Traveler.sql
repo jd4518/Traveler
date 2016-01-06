@@ -1,3 +1,17 @@
+CREATE TABLE TB_FILE
+(
+  IDX  int auto_increment,
+  BOARD_IDX int NOT NULL,
+  ORIGINAL_FILE_NAME CHAR(255) NOT NULL,
+  STORED_FILE_NAME CHAR(36) NOT NULL,
+  FILE_SIZE int,
+  CREA_DTM  date,
+  CREA_ID   CHAR(30) NOT NULL,
+  DEL_GB    CHAR(5)  NOT NULL,
+  PRIMARY KEY (IDX)
+);
+
+
 
 select * from Travelmember;
 
@@ -25,17 +39,18 @@ create table Travelmember(
 drop table RecommandList;
 
 create table RecommandList (
-  listNo int(11) NOT NULL auto_increment,
+  listNo int(11) auto_increment,
   title char(35) NOT NULL,
-  area char(20) NOT NULL,
+  area char(20),
   name char(20) NOT NULL,
   content longtext NOT NULL,
   picture char(100) default 'nothing.jpg , nothing.png, nothing.gif',
   PRIMARY KEY (listNo)
 );
+alter table RecommandList MODIFY area char(20);
+alter table RecommandList MODIFY listNo int(11) auto_increment
 
-
-insert into RecommandList(title,area,name,content,picture) values('우와된당','서울','홍현우','너는누구냐나야야누이할','1')
+insert into RecommandList(title,name,content,picture) values('우와된당','홍우','너는누구냐나야야누이할','1')
 
 select * from RecommandList;
 select count(*) from RecommandList;
