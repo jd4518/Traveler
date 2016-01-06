@@ -26,10 +26,6 @@ app.config(function($routeProvider) {
 			alert("성공");
 		};
 		
-		$scope.getTotal = function() {
-			var rtn =  $scope.cost1 + $scope.cost2 + $scope.cost3;
-			return angular.isNumber(rtn) == true ? rtn : false;
-		};
 		
 		var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.boardNum);	//ajax를 이용하여 페이지 호출
 		
@@ -47,14 +43,12 @@ app.config(function($routeProvider) {
 			var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.share.boardNum,{	//var ajax는 local변수
 				boardNum:		$scope.share.boardNum,
 				id : 			$scope.share.id,
-				name : 			$scope.share.name,
-				memberPicture : $scope.share.memberPicture,
-				memberAge : 	$scope.share.memberAge,
-				memberTel : 	$scope.share.memberTel,
 				title :			$scope.share.title,
 				term : 			$scope.share.term,
 				number : 		$scope.share.number,
-				cost : 			$scope.getTotal(),
+				eatCost :		$scope.share.eatCost,
+				stayCost : 		$scope.share.stayCost,
+				transCost : 	$scope.share.transCost,
 				content : 		$scope.share.content,
 				picture : 		$scope.share.picture,
 				map : 			$scope.share.map

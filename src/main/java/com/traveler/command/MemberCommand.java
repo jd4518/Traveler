@@ -10,57 +10,68 @@ import com.traveler.model.Member;
 
 @JsonIgnoreProperties(value = "member")
 public class MemberCommand {
+	private String memberPicture;
 	private int num;
-	private String 	id;
-	private String 	password;
-	private String 	name;
-	@JsonFormat(pattern="yyyy-MM-dd")
-	private Date 	register_date;
-	@JsonFormat(pattern="yyyy-MM-dd")
-	private Date	birthday;
-	private String 	tel;
-	private String 	address;
+
+	public String getMemberPicture() {
+		return memberPicture;
+	}
+
+	public void setMemberPicture(String memberPicture) {
+		this.memberPicture = memberPicture;
+	}
+
+	private String id;
+	private String password;
+	private String name;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date register_date;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date birthday;
+	private String tel;
+	private String address;
 	private Integer addressNum;
-	
+
 	private Map<String, Object> errorMessage;
-	
+
 	public MemberCommand() {
 		errorMessage = new HashMap<>();
 	}
-	
+
 	public Map<String, Object> getErrorMessage() {
 		return errorMessage;
 	}
-	
+
 	public void validate() {
 		/*
 		 * name validation
 		 */
-		
+
 		/*
 		 * coutryCode validation
 		 */
-		
+
 		/*
 		 * district validation
 		 */
-		
+
 		/*
 		 * population validation
 		 */
 	}
-	
+
 	public boolean isValid() {
-		
+
 		if (errorMessage.size() > 0)
 			return false;
-		
+
 		return true;
 	}
-	
+
 	public Member getMember() {
 		Member m = new Member();
 		
+		m.setMemberPicture(memberPicture);
 		m.setNum(num);
 		m.setId(id);
 		m.setPassword(password);
@@ -70,7 +81,7 @@ public class MemberCommand {
 		m.setTel(tel);
 		m.setAddress(address);
 		m.setAddressNum(addressNum);
-		
+
 		return m;
 	}
 
@@ -81,7 +92,7 @@ public class MemberCommand {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -145,5 +156,5 @@ public class MemberCommand {
 	public void setAddressNum(Integer addressNum) {
 		this.addressNum = addressNum;
 	}
-	
+
 }

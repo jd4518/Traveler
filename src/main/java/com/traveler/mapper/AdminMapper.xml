@@ -6,6 +6,7 @@
     </select>
     <select id="selectAll" resultType="com.traveler.model.Member">
         select num,
+        	   memberPicture,
         	   id,
 			   password,
 			   name,
@@ -21,6 +22,7 @@
      	resultType="com.traveler.model.Member"
      	databaseId="mysql">
 			select num,
+				   memberPicture,
 			       id,
 				   password,
 				   name,
@@ -36,6 +38,7 @@
     
     <select id="selectByNum" parameterType="int" resultType="com.traveler.model.Member">
         select num,
+        	   memberPicture,
         	   id,
 			   password,
 			   name,
@@ -56,6 +59,7 @@
         insert into Travelmember
 		(
 			 num,
+			 memberPicture,
 	         id,
 		 	 password,
 			 name,
@@ -68,6 +72,7 @@
 		values
 		(
 			#{num, jdbcType=NUMERIC},
+			#{memberPicture, jdbcType=VARCHAR},
 			#{id, jdbcType=VARCHAR},
 			#{password, jdbcType=VARCHAR},
 			#{name, jdbcType=VARCHAR},
@@ -85,7 +90,9 @@
     
     <update id="update" parameterType="com.traveler.model.Member">
         update Travelmember
-           set id				= #{id},
+           set 
+			   memberPicture    = #{memberPicture},
+           	   id				= #{id},
 		 	   password			= #{password},
 			   name				= #{name},
 			   birthday			= #{birthday},

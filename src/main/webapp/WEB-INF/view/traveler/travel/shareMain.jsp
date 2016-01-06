@@ -11,18 +11,18 @@
 <%@include file="/WEB-INF/view/common.jspf" %>
 <title>shareList.jsp</title>
 <!-- URL 결정 Resolve -->
-<c:url var="URL_GET_LIST" 					value="/traveler/"/>
-<c:url var="URL_GET_ITEM_BASE" 				value="/traveler/"/> 		<!-- /share/{id} -->
-<c:url var="URL_GET_PAGE_BASE" 				value="/traveler/page/"/>	<!-- /share/page/{pageNo} -->
+<c:url var="URL_GET_LIST" 					value="/traveler/travel/"/>
+<c:url var="URL_GET_ITEM_BASE" 				value="/traveler/travel/"/> 		<!-- /share/{id} -->
+<c:url var="URL_GET_PAGE_BASE" 				value="/traveler/travel/page/"/>	<!-- /share/page/{pageNo} -->
 
 
-<c:url var="URL_POST_LIST_APPEND"			value="/traveler/"/>
-<c:url var="URL_POST_ITEM_APPEND"			value="/traveler/"/>
+<c:url var="URL_POST_LIST_APPEND"			value="/traveler/travel/"/>
+<c:url var="URL_POST_ITEM_APPEND"			value="/traveler/travel/"/>
 
-<c:url var="URL_PUT_LIST_MODIFY"			value="/traveler/"/>
-<c:url var="URL_PUT_ITEM_MODIFY_BASE"		value="/traveler/"/>
+<c:url var="URL_PUT_LIST_MODIFY"			value="/traveler/travel/"/>
+<c:url var="URL_PUT_ITEM_MODIFY_BASE"		value="/traveler/travel/"/>
 
-<c:url var="URL_DELETE_ITEM_DELETE_BASE"	value="/traveler/"/>
+<c:url var="URL_DELETE_ITEM_DELETE_BASE"	value="/traveler/travel/"/>
 <script type="text/javascript">
 	var urls = {
 		GET_LIST	 : 				"${URL_GET_LIST}",	
@@ -75,9 +75,8 @@
 </head>
 
 <body data-ng-controller="mainController" class="container">
-<h1>{{title}}</h1>
+ <h1><i class="fa fa-share-alt"></i> {{title}}</h1>
 <div data-ng-view>
-
 </div>
 
 </body>

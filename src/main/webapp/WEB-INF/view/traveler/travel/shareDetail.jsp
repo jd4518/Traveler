@@ -13,8 +13,77 @@
 </head>
 <body class="container">
 <a class="btn btn-primary" href="#/shareList">list...</a>
+<br><br><br><br>
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-3">
+	<div class="col-sm-3">
+			<div class="panel panel-default">
+			<div class="panel-heading"><b>회원사진</b>
+						<div class="form-group">
+						<!-- picture -->
+						<label class="col-sm-5 control-label" for="memberPicture"></label>
+						<div class="col-sm-8">
+						<img alt="" src="../img/{{member.memberPicture}}" id="memberPicture"  name="memberPicture" 
+							   width="200" height="200">
+						</div>
+					</div>
+			</div>
+			</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3">
+		<div class="panel panel-default">
+		<div class="panel-heading"><b>프로필</b></div>
+		<div class="panel-body">
+			<form class="form-horizontal" name="shareForm" novalidate="novalidate">
+			<!-- ID -->
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="id">ID : </label>
+				<div class="col-sm-8">
+				<input id="id"
+					   name="id"
+					   type="text" 
+					   class="form-control"
+					   required="required"
+					   data-ng-model="share.id"	
+					   data-ng-maxlength="35"
+					   disabled="disabled"		
+					   />
+					 </div>  
+				</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="age">나이 : </label>
+				<div class="col-sm-8">
+				<input id="age"
+					   name="age"
+					   type="text" 
+					   class="form-control"
+					   required="required"
+					   data-ng-model="share.memberAge"	
+					   data-ng-maxlength="35"
+					   disabled="disabled"		
+					   />
+					 </div>  
+				</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="tel">연락처 : </label>
+				<div class="col-sm-8">
+				<input id="tel"
+					   name="tel"
+					   type="text" 
+					   class="form-control"
+					   required="required"
+					   data-ng-model="share.memberTel"	
+					   data-ng-maxlength="35"
+					   disabled="disabled"		
+					   />
+					 </div>  
+				</div>
+			</form>
+		</div>
+		</div>
+	</div>
+	<div class="col-sm-8 col-sm-offset-1">
 		<div class="panel panel-default">
 		<div class="panel-heading"><b>상세 정보</b></div>
 		<pre>{{share}}</pre>
@@ -32,11 +101,7 @@
 					   data-ng-model="share.name"	
 					   data-ng-maxlength="35"
 					   disabled="disabled"		
-					   />	<!-- 사용자의 입력이 발생하면 share.name -->
-					   <div data-ng-show="shareForm.name.$dirty">
-						   <div class="alert alert-warning" data-ng-show="shareForm.name.$error.required">필수 입력 항목입니다.</div>
-						   <div class="alert alert-warning" data-ng-show="shareForm.name.$error.maxlength">35자리까지 입력가능합니다.</div>
-					   </div>
+					   />
 					 </div>  
 				</div>
 				
@@ -97,20 +162,36 @@
 				</div>
 				
 				<div class="form-group">
-					<!-- cost -->
-					<label class="col-sm-2 control-label" for="cost">비용 :</label>
-					<div class="col-sm-8">
-					<textarea class="form-control" rows="1" id="cost" 
-							name="cost" data-ng-model="share.cost"
-							disabled="disabled"
-							>
-					</textarea> 
-								 
-					</div>
-					<div data-ng-show="shareForm.cost.$dirty">
-						   <div class="alert alert-warning" data-ng-show="shareForm.cost.$error.required">필수 입력 항목입니다.</div>
-					   </div>
-					</div>
+							<!-- cost -->
+							<label class="col-sm-2 control-label" for="cost">비용 :</label>
+							<div class="col-sm-8">
+								
+								교통비<input id="transCost" name="transCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.transCost" placeholder="교통비:"
+									disabled="disabled" /> 
+									
+								숙박비<input id="stayCost" name="stayCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.stayCost" placeholder="숙박비:" 
+									disabled="disabled"/> 
+									
+								식비<input id="eatCost" name="eatCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.eatCost" placeholder="식비:" 
+									disabled="disabled"/>
+								
+								Total<input id="totalCost" name="totalCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.totalCost" placeholder="총 비용:" 
+									disabled="disabled"/>
+							</div>
+						</div>
+						
+						<div data-ng-show="shareForm.cost.$dirty">
+							<div class="alert alert-warning"
+								data-ng-show="shareForm.cost.$error.required">필수 입력 항목입니다.</div>
+						</div>
 					
 					<div class="form-group">
 						<!-- content -->
@@ -146,7 +227,7 @@
 </div>
 
 <div class="row">
-<div class="col-sm-8 col-sm-offset-3">
+<div class="col-sm-8 col-sm-offset-4">
 <div class="panel panel-default">
 		<div class="panel-heading"><b>댓글</b></div>
 		<div class="panel-body">
@@ -165,9 +246,7 @@
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>
-						댓글리스트
-					</th>
+					<th>NO</th><th>ID</th><th>내용</th>
 				</tr>
 			</thead>
 			<tbody>

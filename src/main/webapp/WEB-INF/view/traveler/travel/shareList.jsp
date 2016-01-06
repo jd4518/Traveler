@@ -31,7 +31,7 @@
 				<td>{{share.name}}</td>
 				<td><a href="#/shareDetail/{{share.boardNum}}">{{share.title}}</a></td>
 				<td>{{share.number}}</td>
-				<td>{{share.cost}}</td>
+				<td>{{share.totalCost}}</td>
 				<td><a href="#/shareModify/{{share.boardNum}}" class="btn btn-success">Edit...</a></td>
 				<td><a href="#/shareDelete/{{share.boardNum}}" class="btn btn-info">Delete...</a></td>
 			</tr>

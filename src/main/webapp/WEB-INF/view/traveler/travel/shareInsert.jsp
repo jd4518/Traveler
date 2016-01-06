@@ -9,7 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>shareInsert.jsp</title>
-
 </head>
 <body  data-ng-controller="shareController"  class="container">
 <a class="btn btn-primary" href="#/shareList">list...</a>
@@ -20,14 +19,14 @@
 		<div class="panel-heading"><b>정보 입력</b></div>
 		<div class="panel-body">
 					<form class="form-horizontal" name="shareForm" id="shareForm"
-						novalidate="novalidate" data-ng-submit="submit()"
-						enctype="multipart/form-data">
+						novalidate="novalidate" data-ng-submit="submit()">
 						<!-- Name -->
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="name">이름 : </label>
 							<div class="col-sm-8">
 								<input id="name" name="name" type="text" class="form-control"
-									required="required" data-ng-model="share.name"
+									required="required" data-ng-model="member.name"
+									disabled="disabled"
 									data-ng-maxlength="35" />
 								<!-- 사용자의 입력이 발생하면 share.name -->
 								<div data-ng-show="shareForm.name.$dirty">
@@ -38,14 +37,6 @@
 										data-ng-show="shareForm.name.$error.maxlength">35자리까지
 										입력가능합니다.</div>
 								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="id">id : </label>
-							<div class="col-sm-8">
-								<input id="id" name="id" type="text" class="form-control"
-									required="required" data-ng-model="share.id"
-									data-ng-maxlength="35" />
 							</div>
 						</div>
 
@@ -99,25 +90,28 @@
 							<!-- cost -->
 							<label class="col-sm-2 control-label" for="cost">비용 :</label>
 							<div class="col-sm-8">
-								<input id="cost" name="cost" type="number" class="form-control"
+								교통비
+								<input id="transCost" name="transCost" type="number" class="form-control"
 									required="required" data-ng-maxlength="15"
-									data-ng-model="cost1" placeholder="교통비:" /> <input
-									id="cost" name="cost" type="number" class="form-control"
+									data-ng-model="share.transCost" placeholder="교통비:" /> 
+								숙박비	
+								<input id="stayCost" name="stayCost" type="number" class="form-control"
 									required="required" data-ng-maxlength="15"
-									data-ng-model="cost2" placeholder="숙박비:" /> <input
-									id="cost" name="cost" type="number" class="form-control"
+									data-ng-model="share.stayCost" placeholder="숙박비:" /> 
+								식비	
+								<input id="eatCost" name="eatCost" type="number" class="form-control"
 									required="required" data-ng-maxlength="15"
-									data-ng-model="cost3" placeholder="식비:" />
-								<div data-ng-show="shareForm.cost.$dirty">
-									<b>Total : </b> {{getTotal()}}
-								</div>
+									data-ng-model="share.eatCost" placeholder="식비:" />
+								
+								Total : {{share.transCost+share.stayCost+share.eatCost}}원
 							</div>
 						</div>
-
 						<div data-ng-show="shareForm.cost.$dirty">
 							<div class="alert alert-warning"
 								data-ng-show="shareForm.cost.$error.required">필수 입력 항목입니다.</div>
 						</div>
+						
+						
 						<div class="form-group">
 							<!-- content -->
 							<label class="col-sm-2 control-label" for="content">내용 :</label>
@@ -126,16 +120,28 @@
 									data-ng-model="share.content"></textarea>
 							</div>
 						</div>
-
+						<div data-ng-show="shareForm.content.$dirty">
+							<div class="alert alert-warning"
+								data-ng-show="shareForm.content.$error.required">필수 입력 항목입니다.</div>
+						</div>
+						
 						<div class="form-group">
 							<!-- picture -->
 							<label class="col-sm-2 control-label" for="picture">사진등록:</label>
 							<div class="col-sm-8">
+							<img alt="" src="${pageContext.request.contextPath}/img/{{share.picture}}" width="150" height="150">
 								<input id="picture" name="picture" type="file"
 									required="required" data-ng-model="share.picture"
+									data-ng-file-select="onFileSelect($files)"
+									multiple accept="imgage/*"
 									data-ng-maxlength="15" /> <input type="button"
 									class="btn btn-success" data-ng-click="toggle()" value="올리기" />
 							</div>
+						</div>
+						
+						<div data-ng-show="shareForm.picture.$dirty">
+							<div class="alert alert-warning"
+								data-ng-show="shareForm.picture.$error.required">필수 등록 항목입니다.</div>
 						</div>
 
 						<div class="form-group">
@@ -147,11 +153,17 @@
 									placeholder="ex) 지역:서울 >> 경복궁  >> 인사동 >> 광장시장 >> 낙성대 >> 명동 "></textarea>
 							</div>
 						</div>
+						
+						<div data-ng-show="shareForm.map.$dirty">
+							<div class="alert alert-warning"
+								data-ng-show="shareForm.map.$error.required">필수 입력 항목입니다.</div>
+						</div>
 
 						<!-- Submit -->
 						<div class="form-group" align="center">
 							<input type="submit" value="확인" class="btn btn-primary" />
-							<input type="submit" value="취소" class="btn btn-danger" />
+							<input type="submit" value="취소" class="btn btn-danger" 
+							 data-ng-disabled="shareForm.$invalid"/>
 						</div>
 					</form>
 				</div>
