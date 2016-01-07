@@ -1,18 +1,3 @@
-CREATE TABLE TB_FILE
-(
-  IDX  int auto_increment,
-  BOARD_IDX int NOT NULL,
-  ORIGINAL_FILE_NAME CHAR(255) NOT NULL,
-  STORED_FILE_NAME CHAR(36) NOT NULL,
-  FILE_SIZE int,
-  CREA_DTM  date,
-  CREA_ID   CHAR(30) NOT NULL,
-  DEL_GB    CHAR(5)  NOT NULL,
-  PRIMARY KEY (IDX)
-);
-
-
-
 select * from Travelmember;
 
 drop table Travelmember;
@@ -68,17 +53,9 @@ create table TravelShareBoard(
 
 
 delete from TravelShareBoard
-
+drop table TravelShareBoard;
 select * from TravelShareBoard
-drop table RealTimeBoard;
 
-create table RealTimeBoard(
-	number 	  int auto_increment,
-	id 		  varchar(255),
-	content   varchar(255),
-	Real_date date,
-	PRIMARY KEY (number)
-);
 
 create table Comment(
 	listNo    int,
@@ -93,20 +70,7 @@ insert into Comment(listNo,id,content) values('24','zz','하하')
 update Comment set listNo = '28' where listNo='25'
 select * from Comment 
 
-create table Travelmember(
-	id 				varchar(255),
-	memberPicture	varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
-	password 		varchar(255),
-	name 			varchar(255),
-	register_date 	date,
-	tel 			varchar(255),
-	address 		varchar(255),
-	addressNum      int(100),
-	constraint pk_id primary key(id)
-);
 
-insert into Travelmember(id,memberPicture,password,name,register_date,tel,address,addressNum)
-values('dfg','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
 
 drop table Travelmember
 delete from Travelmember
@@ -128,12 +92,3 @@ values('2','dfg','같이 여행갑시다','2016/01/06');
 
 select * from RealTimeBoard
 delete from RealTimeBoard
-
-drop table RealTimeBoard
-
-set foreign_key_checks=0;
-set foreign_key_checks=1;
-
-drop table Travelmember;
-show create table Travelmember;
-alter table TravelShareBoard drop foreign key id;
