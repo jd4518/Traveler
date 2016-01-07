@@ -94,6 +94,14 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 
 	    return '';
 	};
+	
+	$scope.convertMemberPicture = function() {
+		var name = $scope.member.memberPicture;
+		var pos = name.lastIndexOf("\\");
+		name = name.substr(pos + 1, name.length);
+		$scope.member.memberPicture = name;
+		return $scope.member.memberPicture;
+	};
 	 
 	$scope.submit = function() {
 		var ajax = $http.post(URL.POST_ITEM_APPEND, {

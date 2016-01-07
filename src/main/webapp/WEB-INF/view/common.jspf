@@ -8,7 +8,7 @@
 <c:url var="bootstrap_css"					value="/bootstrap/dist/css/bootstrap.css"/>
 <c:url var="font_awesome_css"				value="/font-awesome/css/font-awesome.css"/>
 <c:url var="metismenu_css"					value="/metismenu/dist/metisMenu.css"/>
-<c:url var="angular_loading_bar_css"	value="/angular-loading-bar/build/loading-bar.css"/>
+<c:url var="angular_loading_bar_css"	    value="/angular-loading-bar/build/loading-bar.css"/>
 <c:url var="bootstrap_fileinput_css"		value="/bootstrap-fileinput/css/fileinput.css"/>
 
 <link rel="stylesheet" href="${bootstrap_css}"/>
