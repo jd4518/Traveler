@@ -16,6 +16,8 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
+update Travelmember set num ='1' where num='3'
+select * from Travelmember;
 drop table RecommandList;
 
 create table RecommandList (
