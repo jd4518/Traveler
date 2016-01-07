@@ -4,25 +4,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<<<<<<< HEAD
 <!-- CSS -->
 <c:url var="bootstrap"					value="/bootstrap/dist/css/bootstrap.css"/>
 <c:url var="font_awesome"				value="/font-awesome/css/font-awesome.css"/>
 <c:url var="metismenu"					value="/metismenu/dist/metisMenu.css"/>
 <c:url var="angular_loading_bar_css"	value="/angular-loading-bar/build/loading-bar.css"/>
 <c:url var="bootstrap_fileinput"		value="/bootstrap-fileinput/css/fileinput.css"/>
-=======
 
 <!-- 서버에서 동작  CSS-->
 <c:url var="bootstrap" 					value="/bootstrap/dist/css/bootstrap.css"/>
 <c:url var="angular_loading_bar_css" 	value="/angular-loading-bar/build/loading-bar.css"/>
 <c:url var="font_awesome_css" 			value="/font-awesome/css/font-awesome.css"/>
 <c:url var="metismenu_css" 				value="/metismenu/dist/metisMenu.css"/>
->>>>>>> 80df735942ebbc8fc964a5f61fbba84067b7bcd2
 
 <link rel="stylesheet" href="${bootstrap}"/>
 <link rel="stylesheet" href="${angular_loading_bar_css}"/>
-<<<<<<< HEAD
 <link rel="stylesheet" href="${bootstrap_fileinput}"/>
 
 <!-- JavaScripte -->
@@ -30,7 +26,6 @@
 <c:url var="bootstrap_js"					value="/bootstrap/dist/js/bootstrap.js"/>
 <c:url var="metismenu_js"					value="/metismenu/dist/metisMenu.js"/>
 <c:url var="bootstrap_fileinput_js"			value="/bootstrap-fileinput/js/fileinput.js"/>
-=======
 <link rel="stylesheet" href="${font_awesome_css}"/>
 <link rel="stylesheet" href="${metismenu_css}"/>
 
@@ -48,17 +43,13 @@
 <c:url var="metismenu_js" 				value="/metismenu/dist/metisMenu.js"/>
 <c:url var="ngmap"	 					value="/ngmap/build/scripts/ng-map.js"/>
 
->>>>>>> 80df735942ebbc8fc964a5f61fbba84067b7bcd2
 
 <!-- URL경로 설정 -->
 
 <script type="text/javascript" src="${jquery}"></script>
 <script type="text/javascript" src="${bootstrap_js}"></script>
-<<<<<<< HEAD
 <script type="text/javascript" src="${metismenu_js}"></script>
 <script type="text/javascript" src="${bootstrap_fileinput_js}"></script>
-=======
->>>>>>> 80df735942ebbc8fc964a5f61fbba84067b7bcd2
 
 <script type="text/javascript" src="${angular}"></script>
 <script type="text/javascript" src="${angular_route}"></script>

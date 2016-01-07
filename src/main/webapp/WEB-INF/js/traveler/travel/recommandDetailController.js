@@ -20,14 +20,41 @@ app.controller('detailController', function($scope, $http, URL, $routeParams, $l
 
 	$scope.$parent.title = "detail Recommand View";
 	
+	$scope.cancel = function(){
+		$location.path("/recommandList");
+	}
+
+	
+	$scope.commentLists=[];
+	$scope.recommand={};
+	$scope.content={};
+	
+	$scope.aaa = function(){ 
 	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.listNo); 
 	ajax.then(function(value) {
 		console.dir(value);
 		$scope.recommand = value.data;
+		
 	}, function(reason) {
 		console.dir(reasone);
 		alert("error...");
 	});
+	};
 	
+	$scope.aaa();
+	
+	$scope.click = function(){
+		var ajax = $http.post(URL.PUT_ITEM_MODIFY_BASE + $scope.recommand.listNo , {
+			listNo   : $scope.recommand.listNo,
+			id 		 : $scope.recommand.name,
+			content  : $scope.content.content,
+		});
+		
+		ajax.then(function(value) {
+			$scope.aaa();
+		}, function(reason) {
+			$scope.recommand = reason.data;
+		});
+	};
 
 });

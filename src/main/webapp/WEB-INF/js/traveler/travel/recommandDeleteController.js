@@ -21,7 +21,7 @@ app.controller('deleteController', function($scope, $http, URL, $routeParams, $l
 	$scope.$parent.title = "Delete Recommand View";
 	
 	$scope.back = function(){
-		$location.path("/list");
+		$location.path("/recommandList");
 	}
 
 	

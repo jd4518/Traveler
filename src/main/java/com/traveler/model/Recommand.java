@@ -1,5 +1,9 @@
 package com.traveler.model;
 
+import java.util.List;
+
+
+
 public class Recommand {
 	private int listNo;
 	private	String title;
@@ -7,6 +11,18 @@ public class Recommand {
 	private String name;
 	private String content;
 	private String picture;
+	List<Comment> comments;
+	
+	
+	public void setCommentList(List<Comment> comments){
+		this.comments=comments;
+	}
+	
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
 	public int getListNo() {
 		return listNo;
 	}

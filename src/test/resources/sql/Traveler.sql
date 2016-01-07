@@ -13,8 +13,6 @@ CREATE TABLE TB_FILE
 
 
 
-<<<<<<< HEAD
-=======
 select * from Travelmember;
 
 drop table Travelmember
@@ -37,7 +35,6 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
->>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
 drop table RecommandList;
 
 create table RecommandList (
@@ -82,7 +79,28 @@ values('Hong','1','gusdn','홍현우','26','010-5170-7855','낭만적인부산',
 delete from TravelShareBoard
 
 select * from TravelShareBoard
-drop table TravelShareBoard
+drop table RealTimeBoard;
+
+create table RealTimeBoard(
+	number 	  int auto_increment,
+	id 		  varchar(255),
+	content   varchar(255),
+	Real_date date,
+	PRIMARY KEY (number)
+);
+
+create table Comment(
+	listNo    int,
+	cono 	  int auto_increment,
+	id 		  varchar(255),
+	content   varchar(255),
+	PRIMARY KEY (cono)
+);
+
+drop table Comment
+insert into Comment(listNo,id,content) values('24','zz','하하')
+update Comment set listNo = '28' where listNo='25'
+select * from Comment 
 
 create table Travelmember(
 	id 				varchar(255),
@@ -102,9 +120,3 @@ drop table Travelmember
 
 select * from Travelmember
 select count(*) from RecommandList
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 5b5bca93d1ddd6a99b34ee35982b42dcf44bdbd7
