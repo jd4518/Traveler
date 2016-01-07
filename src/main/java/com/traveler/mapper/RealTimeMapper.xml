@@ -58,5 +58,13 @@
 			#{real_date, 			jdbcType=DATE}
 		 )	
     </insert>
+    
+    <delete id="deleteByNumber" parameterType="int">
+		delete from RealTimeBoard where number = #{number}      
+      </delete>
+      
+       <delete id="deleteAll">
+        	delete from RealTimeBoard
+   		</delete>
          
 </mapper>

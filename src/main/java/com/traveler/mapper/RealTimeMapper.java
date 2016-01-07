@@ -12,4 +12,7 @@ public interface RealTimeMapper {
 	List<RealTime> selectPage(Pagination paging);
 	
 	int insert(RealTime realTime);
+	
+	int deleteByNumber(int number);
+	int deleteAll();
 }

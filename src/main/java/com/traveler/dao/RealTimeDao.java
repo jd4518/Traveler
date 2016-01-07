@@ -38,4 +38,12 @@ public class RealTimeDao {
 		return realTime.getId();
 	}
 	
+	public int deleteByNumber(int number) {
+		return realTimeMapper.deleteByNumber(number);
+	}
+	
+	public int deleteAll() {
+		return realTimeMapper.deleteAll();
+	}
+	
 }

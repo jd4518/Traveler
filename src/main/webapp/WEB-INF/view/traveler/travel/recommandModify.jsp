@@ -12,7 +12,6 @@
 <title>recommandModify.jsp</title>
 </head>
 <body class="container">
-<h1><a href="#" class="btn btn-primary">{{title}}</a></h1>
 <form class="form-horizontal" novalidate="novalidate" name="recommandForm" data-ng-submit="submit()">
   <fieldset>
     <legend><h1>추천 게시판</h1></legend>
@@ -24,6 +23,7 @@
         	   id="title" 
         	   name="title" 
         	   placeholder="Title"
+        	   required="required"
         	   data-ng-model="recommand.title"
         	   >
       </div>
@@ -38,7 +38,7 @@
         	   name="name"
         	   data-ng-model="recommand.name"
         	   >
-        <div class="checkbox"  data-ng-model="recommand.area">
+        <div class="checkbox"  data-ng-model="recommand.area" required="required">
           <label>
           	<input type="radio" 
             	   value="서울"
@@ -134,18 +134,19 @@
     <div class="form-group">
       <label for="content" class="col-lg-2 control-label">내용</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="20" id="content" name="content"  data-ng-model="recommand.content"></textarea>
+        <textarea class="form-control" rows="20" id="content" name="content"  data-ng-model="recommand.content" required="required"></textarea>
         <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
       </div>
     </div>
      <div class="form-group">
       <label for="picture" class="col-lg-2 control-label">사진</label>
-      <div class="col-lg-10 col-lg-offset-3">
+      <div class="col-lg-8 col-lg-offset-2">
         <input type="file" 
         	   id="picture" 
         	   name="picture"
         	   size="50"
-        	   ><input type="button"  data-ng-click="toggle()" value="올리기">
+        	   >
+        	   <input type="button"  data-ng-click="toggle()" value="올리기">
       </div>
     </div>
 <!--     <div class="file-input file-input-ajax-new"> -->
@@ -159,20 +160,10 @@
 				value="확인"
 			    data-ng-disabled="recommandForm.$invalid"
         >Submit</button>
-        <div>recommandForm.$invalid = {{recommandForm.$invalid}}</div>
       </div>
     </div>
   </fieldset>
 </form>
-<div>
-<textarea rows="20" class="form-control">
-	{{p}}
-	recommand.area    =  {{recommand.area}}
-	recommand.title   =  {{recommand.title}}
-	recommand.name    =  {{recommand.name}}
-	recommand.picture =  {{recommand.picture}}
-	recommand.content =  {{recommand.content}}
-</textarea>
-</div>
+<hr>
 </body>
 </html>

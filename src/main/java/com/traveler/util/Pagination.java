@@ -7,6 +7,7 @@ public class Pagination {
 	 */
 	private int totalItem;	// select count(*) from city
 	private int pageNo;		// request Parameter pageNo
+	private int itemNo;
 	
 	/*
 	 * read-only
@@ -93,6 +94,11 @@ public class Pagination {
 		 */
 		calculate();
 	}
+	
+	public int getItemNo(){
+		return totalItem-(pageNo-1)*itemsPerPage;
+	}
+	
 	public int getPageNo() {
 		return pageNo;
 	}

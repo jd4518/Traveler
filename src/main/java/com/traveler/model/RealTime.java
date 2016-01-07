@@ -8,7 +8,6 @@ public class RealTime {
 	private int number;
 	private String content;
 	private String id;
-	
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date real_date;
 	
