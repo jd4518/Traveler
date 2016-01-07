@@ -15,14 +15,18 @@
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
+				<th>번호</th>
 				<th>ID</th>
 				<th>내용</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr data-ng-repeat="realTime in realTimes">
+				<td>{{realTime.number}}</td>
 				<td>{{realTime.id}}</td>
 				<td>{{realTime.content}}</td>
+				<td><a href="#/realTimeDelete/{{realTime.number}}" class="btn btn-info">Delete</a></td>
 			</tr>
 			<tr><th colspan="8">
 				<div 
@@ -57,7 +61,6 @@
 		data-ng-model="realTime.reg_date">
 		{{realTime.reg_date}}
 		</textarea>
-		
 <br>
 	<!-- Submit -->
 	<div class="form-group" align="center">

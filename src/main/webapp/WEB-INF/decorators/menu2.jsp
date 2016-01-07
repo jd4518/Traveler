@@ -11,6 +11,9 @@
 
 <sitemesh:write property='head'/>
 
+
+
+
 <style type="text/css">
 	
 footer{
@@ -24,10 +27,10 @@ footer{
 
     <!-- Custom CSS -->
     <link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
+    
 
     <!-- Custom Fonts -->
     <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 <!-- 로그인처리 -->
 <script type="text/javascript">
@@ -37,6 +40,8 @@ footer{
 		ajax.then(function(value) {
 			$scope.$parent.loginstatus = value.data.login;
 		});
+		
+		$scope.member = {};
 	});
 </script>
 
@@ -46,19 +51,20 @@ footer{
 <body data-ng-controller="mainController">
   <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    
     <nav data-ng-controller="navController" id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <c:url var="member_logout" value="/traveler/member/logout"></c:url>
+            <c:url var="member_logout" value="/traveler/logout"></c:url>
             <li class="sidebar-brand">
                 <a href=""  onclick = $("#menu-close").click(); >Traveler</a>
             </li>
             <li>
-                <a href="/Traveler/traveler/member/main.html" onclick = $("#menu-close").click(); >Home</a>
+                <a href="/Traveler/traveler/member/memberMain.html" onclick = $("#menu-close").click(); >Home</a>
             </li>
             <li>
-            	<a href="#">Service <span class="caret"></span> </a>
-            	<ul>
+            	<a href="" data-toggle="collapse" data-target="#demo" id="service">Service <span class="caret"></span>  </a>
+            	<ul id="demo" class="collapse">
 	                <li><a href="#" onclick = $("#menu-close").click();>추천 여행지</a></li>
 	                <li><a href="#" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
 	                <li><a href="#" onclick = $("#menu-close").click();>여행 멤버 모집</a></li>
@@ -67,6 +73,10 @@ footer{
             </li>
             <li data-ng-hide="loginstatus">
                 <a href="/Traveler/traveler/admin/main.html#/memberappend" onclick = $("#menu-close").click(); >SignUp</a>
+            </li>
+            
+            <li data-ng-show="loginstatus">
+                <a href="/Traveler/traveler/admin/main.html#/membermodify/{{member.num}}" onclick = $("#menu-close").click(); >Edit Profile</a>
             </li>
             
             <li data-ng-hide="loginstatus">

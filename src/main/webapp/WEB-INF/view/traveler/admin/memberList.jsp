@@ -33,7 +33,7 @@ td {
 				<div class="panel-heading">회원 목록 - 관리자 전용</div>
 				<hr>
 				<div class="col-md-offset-8 input-group">
-					<input type="text" class="form-control"> 
+					<input type="text" class="form-control">
 					<span class="input-group-btn">
 						<button class="btn btn-success" type="button">
 							<i class="fa fa-search"></i>

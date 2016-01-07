@@ -63,6 +63,11 @@
 	<bean id="realTimeRegisterService" class="com.traveler.service.RealTimeRegisterService">
 		<property name="realTimeDao" ref="realTimeDao"></property>
 	</bean>
+	
+	<!-- RealTimeUnRegisterService -->
+	<bean id="realTimeUnRegisterService" class="com.traveler.service.RealTimeUnRegisterService">
+		<property name="realTimeDao" ref="realTimeDao"></property>
+	</bean>
 
 	
 	<bean id="recommandDetailService" class="com.traveler.service.RecommandDetailService">

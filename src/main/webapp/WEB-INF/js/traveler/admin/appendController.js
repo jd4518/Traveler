@@ -91,8 +91,15 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	        }
 	      }
 	    }
-
 	    return '';
+	};
+	
+	$scope.convertMemberPicture = function() {
+		var name = $scope.member.memberPicture;
+		var pos = name.lastIndexOf("\\");
+		name = name.substr(pos + 1, name.length);
+		$scope.member.memberPicture = name;
+		return $scope.member.memberPicture;
 	};
 	 
 	$scope.submit = function() {
@@ -100,7 +107,6 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		var ajax = $http.post(URL.POST_ITEM_APPEND, {
 			memberPicture : $scope.member.memberPicture,
 			num : $scope.member.num,
-			memberPicture : $scope.member.memberPicture,
 			id : $scope.member.id,
 			password : $scope.member.password,
 			name : $scope.member.name,
@@ -113,13 +119,15 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		
 		ajax.then(function(value) {
 			console.log("success...");
-			$location.path("/main.html");
+			$location.path("../admin/main.html");
 		}, function(reason) {
 			console.dir(reason)
 			$scope.member = reason.data;
 		});
 	};
 	
+	
+	//다음 주소 api
     $scope.adsSystem = function () {
         new daum.Postcode({
             oncomplete: function(data) {

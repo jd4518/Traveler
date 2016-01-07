@@ -31,13 +31,6 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
-	@RequestMapping(value = "/nameAndTel.html", method = RequestMethod.GET)
-	public String getIdAndPwdView(){
-		log.info("getNameAndTelView()...");
-		
-		return "/traveler/member/nameAndTel";
-	}
-	
 	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
 	public String getLoginView(){
 		log.info("getLoginView()...");
@@ -58,29 +51,17 @@ public class LoginController {
 		return command;
 	}
 	
-	@RequestMapping(value="/nameAndTel",method = RequestMethod.POST)
-	@ResponseBody
-	public LoginCommand idAndPwd(@RequestBody LoginCommand command, HttpSession session){
-		log.info("name = " + command.getName());
-		log.info("tel = " + command.getTel());
-		
-		Member member = loginService.nameAndTel(command.getName(), command.getTel());
-		session.setAttribute("nameAndTel", true);
-		session.setAttribute("member", member);
-		
-		return command;
-	}
 	
 	@RequestMapping(value="/logout",method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		log.info("logout()...");
 		
 		session.invalidate(); //session 날리기
-		return "redirect:/traveler/member/login.html";
+		return "redirect:/traveler/login.html";
 	}
 	
 	
-	@RequestMapping(value = "/logincheck", method = RequestMethod.GET)
+	@RequestMapping(value ="/logincheck", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> loginCheck(HttpSession session){
 		Map<String, Object> map = new HashMap<>();

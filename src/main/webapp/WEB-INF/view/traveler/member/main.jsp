@@ -34,11 +34,15 @@ app.controller("mainController", function($scope, $http, $location) {
 });
 
 </script>
+
+
+
 <!-- Bootstrap Core CSS -->
 <link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
+
 
 <!-- Custom Fonts -->
 <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -47,7 +51,9 @@ app.controller("mainController", function($scope, $http, $location) {
 </head>
 
 <body data-ng-controller="mainController">
+	<div>
 	<pre>{{login}}</pre>
+    </div>
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
@@ -102,7 +108,7 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
-                                <a href="/shareList.html" class="btn btn-light">여행 정보 공유 게시판</a>
+                                <a href="../main.html#/shareList" class="btn btn-light">여행 정보 공유 게시판</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">

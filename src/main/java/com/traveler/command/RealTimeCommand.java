@@ -25,7 +25,6 @@ public class RealTimeCommand {
 
 	private Map<String, Object> errorMessage;
 	
-	
 	public int getNumber() {
 		return number;
 	}
