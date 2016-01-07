@@ -26,11 +26,10 @@ public class MemberController {
 		return "traveler/member/loginForm";
 	}
 	
-	@RequestMapping(value="main.html")
+	@RequestMapping(value="memberMain.html")
 	public String getMainView(){
 		log.info("getMainView()...");
 		
 		return "traveler/member/main";
 	}
-	
 }

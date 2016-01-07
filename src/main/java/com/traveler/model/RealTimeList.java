@@ -10,19 +10,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="Response")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ShareList {
-	@XmlElementWrapper(name="shares")
-	@XmlElement(name="share")
+public class RealTimeList {
+	@XmlElementWrapper(name="realTimes")
+	@XmlElement(name="realTime")
 	
-	List<Share> shares;
-	
-	public List<Share> getShares() {
-		return shares;
+	List<RealTime> realTimes;
+
+	public List<RealTime> getRealTimes() {
+		return realTimes;
 	}
 
-	public void setShares(List<Share> shares) {
-		this.shares = shares;
+	public void setRealTimes(List<RealTime> realTimes) {
+		this.realTimes = realTimes;
 	}
-	
-
 }

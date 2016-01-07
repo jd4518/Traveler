@@ -25,6 +25,36 @@
 	<bean id="shareModifyService" class="com.traveler.service.ShareModifyService">
 		<property name="shareDao" ref="shareDao"></property>
 	</bean>
+	<!-- ShareListService -->
+	<bean id="shareListService" class="com.traveler.service.ShareListService">
+		<property name="shareDao" ref="shareDao"></property>
+	</bean>
+
+	<!-- SharePageService -->
+	<bean id="sharePageService" class="com.traveler.service.SharePageService">
+		<property name="shareDao" ref="shareDao"></property>
+	</bean>
+	
+	<!-- RealTimeDetailService -->
+	<bean id="realTimeDetailService" class="com.traveler.service.RealTimeDetailService">
+		<property name="realTimeDao" ref="realTimeDao" />
+	</bean>
+	
+	<!-- RealTimeListService -->
+	<bean id="realTimeListService" class="com.traveler.service.RealTimeListService">
+		<property name="realTimeDao" ref="realTimeDao"/>
+	</bean>
+	
+	<!-- RealTimePageService -->
+	<bean id="realTimePageService" class="com.traveler.service.RealTimePageService">
+		<property name="realTimeDao" ref="realTimeDao"/>
+	</bean>
+	
+	<!-- RealTimeRegisterService -->
+	<bean id="realTimeRegisterService" class="com.traveler.service.RealTimeRegisterService">
+		<property name="realTimeDao" ref="realTimeDao"></property>
+	</bean>
+
 	
 	<bean id="recommandDetailService" class="com.traveler.service.RecommandDetailService">
 		<property name="recommandDao" ref="recommandDao" />
@@ -55,16 +85,6 @@
 	<!-- LoginService -->
 	<bean id="loginService" class="com.traveler.service.LoginService">
 		<property name="memberDao" ref="memberDao" />
-	</bean>
-
-	<!-- ShareListService -->
-	<bean id="shareListService" class="com.traveler.service.ShareListService">
-		<property name="shareDao" ref="shareDao"></property>
-	</bean>
-
-	<!-- SharePageService -->
-	<bean id="sharePageService" class="com.traveler.service.SharePageService">
-		<property name="shareDao" ref="shareDao"></property>
 	</bean>
 
 	<!-- MemberListService -->

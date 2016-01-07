@@ -13,7 +13,6 @@ public interface AdminMapper {
 	Member selectByNum(int num);
 	
 	int insert(Member member);
-	
 	int update(Member member);
 	int deleteByNum(int num);
 	int chkId(String ckid); 

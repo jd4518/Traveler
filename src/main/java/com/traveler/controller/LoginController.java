@@ -51,6 +51,7 @@ public class LoginController {
 		return command;
 	}
 	
+	
 	@RequestMapping(value="/logout",method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		log.info("logout()...");
