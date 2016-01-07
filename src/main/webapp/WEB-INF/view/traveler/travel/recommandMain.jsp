@@ -49,7 +49,7 @@
 	
 	app.config(function($routeProvider) {
 		$routeProvider.otherwise({
-			redirectTo: "/list"
+			redirectTo: "/recommandList"
 		});
 	});
 	
@@ -79,7 +79,6 @@
 
 </head>
 <body  class="container">
-<h1><a href="" class="btn btn-primary">{{title}}</a></h1>
 <div data-ng-view>
 </div>
 </body>

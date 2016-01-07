@@ -13,7 +13,7 @@
  
 <!-- LogAspect -->
 <aop:aspectj-autoproxy/>
-<bean class="com.traveler.aspect.LogAspect"/>
+<bean id="logAspect" class="com.traveler.aspect.LogAspect"/>
 
 <!-- Oracle / MySQL -->
 <context:property-placeholder location="classpath:database/db.properties"/>
@@ -85,6 +85,10 @@
 	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
 
+<bean id="commentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.CommentMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
 <!-- RealTimeMapper -->
 <bean id="realTimeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="mapperInterface" value="com.traveler.mapper.RealTimeMapper"/>
@@ -106,6 +110,11 @@
 	<property name="adminMapper" ref="adminMapper"/>
 	<property name="memberMapper" ref="memberMapper"/>
 </bean>
+
+<bean id="commentDao" class="com.traveler.dao.CommentDao">
+	<property name="commentMapper" ref="commentMapper"/>
+</bean>
+
 
 <!-- RealTimeDao -->
 <bean id="realTimeDao" class="com.traveler.dao.RealTimeDao">

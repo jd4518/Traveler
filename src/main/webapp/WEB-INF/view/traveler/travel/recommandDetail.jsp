@@ -12,8 +12,7 @@
 <title>recommandList.jsp</title>
 </head>
 <body class="container">
-<h1><a href="#" class="btn btn-primary">{{title}}</a></h1>
-<form class="form-horizontal" novalidate="novalidate" name="recommandForm" data-ng-submit="submit()">
+<form class="form-horizontal" novalidate="novalidate" name="commentForm" data-ng-submit="submit()">
   <fieldset>
     <legend><h1>추천 게시판</h1></legend>
     <div class="form-group">
@@ -41,31 +40,31 @@
       	{{recommand.content}}
       </div>
     </div>
-<!--     <div class="file-input file-input-ajax-new"> -->
-<!--     <input id="input-dim-1" name="inputdim1[]" type="file" multiple class="file-loading" accept="image/*"> -->
-<!--     </div> -->
+    	<h1>댓글</h1>
+	 <div class="form-group" data-ng-repeat="comment in recommand.comments">
+	  <label class="col-lg-2 control-label">{{comment.id}}</label>
+	  <div class="col-lg-10">
+	  {{comment.content}}
+	  </div>
+	 </div>
+	<div class="form-group">
+	<label  class="col-lg-2 control-label">댓글입력</label>
+	   <div  class="col-lg-7">
+	   <textarea name="comment" cols='105' rows='5' data-ng-model="content.content" required>
+	   </textarea>
+	   <span style="color:red" data-ng-show="commentForm.comment.$dirty && commentForm.comment.$invalid">
+		<span data-ng-show="commentForm.comment.$error.required">내용을 입력해주세요.</span>
+		</span></div>
+	   <div class="help-block with-errors"></div>
+	   <div class="col-lg-2"><input name="button" type="button" data-ng-click="click()" class="btn btn-info"  value="입력"
+	   data-ng-disabled="commentForm.comment.$invalid"> </div>
+	</div>
      <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="button" class="btn btn-default" data-ng-click="cancel()">Cancel</button>
-        <button type="submit"
-        		class="btn btn-primary"
-				value="확인"
-			    data-ng-disabled="recommandForm.$invalid"
-        >Submit</button>
-        <div>recommandForm.$invalid = {{recommandForm.$invalid}}</div>
+        <button type="button" class="btn btn-default" data-ng-click="cancel()">목록</button>
       </div>
     </div>
   </fieldset>
 </form>
-<div>
-<textarea rows="20" class="form-control">
-	{{p}}
-	recommand.area    =  {{recommand.area}}
-	recommand.title   =  {{recommand.title}}
-	recommand.name    =  {{recommand.name}}
-	recommand.picture =  {{recommand.picture}}
-	recommand.content =  {{recommand.content}}
-</textarea>
-</div>
 </body>
 </html>

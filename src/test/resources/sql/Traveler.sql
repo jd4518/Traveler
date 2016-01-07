@@ -1,3 +1,18 @@
+CREATE TABLE TB_FILE
+(
+  IDX  int auto_increment,
+  BOARD_IDX int NOT NULL,
+  ORIGINAL_FILE_NAME CHAR(255) NOT NULL,
+  STORED_FILE_NAME CHAR(36) NOT NULL,
+  FILE_SIZE int,
+  CREA_DTM  date,
+  CREA_ID   CHAR(30) NOT NULL,
+  DEL_GB    CHAR(5)  NOT NULL,
+  PRIMARY KEY (IDX)
+);
+
+
+
 select * from Travelmember;
 
 drop table Travelmember;
@@ -32,7 +47,7 @@ alter table RecommandList MODIFY listNo int(11) auto_increment
 
 insert into RecommandList(title,name,content,picture) values('우와된당','홍우','너는누구냐나야야누이할','1')
 
-select * from RecommandList;
+select * from RecommandList where listNo=28;
 select count(*) from RecommandList;
 
 create table TravelShareBoard(
@@ -55,7 +70,28 @@ create table TravelShareBoard(
 delete from TravelShareBoard
 
 select * from TravelShareBoard
-drop table TravelShareBoard
+drop table RealTimeBoard;
+
+create table RealTimeBoard(
+	number 	  int auto_increment,
+	id 		  varchar(255),
+	content   varchar(255),
+	Real_date date,
+	PRIMARY KEY (number)
+);
+
+create table Comment(
+	listNo    int,
+	cono 	  int auto_increment,
+	id 		  varchar(255),
+	content   varchar(255),
+	PRIMARY KEY (cono)
+);
+
+drop table Comment
+insert into Comment(listNo,id,content) values('24','zz','하하')
+update Comment set listNo = '28' where listNo='25'
+select * from Comment 
 
 create table Travelmember(
 	id 				varchar(255),

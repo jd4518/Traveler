@@ -30,6 +30,9 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 //	});
 	
 
+	$scope.cancel = function(){
+		$location.path("/recommandList");
+	}
 	
 	$scope.recommand = {};
 	
@@ -55,11 +58,10 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		});
 		
 		ajax.then(function(value) {
-			$location.path("/list");
+			$location.path("/recommandList");
 		}, function(reason) {
 			$scope.recommand = reason.data;
 		});
-		
 		
 	};
 	
