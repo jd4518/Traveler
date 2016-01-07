@@ -9,6 +9,7 @@
 	<!-- ShareDetailService -->
 	<bean id="shareDetailService" class="com.traveler.service.ShareDetailService">
 		<property name="shareDao" ref="shareDao" />
+		<property name="shareCommentDao" ref="shareCommentDao" />
 	</bean>
 
 	<!-- ShareRegisterService -->
@@ -33,6 +34,14 @@
 	<!-- SharePageService -->
 	<bean id="sharePageService" class="com.traveler.service.SharePageService">
 		<property name="shareDao" ref="shareDao"></property>
+	</bean>
+	
+	<bean id="shareCommentRegisterService" class="com.traveler.service.ShareCommentRegisterService">
+		<property name="shareCommentDao" ref="shareCommentDao"></property>
+	</bean>
+	
+	<bean id="shareCommentService" class="com.traveler.service.ShareCommentService">
+		<property name="shareCommentDao" ref="shareCommentDao"></property>
 	</bean>
 	
 	<!-- RealTimeDetailService -->

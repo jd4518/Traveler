@@ -11,7 +11,6 @@ app.config(function($routeProvider) {
 		
 	});
 
-
 	app.controller('detailController', function($scope, $http, URL, $routeParams) {
 		console.log("detailController...");
 		console.log("URL.GET_ITEM_BASE =" + URL.GET_ITEM_BASE);
@@ -19,13 +18,38 @@ app.config(function($routeProvider) {
 		
 		$scope.$parent.title = "상세정보";		
 		
+		$scope.content=[];
+		
+		
+		$scope.aaa = function(){
 		var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.boardNum);	//ajax를 이용하여 페이지 호출
 		
 		ajax.then(function(value) {			//ajax if문 표현 
 			console.dir(value);
-			$scope.share = value.data;		//model에 binding이 자동으로 된다.	
+			$scope.share = value.data;		//model에 binding이 자동으로 된다.
+			$scope.content = $scope.share.contents;
 		}, function(reason) {
 			console.dir(reason);
 			alert("error...");
 		});
+		};
+		
+		
+		$scope.aaa();
+		
+		$scope.click = function(){
+			var ajax = $http.post(URL.PUT_ITEM_MODIFY_BASE + $scope.share.boardNum , {
+				listNo   : $scope.share.boardNum,
+				id 		 : $scope.share.id,
+				content  : $scope.content.content,
+			});
+			
+			ajax.then(function(value) {
+				$scope.aaa();
+			}, function(reason) {
+				$scope.recommand = reason.data;
+			});
+		};
+
+		
 	});

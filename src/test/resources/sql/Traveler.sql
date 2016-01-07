@@ -16,6 +16,8 @@ create table Travelmember(
    constraint pk_tr primary key(num)
 );
 
+delete from RecommandList;
+
 update Travelmember set num ='1' where num='3'
 select * from Travelmember;
 drop table RecommandList;
@@ -29,10 +31,10 @@ create table RecommandList (
   picture char(100) default 'nothing.jpg , nothing.png, nothing.gif',
   PRIMARY KEY (listNo)
 );
-alter table RecommandList MODIFY area char(20);
+alter table RecommandList MODIFY name char(20);
 alter table RecommandList MODIFY listNo int(11) auto_increment
 
-insert into RecommandList(title,name,content,picture) values('우와된당','홍우','너는누구냐나야야누이할','1')
+insert into RecommandList(title,content,picture) values('우와된당','너는누구냐나야야누이할','1')
 
 select * from RecommandList where listNo=28;
 select count(*) from RecommandList;
@@ -49,7 +51,6 @@ create table TravelShareBoard(
 	content   longtext,
 	picture	  varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
 	map		  varchar(255),
-	foreign key(id) references Travelmember(id),
 	constraint boardNum primary key(boardNum)
 );
 
@@ -66,6 +67,16 @@ create table Comment(
 	content   varchar(255),
 	PRIMARY KEY (cono)
 );
+
+create table ShareComment(
+	listNo    int,
+	cono 	  int auto_increment,
+	id 		  varchar(255),
+	content   varchar(255),
+	PRIMARY KEY (cono)
+);
+
+select * from ShareComment
 
 drop table Comment
 insert into Comment(listNo,id,content) values('24','zz','하하')

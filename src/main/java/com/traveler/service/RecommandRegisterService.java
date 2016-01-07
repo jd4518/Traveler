@@ -30,20 +30,6 @@ public class RecommandRegisterService {
 		try {
 			id = recommandDao.recommandInsert(recommand);
 		     
-//		    MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
-//		    Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-//		    MultipartFile multipartFile = null;
-//		    while(iterator.hasNext()){
-//		        multipartFile = multipartHttpServletRequest.getFile(iterator.next());
-//		        if(multipartFile.isEmpty() == false){
-//		            log.debug("------------- file start -------------");
-//		            log.debug("name : "+multipartFile.getName());
-//		            log.debug("filename : "+multipartFile.getOriginalFilename());
-//		            log.debug("size : "+multipartFile.getSize());
-//		            log.debug("-------------- file end --------------\n");
-//		        }
-//		    }
-
 		} catch (DataIntegrityViolationException e) {
 			throw new RecommandRegisterException();
 		}

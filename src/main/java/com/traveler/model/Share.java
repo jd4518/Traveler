@@ -1,5 +1,7 @@
 package com.traveler.model;
 
+import java.util.List;
+
 public class Share {
 	private int boardNum;
 	private String title;
@@ -12,8 +14,15 @@ public class Share {
 	private int stayCost;
 	private int eatCost;
 	private String id;
+	List<Comment> comments;
 	
-
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 	public String getId() {
 		return id;
 	}

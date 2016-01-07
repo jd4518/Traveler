@@ -26,10 +26,10 @@ var deps = ['ngRoute',
 
 var app = angular.module("travelerApp", deps);
 
+
 app.controller("mainController", function($scope, $http, $location) {
 	
 	console.log("mainController...");
-	
 	
 });
 
@@ -99,7 +99,11 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>추천 여행지</strong>
                                 </h4>
                                 <p>사이트에서 추천하는 여행지</p>
+<<<<<<< HEAD
                                 <a href="<c:url value="/traveler/recommand/recommandMain.html"/>" class="btn btn-light">추천 여행지 게시판</a>
+=======
+                                <a href="../recommand/recommandMain.html" class="btn btn-light">추천 여행지 게시판</a>
+>>>>>>> 34fae0170b8b3628db920891cf5421263d685bbe
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
@@ -150,7 +154,11 @@ app.controller("mainController", function($scope, $http, $location) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
+<<<<<<< HEAD
                      <h2><a href="#" class="btn btn-info btn-lg btn-block"><b>추천여행지</b></a></h2>
+=======
+                    <a class="btn btn-success btn-lg" href="../recommand/recommandMain.html">추천 여행지</a>
+>>>>>>> 34fae0170b8b3628db920891cf5421263d685bbe
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
