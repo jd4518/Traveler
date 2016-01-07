@@ -13,6 +13,8 @@ import com.traveler.model.Recommand;
 import com.traveler.service.CommentRegisterService;
 import com.traveler.service.CommentService;
 import com.traveler.service.RecommandDetailService;
+import com.traveler.service.ShareCommentRegisterService;
+import com.traveler.service.ShareDetailService;
 
 public class RecommandRegisterServiceTest {
 
@@ -26,17 +28,16 @@ public class RecommandRegisterServiceTest {
 		
 //		RecommandPageService service = ctx.getBean(RecommandPageService.class);
 //		RecommandRegisterService service = ctx.getBean(RecommandRegisterService.class);
-		RecommandDetailService service = ctx.getBean(RecommandDetailService.class);
+//		RecommandDetailService service = ctx.getBean(RecommandDetailService.class);
 //		RecommandUnRegisterService service = ctx.getBean(RecommandUnRegisterService.class);
 //		RecommandModifyService service = ctx.getBean(RecommandModifyService.class);
 //		CommentService service = ctx.getBean(CommentService.class);
 //		CommentRegisterService service = ctx.getBean(CommentRegisterService.class);
-			Comment comment = new Comment();
-			comment.setContent("야호");
-			comment.setId("노노");
-			comment.setListNo(50);
+//		ShareCommentRegisterService service = ctx.getBean(ShareCommentRegisterService.class);
+		ShareDetailService service = ctx.getBean(ShareDetailService.class);
+			service.shareDetail(1);
 			
-			service.detail(28);
+			log.info(service.shareDetail(1));
 	
 	}
 

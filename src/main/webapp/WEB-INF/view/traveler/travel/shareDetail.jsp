@@ -237,22 +237,23 @@
 				<div class="col-sm-8" align="right">
 							<textarea class="form-control" rows="5" 
 							id="reply" name="reply"
-							placeholder="댓글등록"></textarea>
+							placeholder="댓글등록" data-ng-model="content.content"></textarea>
 							<input type="button"
-							class="btn btn-info" value="등록" />
+							class="btn btn-info" data-ng-click="click()" value="등록" />
 				</div>  
 			</div>	
 		</form>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>NO</th><th>ID</th><th>내용</th>
+					<th>ID</th><th>내용</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>
+				<tr data-ng-repeat="comment in share.comments">
+					<td>{{comment.id}}
 					</td>
+					<td>{{comment.content}}</td>
 				</tr>			
 			</tbody>		
 		</table>

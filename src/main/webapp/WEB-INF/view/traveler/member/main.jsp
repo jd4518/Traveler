@@ -26,10 +26,10 @@ var deps = ['ngRoute',
 
 var app = angular.module("travelerApp", deps);
 
+
 app.controller("mainController", function($scope, $http, $location) {
 	
 	console.log("mainController...");
-	
 	
 });
 
@@ -146,7 +146,7 @@ app.controller("mainController", function($scope, $http, $location) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2 class="btn btn-success">추천 여행지</h2>
+                    <a class="btn btn-success btn-lg" href="../recommand/recommandMain.html">추천 여행지</a>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
