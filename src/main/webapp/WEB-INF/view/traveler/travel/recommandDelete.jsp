@@ -12,7 +12,6 @@
 <title>recommandModify.jsp</title>
 </head>
 <body class="container">
-<h1><a href="#" class="btn btn-primary">{{title}}</a></h1>
 	<h1>성공적으로 삭제 되었습니다.</h1>
 	<button type="button" class="btn btn-default" data-ng-click="back()">리스트로 돌아가기</button>
 </body>

@@ -18,6 +18,8 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	console.log("URL.GET_ITEM_BASE = " + URL.GET_ITEM_BASE);
 	console.log("id = " + $routeParams.id);
 
+	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id);
+	console.log("num = " + $routeParams.num);
 	
 	$scope.toggle = function(){
 		var p = $('#memberPicture').val();

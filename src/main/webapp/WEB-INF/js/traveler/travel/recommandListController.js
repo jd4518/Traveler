@@ -5,8 +5,8 @@ app.config(function($routeProvider) {
 
 		console.log("/recommandList config...")
 		
-		$routeProvider.when("/list", {
-			templateUrl: "list.html",
+		$routeProvider.when("/recommandList", {
+			templateUrl: "recommandList.html",
 			controller: "recommandListController"
 		});
 });
@@ -30,6 +30,8 @@ app.controller('recommandListController', function($scope, $http, URL) {
 	};
 	
 	$scope.selectPage();
+	
+		
 	
 		$scope.prevClick = function(pageNo) {
 			console.log("prevClick()... pageNo = " + pageNo);

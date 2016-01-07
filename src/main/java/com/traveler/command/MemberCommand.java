@@ -12,53 +12,53 @@ import com.traveler.model.Member;
 public class MemberCommand {
 	private String memberPicture;
 	private int num;
-	private String 	id;
-	private String 	password;
-	private String 	name;
+	private String id;
+	private String password;
+	private String name;
+	private String tel;
+	private String address;
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date 	register_date;
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date	birthday;
-	private String 	tel;
-	private String 	address;
 	private Integer addressNum;
-	
+
 	private Map<String, Object> errorMessage;
-	
+
 	public MemberCommand() {
 		errorMessage = new HashMap<>();
 	}
-	
+
 	public Map<String, Object> getErrorMessage() {
 		return errorMessage;
 	}
-	
+
 	public void validate() {
 		/*
 		 * name validation
 		 */
-		
+
 		/*
 		 * coutryCode validation
 		 */
-		
+
 		/*
 		 * district validation
 		 */
-		
+
 		/*
 		 * population validation
 		 */
 	}
-	
+
 	public boolean isValid() {
-		
+
 		if (errorMessage.size() > 0)
 			return false;
-		
+
 		return true;
 	}
-	
+
 	public Member getMember() {
 		Member m = new Member();
 		
@@ -72,7 +72,7 @@ public class MemberCommand {
 		m.setTel(tel);
 		m.setAddress(address);
 		m.setAddressNum(addressNum);
-		
+
 		return m;
 	}
 
@@ -91,7 +91,7 @@ public class MemberCommand {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	
+
 	public String getId() {
 		return id;
 	}

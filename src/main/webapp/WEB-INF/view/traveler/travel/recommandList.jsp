@@ -12,27 +12,30 @@
 <title>recommandList.jsp</title>
 </head>
 <body class="container">
-<h1><a href="" class="btn btn-primary">{{title}}</a></h1>
-
+<h1>추천 게시판</h1>
 <div class="table-responsive">
-	<ul class="pagination">
-		<li><a href="" data-ng-click="prevClick(paging.firstPage - 1)">Prev</a></li>
-		<li data-ng-repeat="recommand in recommandLists">
-			<a href="" data-ng-click="pageClick(paging.firstPage + $index)">{{paging.firstPage + $index}}</a>
-		</li>
-		<li><a href="" data-ng-click="prevClick(paging.lastPage + 1)">Next</a></li>
-	</ul>
-
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr><td><a href="#/recommandInsert" class="btn btn-primary">글쓰기</a></td></tr>
-			<tr><th colspan="8">
-<!-- 					<uib-pagination total-items="paging.totalItem" style="width:800px;"  -->
-<!-- 						ng-model="pageNo" -->
-<!-- 						max-size="10" -->
-<!-- 						ng-change="selectPage()" -->
-<!-- 						boundary-links="true"> -->
-<!-- 					</uib-pagination> -->
+			<tr>
+				<th>No</th>
+				<th>글 제목</th>
+				<th>지역</th>
+				<th>작성자</th>
+				<th>수정</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-ng-repeat="recommand in recommandLists">
+				<td >{{paging.itemNo-($index)}}</td>
+				<td><a href="#/recommandDetail/{{recommand.listNo}}">{{recommand.title}}</a></td>
+				<td>{{recommand.area}}</td>
+				<td>{{recommand.name}}</td>
+				<td><a href="#/recommandModify/{{recommand.listNo}}" class="btn btn-success">Edit...</a></td>
+				<td><a href="#/recommandDelete/{{recommand.listNo}}" class="btn btn-info">Delete...</a></td>
+			</tr>
+				<tr><td colspan="8">
 						<div data-uib-pagination 
 							data-total-items="paging.totalItem" style="width:800px;" 
 							data-ng-model="pageNo"
@@ -40,39 +43,12 @@
 							data-ng-change="selectPage()"
 							data-boundary-links="true">
 						</div>
-				</th>
-			</tr>
-			<tr>
-				<th>No</th>
-				<th>글 제목</th>
-				<th>지역</th>
-				<th>작성자</th>
-				<th>District</th>
-				<th>Population</th>
-				<th>수정</th>
-				<th>삭제</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr data-ng-repeat="recommand in recommandLists">
-				<td>{{recommand.listNo}}</td>
-				<td><a href="#/recommandDetail/{{recommand.listNo}}">{{recommand.title}}</a></td>
-				<td>{{recommand.area}}</td>
-				<td>{{recommand.name}}</td>
-				<td><a href="#/recommandModify/{{recommand.listNo}}" class="btn btn-success">Edit...</a></td>
-				<td><a href="#/recommandDelete/{{recommand.listNo}}" class="btn btn-info">Delete...</a></td>
+				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
-
 <hr>	
-<div class="form-group">
-<textarea rows="20" class="form-control">
-	{{recommandLists}}
-	{{paging}}
-</textarea>
-</div>
 
 </body>
 </html>

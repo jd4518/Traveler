@@ -40,9 +40,42 @@ footer{
 		ajax.then(function(value) {
 			$scope.$parent.loginstatus = value.data.login;
 		});
+		
+		$scope.member = {};
 	});
 </script>
+<!-- URL Resolve -->
+<c:url var="URL_GET_LIST"					value="/traveler/admin/"/>
+<c:url var="URL_GET_ITEM_BASE" 				value="/traveler/admin/"/>		
+<c:url var="URL_GET_PAGE_BASE" 				value="/traveler/admin/page/"/>	
 
+<c:url var="URL_POST_LIST_APPEND" 			value="/traveler/admin/"/>
+<c:url var="URL_POST_ITEM_APPEND" 			value="/traveler/admin/"/>
+
+<c:url var="URL_PUT_LIST_MODIFY" 			value="/traveler/admin/"/>
+<c:url var="URL_PUT_ITEM_MODIFY_BASE" 		value="/traveler/admin/"/>		
+
+<c:url var="URL_DELETE_ITEM_DELETE_BASE" 	value="/traveler/admin/"/>	
+
+
+<script type="text/javascript">
+
+	var urls = {
+			
+		GET_LIST : 					"${URL_GET_LIST}",
+		GET_PAGE_BASE : 			"${URL_GET_PAGE_BASE}",
+		GET_ITEM_BASE :				"${URL_GET_ITEM_BASE}",
+		
+		POST_LIST_APPEND :			"${URL_POST_LIST_APPEND}",
+		POST_ITEM_APPEND :			"${URL_POST_ITEM_APPEND}",
+		
+		PUT_LIST_MODIFY :			"${URL_PUT_LIST_MODIFY}",
+		PUT_ITEM_MODIFY_BASE :		"${URL_PUT_ITEM_MODIFY_BASE}",
+		
+		DELETE_ITEM_DELETE_BASE :	"${URL_DELETE_ITEM_DELETE_BASE}"
+	};
+	
+</script>
 
 
 </head>
@@ -71,6 +104,10 @@ footer{
             </li>
             <li data-ng-hide="loginstatus">
                 <a href="/Traveler/traveler/admin/main.html#/memberappend" onclick = $("#menu-close").click(); >SignUp</a>
+            </li>
+            
+            <li data-ng-show="loginstatus">
+                <a href="/Traveler/traveler/admin/main.html#/membermodify/{{member.num}}" onclick = $("#menu-close").click(); >Edit Profile</a>
             </li>
             
             <li data-ng-hide="loginstatus">

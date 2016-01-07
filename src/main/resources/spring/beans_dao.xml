@@ -13,7 +13,7 @@
  
 <!-- LogAspect -->
 <aop:aspectj-autoproxy/>
-<bean class="com.traveler.aspect.LogAspect"/>
+<bean id="logAspect" class="com.traveler.aspect.LogAspect"/>
 
 <!-- Oracle / MySQL -->
 <context:property-placeholder location="classpath:database/db.properties"/>
@@ -35,14 +35,6 @@
 		<value>${password}</value>
 	</property>
 </bean>
-
- <!-- MultipartResolver 설정 -->		<!-- spring에서 파일업로드 기능을 구현해놓은 클래스 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="100000000" />
-        <property name="maxInMemorySize" value="100000000" />
-        <property name="defaultEncoding" value="UTF-8"></property>
-    </bean>
-    
 
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"/>
@@ -93,6 +85,16 @@
 	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
 
+<bean id="commentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.CommentMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+<!-- RealTimeMapper -->
+<bean id="realTimeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.RealTimeMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
 <!-- recommandDao -->
 <bean id="recommandDao" class="com.traveler.dao.RecommandDao">
 	<property name="travelMapper" ref="recommandMapper"/>
@@ -109,6 +111,14 @@
 	<property name="memberMapper" ref="memberMapper"/>
 </bean>
 
+<bean id="commentDao" class="com.traveler.dao.CommentDao">
+	<property name="commentMapper" ref="commentMapper"/>
+</bean>
 
+
+<!-- RealTimeDao -->
+<bean id="realTimeDao" class="com.traveler.dao.RealTimeDao">
+	<property name="realTimeMapper" ref="realTimeMapper"></property>
+</bean>
 
 </beans>

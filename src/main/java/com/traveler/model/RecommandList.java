@@ -12,11 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RecommandList {
 	
-	@XmlElementWrapper(name="recommandList")
+	@XmlElementWrapper(name="recommandLists")
 	@XmlElement(name="recommand")
 	List<Recommand> recommandLists;
 
-	public List<Recommand> getCitys() {
+	public List<Recommand> getRecommandLists() {
 		return recommandLists;
 	}
 

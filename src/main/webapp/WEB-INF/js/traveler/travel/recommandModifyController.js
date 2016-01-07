@@ -35,9 +35,6 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 		$scope.recommand.area = r;
 	};
 	
-	$scope.cancel = function(){
-		$location.path("/list");
-	}
 
 
 		
@@ -57,7 +54,7 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 		});
 		
 		ajax.then(function(value) {
-			$location.path("/list");
+			$location.path("/recommandList");
 		}, function(reason) {
 			$scope.recommand = reason.data;
 		});

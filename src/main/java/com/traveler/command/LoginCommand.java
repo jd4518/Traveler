@@ -3,21 +3,7 @@ package com.traveler.command;
 public class LoginCommand {
 	private String id;
 	private String password;
-	private String name;
-	private String tel;
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
 	public String getId() {
 		return id;
 	}

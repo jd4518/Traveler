@@ -108,39 +108,21 @@
 					<!-- cost -->
 					<label class="col-sm-2 control-label" for="cost">비용 :</label>
 					<div class="col-sm-8">
-					<input id="cost1"
-						   name="cost1"
-						   type="number"
-						   class="form-control"
-						   required="required"
-						   data-ng-maxlength="15"
-						   data-ng-model="cost1"
-						   placeholder="교통비:"
-					/>
-					<input id="cost2"
-						   name="cost2"
-						   type="number"
-						   class="form-control"
-						   required="required"
-						   data-ng-maxlength="15"
-						   data-ng-model="cost2"
-						   placeholder="숙박비:"
-					/>
-					<input id="cost3"
-						   name="cost3"
-						   type="number"
-						   class="form-control"
-						   required="required"
-						   data-ng-maxlength="15"
-						   data-ng-model="cost3"
-						   placeholder="식비:"
-					/>
-					
-					<textarea class="form-control" rows="1" id="cost" 
-							name="cost" data-ng-model="share.cost"
-							>
-					</textarea> 
-					<b>Total : </b>{{getTotal()}}
+					<input id="transCost" name="transCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.transCost" placeholder="교통비:" /> 
+									
+								<input id="stayCost" name="stayCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.stayCost" placeholder="숙박비:" /> 
+									
+								<input id="eatCost" name="eatCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.eatCost" placeholder="식비:" />
+								
+								<input id="totalCost" name="totalCost" type="text" class="form-control"
+									required="required" data-ng-maxlength="15"
+									data-ng-model="share.totalCost" placeholder="총 비용:" />
 					</div>
 					
 					<div data-ng-show="shareForm.cost.$dirty">

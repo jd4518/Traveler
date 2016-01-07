@@ -1,6 +1,5 @@
 package com.traveler.controller;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.traveler.command.RecommandCommand;
+import com.traveler.model.Comment;
 import com.traveler.model.Recommand;
 import com.traveler.model.RecommandList;
 import com.traveler.model.RecommandPage;
+import com.traveler.service.CommentRegisterService;
+import com.traveler.service.CommentService;
 import com.traveler.service.RecommandDetailService;
 import com.traveler.service.RecommandListService;
 import com.traveler.service.RecommandModifyService;
@@ -46,6 +48,12 @@ public class RecommandController {
 	@Autowired
 	RecommandModifyService recommandModifyService;
 	
+	@Autowired
+	CommentService commentService;
+	
+	@Autowired
+	CommentRegisterService commentRegisterService;
+	
 	@RequestMapping(value="/recommandMain.html")
 	public String getRecommandMainView(){
 		log.info("getRecommandMainView()...");
@@ -53,7 +61,7 @@ public class RecommandController {
 		return "traveler/travel/recommandMain";
 	}
 	
-	@RequestMapping(value="/list.html")
+	@RequestMapping(value="/recommandList.html")
 	public String getRecommandListView(){
 		log.info("getRecommandListView()...");
 		
@@ -130,7 +138,7 @@ public class RecommandController {
 	
 	@RequestMapping(value={"", "/"}, method=RequestMethod.POST)
 	@ResponseBody
-	public RecommandCommand postRecommandAppend(@RequestBody RecommandCommand recommand,HttpServletRequest request) {
+	public RecommandCommand postRecommandAppend(@RequestBody RecommandCommand recommand) {
 		log.info("postRecommandAppend()... picture = " + recommand.getPicture());
 		log.info("postRecommandAppend()... title = " + recommand.getTitle());
 		log.info("postRecommandAppend()... name = " + recommand.getName());
@@ -142,10 +150,24 @@ public class RecommandController {
 			// throw 
 		}
 		
-		recommandRegisterService.regist(recommand.getRecommand(),request);
+		recommandRegisterService.regist(recommand.getRecommand());
 		
 		return recommand;
 	}
+	
+	@RequestMapping(value="/{listNo}", method=RequestMethod.POST)
+	@ResponseBody
+	public Comment postCommentAppend(@PathVariable int listNo,@RequestBody Comment comment) {
+		log.info("postCommentAppend()... getContent = " + comment.getContent());
+		log.info("postCommentAppend()... getId = " + comment.getId());
+		log.info("postCommentAppend()... listNo = " + listNo);
+		log.info("postCommentAppend()... getListNo = " + comment.getListNo());
+		
+		commentRegisterService.regist(comment);
+		
+		return comment;
+	}
+	
 	
 	@RequestMapping(value="/{listNo}", method=RequestMethod.PUT)
 	@ResponseBody
@@ -168,4 +190,7 @@ public class RecommandController {
 		
 		return recommand;
 	}
+	
+	
+	
 }
