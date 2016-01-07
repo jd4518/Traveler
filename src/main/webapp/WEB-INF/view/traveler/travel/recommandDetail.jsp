@@ -65,7 +65,9 @@
 	</div>
      <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="button" class="btn btn-default" data-ng-click="cancel()">목록</button>
+      <button type="button" class="btn btn-default" data-ng-click="cancel()">목록</button>
+     <a href="#/recommandModify/{{recommand.listNo}}" class="btn btn-success">수정</a>
+	<a href="#/recommandDelete/{{recommand.listNo}}" class="btn btn-info">삭제</a>
       </div>
     </div>
   </fieldset>

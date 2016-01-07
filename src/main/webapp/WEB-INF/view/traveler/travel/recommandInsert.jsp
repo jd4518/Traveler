@@ -34,8 +34,8 @@
         <input type="text"
         	   class="form-control"
         	   id="name" 
-        	   placeholder="Writer"
         	   name="name"
+        	   readonly="readonly"
         	   data-ng-model="recommand.name"
         	   >
         <div class="checkbox"  data-ng-model="recommand.area" required="required">
@@ -148,7 +148,7 @@
         	   name="imageFile"
         	   id="picture" 
         	   size="50"
-        	   ><input type="submit" id="uploadbutton"  data-ng-click="toggle()" value="올리기">
+        	   >
       </div>
     </div>
      <div class="form-group">
@@ -157,6 +157,8 @@
         <button type="submit"
         		class="btn btn-primary"
 				value="확인"
+				id="uploadbutton" 
+				data-ng-click="toggle()"
 			    data-ng-disabled="recommandForm.$invalid"
         >Submit</button>
       </div>
