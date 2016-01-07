@@ -11,6 +11,9 @@
 
 <sitemesh:write property='head'/>
 
+
+
+
 <style type="text/css">
 	
 footer{
@@ -24,10 +27,10 @@ footer{
 
     <!-- Custom CSS -->
     <link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
+    
 
     <!-- Custom Fonts -->
     <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 <!-- 로그인처리 -->
 <script type="text/javascript">
@@ -41,48 +44,18 @@ footer{
 		$scope.member = {};
 	});
 </script>
-<!-- URL Resolve -->
-<c:url var="URL_GET_LIST"					value="/traveler/admin/"/>
-<c:url var="URL_GET_ITEM_BASE" 				value="/traveler/admin/"/>		
-<c:url var="URL_GET_PAGE_BASE" 				value="/traveler/admin/page/"/>	
 
-<c:url var="URL_POST_LIST_APPEND" 			value="/traveler/admin/"/>
-<c:url var="URL_POST_ITEM_APPEND" 			value="/traveler/admin/"/>
-
-<c:url var="URL_PUT_LIST_MODIFY" 			value="/traveler/admin/"/>
-<c:url var="URL_PUT_ITEM_MODIFY_BASE" 		value="/traveler/admin/"/>		
-
-<c:url var="URL_DELETE_ITEM_DELETE_BASE" 	value="/traveler/admin/"/>	
-
-
-<script type="text/javascript">
-
-	var urls = {
-			
-		GET_LIST : 					"${URL_GET_LIST}",
-		GET_PAGE_BASE : 			"${URL_GET_PAGE_BASE}",
-		GET_ITEM_BASE :				"${URL_GET_ITEM_BASE}",
-		
-		POST_LIST_APPEND :			"${URL_POST_LIST_APPEND}",
-		POST_ITEM_APPEND :			"${URL_POST_ITEM_APPEND}",
-		
-		PUT_LIST_MODIFY :			"${URL_PUT_LIST_MODIFY}",
-		PUT_ITEM_MODIFY_BASE :		"${URL_PUT_ITEM_MODIFY_BASE}",
-		
-		DELETE_ITEM_DELETE_BASE :	"${URL_DELETE_ITEM_DELETE_BASE}"
-	};
-	
-</script>
 
 
 </head>
 <body data-ng-controller="mainController">
   <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    
     <nav data-ng-controller="navController" id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <c:url var="member_logout" value="/traveler/member/logout"></c:url>
+            <c:url var="member_logout" value="/traveler/logout"></c:url>
             <li class="sidebar-brand">
                 <a href=""  onclick = $("#menu-close").click(); >Traveler</a>
             </li>
@@ -90,8 +63,8 @@ footer{
                 <a href="/Traveler/traveler/member/memberMain.html" onclick = $("#menu-close").click(); >Home</a>
             </li>
             <li>
-            	<a href="#">Service <span class="caret"></span> </a>
-            	<ul>
+            	<a href="" data-toggle="collapse" data-target="#demo" id="service">Service <span class="caret"></span>  </a>
+            	<ul id="demo" class="collapse">
 	                <li><a href="#" onclick = $("#menu-close").click();>추천 여행지</a></li>
 	                <li><a href="#" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
 	                <li><a href="#" onclick = $("#menu-close").click();>여행 멤버 모집</a></li>

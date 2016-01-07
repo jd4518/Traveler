@@ -57,11 +57,11 @@ public class LoginController {
 		log.info("logout()...");
 		
 		session.invalidate(); //session 날리기
-		return "redirect:/traveler/member/login.html";
+		return "redirect:/traveler/login.html";
 	}
 	
 	
-	@RequestMapping(value = "/logincheck", method = RequestMethod.GET)
+	@RequestMapping(value ="/logincheck", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> loginCheck(HttpSession session){
 		Map<String, Object> map = new HashMap<>();
