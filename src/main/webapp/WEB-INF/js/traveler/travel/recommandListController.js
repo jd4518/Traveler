@@ -55,4 +55,3 @@ app.controller('recommandListController', function($scope, $http, URL) {
 		};
 		
 });
-

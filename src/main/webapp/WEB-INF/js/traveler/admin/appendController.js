@@ -18,6 +18,12 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	
 	$scope.member = {};
 	
+	$scope.toggle = function(){
+		var p = $('#memberPicture').val();
+		$scope.member.memberPicture = p;
+		alert("등록 성공");
+	};
+	
 	$scope.today = function() {
 	    $scope.dt = new Date();
 	  };
@@ -88,11 +94,13 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 
 	    return '';
 	};
-	
-	
+	 
 	$scope.submit = function() {
+		console.log("submit...");
 		var ajax = $http.post(URL.POST_ITEM_APPEND, {
+			memberPicture : $scope.member.memberPicture,
 			num : $scope.member.num,
+			memberPicture : $scope.member.memberPicture,
 			id : $scope.member.id,
 			password : $scope.member.password,
 			name : $scope.member.name,
@@ -101,11 +109,11 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 			address : $scope.member.address,
 			tel : $scope.member.tel,
 			register_date : $scope.member.register_date
-			
 		});
 		
 		ajax.then(function(value) {
-			$location.path("/memberList");
+			console.log("success...");
+			$location.path("/main.html");
 		}, function(reason) {
 			console.dir(reason)
 			$scope.member = reason.data;

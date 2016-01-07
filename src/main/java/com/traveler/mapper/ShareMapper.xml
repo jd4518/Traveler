@@ -8,35 +8,31 @@
     
     <select id="selectAll" resultType="com.traveler.mapper.ShareMapper">
         select boardNum,
-        	   memberPicture,
         	   id,
-        	   name,
-        	   memberAge,
-        	   memberTel,
         	   title,
         	   term,
         	   number,
-        	   cost,
         	   content,
         	   picture,
-        	   map
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost
          from TravelShareBoard   
     </select>
     
     <select id="selectByboardNum" parameterType="int" resultType="com.traveler.model.Share">
         select boardNum,
-        	   memberPicture,
         	   id,
-        	   name,
-        	   memberAge,
-        	   memberTel,
         	   title,
         	   term,
         	   number,
-        	   cost,
         	   content,
         	   picture,
-        	   map
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost
          from TravelShareBoard  
 		 where boardNum = #{boardNum}
     </select>
@@ -46,18 +42,16 @@
         	resultType="com.traveler.model.Share"
         	databaseId="mysql">
          select boardNum,
-        	   memberPicture,
         	   id,
-        	   name,
-        	   memberAge,
-        	   memberTel,
         	   title,
         	   term,
         	   number,
-        	   cost,
         	   content,
         	   picture,
-        	   map
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost
          from TravelShareBoard  
 		 order by boardNum desc
 		 limit #{start}, #{length} 
@@ -72,58 +66,46 @@
         insert into TravelShareBoard
 		(
 			   boardNum,
-			   memberPicture,
         	   id,
-        	   name,
-        	   memberAge,
-        	   memberTel,
         	   title,
         	   term,
         	   number,
-        	   cost,
         	   content,
         	   picture,
         	   map,
-        	   orgname,
-        	   newname
+        	   transCost,
+        	   stayCost,
+        	   eatCost
 		)
 		values
 		(
 		    #{boardNum,				jdbcType=NUMERIC},
-			#{memberPicture, 		jdbcType=VARCHAR}, 
 			#{id, 					jdbcType=VARCHAR},
-			#{name, 				jdbcType=VARCHAR},
-			#{memberAge, 			jdbcType=NUMERIC},
-			#{memberTel, 			jdbcType=VARCHAR},
 			#{title, 				jdbcType=VARCHAR},
 			#{term, 				jdbcType=VARCHAR},
 			#{number, 				jdbcType=NUMERIC},
-			#{cost, 				jdbcType=NUMERIC},
 			#{content, 				jdbcType=NUMERIC},
 			#{picture, 				jdbcType=NUMERIC},
-			#{map, 					jdbcType=NUMERIC},
-			#{orgname, 				jdbcType=VARCHAR},
-			#{newname, 				jdbcType=VARCHAR}
+			#{map, 					jdbcType=VARCHAR},
+			#{transCost, 			jdbcType=NUMERIC},
+			#{stayCost, 			jdbcType=NUMERIC},
+			#{eatCost, 				jdbcType=NUMERIC}
 		)
     </insert>
     
       <update id="update" parameterType="com.traveler.model.Share">
           update TravelShareBoard
           set	boardNum		= #{boardNum},			
-			  	memberPicture   = #{memberPicture},
         	   	id				= #{id},
-        	   	name			= #{name},
-        	   	memberAge		= #{memberAge},
-        	   	memberTel		= #{memberTel},
         	   	title			= #{title},
         	   	term			= #{term},
         	   	number			= #{number},
-        	   	cost			= #{cost},
         	   	content			= #{content},
         	   	picture			= #{picture},
-        	   	map				= #{map},
-        	   	orgname			= #{orgname},
-        	   	newname			= #{newname}
+        	   	transCost		= #{transCost},
+        	   	stayCost		= #{stayCost},
+        	   	eatCost			= #{eatCost},
+        	   	map				= #{map}
           where boardNum = #{boardNum}
       </update>
       

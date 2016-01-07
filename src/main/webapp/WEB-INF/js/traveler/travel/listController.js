@@ -31,6 +31,7 @@ app.config(function($routeProvider) {
 			});
 		};
 		
+		
 		$scope.selectPage();
 		
 		$scope.prevClick = function(pageNo) {

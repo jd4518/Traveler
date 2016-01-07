@@ -26,17 +26,17 @@ public class RecommandRegisterServiceTest {
 		
 //		RecommandPageService service = ctx.getBean(RecommandPageService.class);
 //		RecommandRegisterService service = ctx.getBean(RecommandRegisterService.class);
-//		RecommandDetailService service = ctx.getBean(RecommandDetailService.class);
+		RecommandDetailService service = ctx.getBean(RecommandDetailService.class);
 //		RecommandUnRegisterService service = ctx.getBean(RecommandUnRegisterService.class);
 //		RecommandModifyService service = ctx.getBean(RecommandModifyService.class);
 //		CommentService service = ctx.getBean(CommentService.class);
-		CommentRegisterService service = ctx.getBean(CommentRegisterService.class);
+//		CommentRegisterService service = ctx.getBean(CommentRegisterService.class);
 			Comment comment = new Comment();
 			comment.setContent("야호");
 			comment.setId("노노");
 			comment.setListNo(50);
-			service.regist(comment);
-	
+			
+			service.detail(28);
 	
 	}
 

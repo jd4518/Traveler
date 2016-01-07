@@ -15,14 +15,10 @@ CREATE TABLE TB_FILE
 
 select * from Travelmember;
 
-drop table Travelmember
-
-insert into Travelmember
-(id, password, name,  birthday, tel, address, addressNum) 
-values
-('lol330', '12341234', '홍길동','2015-12-12','010-0000-0000', '서울 강남 강남 강남 강남 가강남 강남', '15161')
+drop table Travelmember;
 
 create table Travelmember(
+   memberPicture    varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
    num				integer(100) auto_increment not null,
    id               varchar(255) not null unique,
    password         varchar(255),
@@ -51,20 +47,18 @@ alter table RecommandList MODIFY listNo int(11) auto_increment
 
 insert into RecommandList(title,name,content,picture) values('우와된당','홍우','너는누구냐나야야누이할','1')
 
-select * from RecommandList;
+select * from RecommandList where listNo=28;
 select count(*) from RecommandList;
 
 create table TravelShareBoard(
-	memberPicture varchar(100) default 'nothing.jpg , nothing.png, nothing.gif',
 	boardNum int auto_increment,
-	id varchar(255),
-	name varchar(255),
-	memberAge int(100),
-	memberTel varchar(255),
+	id		  varchar(255),
 	title	  varchar(255),
 	term	  varchar(255),		
 	number	  int(100), 		
-	cost	  int(100),
+	transCost	  int(255),
+	stayCost	  int(255),
+	eatCost		  int(255),
 	content   longtext,
 	picture	  varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
 	map		  varchar(255),
@@ -72,9 +66,6 @@ create table TravelShareBoard(
 	constraint boardNum primary key(boardNum)
 );
 
-
-insert into TravelShareBoard (memberPicture,boardNum,id,name,memberAge,memberTel,title,term,number,cost,content,picture,map)
-values('Hong','1','gusdn','홍현우','26','010-5170-7855','낭만적인부산','3개월','4','45000','겨울바다이야기','aaa','Busan')
 
 delete from TravelShareBoard
 
@@ -113,10 +104,34 @@ create table Travelmember(
 	addressNum      int(100),
 	constraint pk_id primary key(id)
 );
+
 insert into Travelmember(id,memberPicture,password,name,register_date,tel,address,addressNum)
-values('asas','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
+values('dfg','Hong','gusdn','홍현우','2015/12/17','010-5170-7855','서울시노원구','387')
 
 drop table Travelmember
+delete from Travelmember
 
 select * from Travelmember
 select count(*) from RecommandList
+
+create table RealTimeBoard(
+	number int auto_increment,
+	id		varchar(255),
+	content longtext,
+	real_date	date,
+	foreign key(id) references Travelmember(id),
+	constraint number primary key(number)
+);
+
+insert into RealTimeBoard(number,id,content,Real_date) 
+values('2','dfg','같이 여행갑시다','2016/01/06');
+
+select * from RealTimeBoard
+delete from RealTimeBoard
+
+drop table RealTimeBoard
+
+set foreign_key_checks=0;
+set foreign_key_checks=1;
+
+drop table Travelmember;

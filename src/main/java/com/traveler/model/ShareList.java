@@ -24,6 +24,5 @@ public class ShareList {
 		this.shares = shares;
 	}
 	
-	
 
 }

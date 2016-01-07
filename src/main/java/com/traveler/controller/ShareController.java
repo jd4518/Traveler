@@ -1,6 +1,5 @@
 package com.traveler.controller;
 
-import javax.servlet.ServletContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.ServletContextAware;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.traveler.command.ShareCommand;
 import com.traveler.model.Share;
@@ -26,15 +23,10 @@ import com.traveler.service.ShareRegisterService;
 import com.traveler.service.ShareUnRegisterService;
 
 @Controller
-@RequestMapping("/traveler")
-public class ShareController implements ServletContextAware {
+@RequestMapping("/traveler/travel/")
+public class ShareController{
 	static Log log = LogFactory.getLog(ShareController.class);
 
-	private Object servletContext;
-	
-
-	
-	
 	 @Autowired		//필드 주입
 	 ShareListService shareListService;
 	 
@@ -54,13 +46,13 @@ public class ShareController implements ServletContextAware {
 	 ShareModifyService shareModifyService;
 	
 	  
-	@RequestMapping(value="main.html")
-	public String getShareMainView(){
-		log.info("getMainView()...");
+		@RequestMapping(value="shareMain.html")
+		public String getShareMainView(){
+			log.info("getMainView()...");
+			
+			return "traveler/travel/shareMain";
+		}
 		
-		return "traveler/travel/main";
-	}
-	
 	   @RequestMapping(value="/shareList.html",method=RequestMethod.GET)
 	   public String getShareListView()
 	   {
@@ -140,10 +132,8 @@ public class ShareController implements ServletContextAware {
 	   
 	   @RequestMapping(value={"","/"}, method=RequestMethod.POST)				//POST로 요청을 하면 입력으로 응답
 	   @ResponseBody
-	   public ShareCommand postShareAppend(@RequestBody ShareCommand command, MultipartHttpServletRequest mRequest) throws Exception{		
+	   public ShareCommand postShareAppend(@RequestBody ShareCommand command) throws Exception{		
 		   log.info("postShareAppend()... share.id = " + command.getId());
-		   log.info("postShareAppend()... share.cost = " + command.getCost());
-		   
 		   
 		   command.validate();
 		   
@@ -180,11 +170,6 @@ public class ShareController implements ServletContextAware {
 		   
 		   shareUnRegisterService.unRegist(boardNum);
 	   }
-
-	@Override
-	public void setServletContext(ServletContext servletContext) {
-			this.servletContext = servletContext;
-	}
 	
 }
 

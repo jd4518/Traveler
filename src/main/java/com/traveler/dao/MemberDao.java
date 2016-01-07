@@ -62,4 +62,18 @@ public class MemberDao {
 
 		return memberMapper.selectByIdAndPassword(idAndPassword);
 	}
+	
+	public Member selectByNameAndTel(String name, String tel) {
+		Map<String, Object> nameAndTel = new HashMap<String, Object>();
+		nameAndTel.put("name", name);
+		nameAndTel.put("tel", tel);
+
+		return memberMapper.selectByNameAndTel(nameAndTel);
+	}
+	
+	
+	
+	public int chkId(String ckid) {
+		return adminMapper.chkId(ckid);
+	}
 }

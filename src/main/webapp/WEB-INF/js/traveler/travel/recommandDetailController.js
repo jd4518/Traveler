@@ -36,7 +36,7 @@ app.controller('detailController', function($scope, $http, URL, $routeParams, $l
 		$scope.recommand = value.data;
 		
 	}, function(reason) {
-		console.dir(reasone);
+		console.dir(reason);
 		alert("error...");
 	});
 	};

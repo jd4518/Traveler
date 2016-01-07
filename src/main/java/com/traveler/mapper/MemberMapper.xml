@@ -30,4 +30,21 @@
          where id = #{id}
            and password = #{password}
     </select>
+    
+     <select id="selectByNameAndTel"
+        	parameterType="hashmap"
+        	resultType="com.traveler.model.Member">
+        select num,
+        	   id,
+			   password,
+			   name,
+			   register_date,
+			   birthday,
+			   tel,
+			   address,
+			   addressNum 
+		  from Travelmember
+         where name = #{name}
+           and tel = #{tel}
+    </select>
 </mapper>

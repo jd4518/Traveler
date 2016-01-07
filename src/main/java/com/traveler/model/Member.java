@@ -18,8 +18,15 @@ public class Member {
 	private String 	tel;
 	private String 	address;
 	private Integer addressNum;
+	private String memberPicture;
 	
 	
+	public String getMemberPicture() {
+		return memberPicture;
+	}
+	public void setMemberPicture(String memberPicture) {
+		this.memberPicture = memberPicture;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -81,4 +88,5 @@ public class Member {
 		}
 		this.password = newPassword;
 	}
+	
 }
