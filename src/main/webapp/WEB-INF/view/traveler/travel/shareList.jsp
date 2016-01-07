@@ -51,11 +51,6 @@
 </div>
 
 <hr>	
-<div class="form-group">
-<textarea rows="20" class="form-control">
-	{{shares}}
-	{{paging}}
-</textarea>
 </div>
 </body>
 </html>

@@ -325,10 +325,10 @@ function chkId(){
 					 </div>
             </div>
          	<div class="form-group" align="right">
-            <input type="submit"
+            <a href="../traveler/member/main.html"><input type="submit"
                    class="btn btn-success"
                    value="완료"
-                   data-ng-disabled="AppendForm.$invalid"/>
+                   data-ng-disabled="AppendForm.$invalid"/></a>
 			</div>
 		</form>
 </div>

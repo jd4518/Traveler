@@ -161,7 +161,8 @@
 
 						<!-- Submit -->
 						<div class="form-group" align="center">
-							<input type="submit" value="확인" class="btn btn-primary" />
+							<input type="submit" value="확인" class="btn btn-primary"
+							data-ng-disabled="shareForm.$invalid" />
 							<input type="submit" value="취소" class="btn btn-danger" 
 							 data-ng-disabled="shareForm.$invalid"/>
 						</div>
