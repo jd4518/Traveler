@@ -18,6 +18,7 @@ import com.traveler.service.RealTimeDetailService;
 import com.traveler.service.RealTimeListService;
 import com.traveler.service.RealTimePageService;
 import com.traveler.service.RealTimeRegisterService;
+import com.traveler.service.RealTimeUnRegisterService;
 
 @Controller
 @RequestMapping("/traveler/realTime/")
@@ -32,8 +33,10 @@ public class RealTimeController {
 	RealTimePageService  realTimePageService;
 	@Autowired
 	RealTimeRegisterService realTimeRegisterService;
+	@Autowired
+	RealTimeUnRegisterService	realTimeUnRegisterService;
 	
-	
+
 	@RequestMapping(value="realTimeMain.html")
 	public String getRealTimeMainView(){
 		log.info("getMainView()...");
@@ -57,6 +60,15 @@ public class RealTimeController {
       return "traveler/realTime/realTimeInsert";    
    }
    
+   @RequestMapping(value="/realTimeDelete.html",method=RequestMethod.GET)  
+   public String getRealTimeDeleteView()
+   {
+	   log.info("getRealTimeDeleteView()...");
+	   
+	   return "traveler/realTime/realTimeDelete";    
+   }
+   
+   
 	@RequestMapping(value={"","/"},method=RequestMethod.GET) 
 	@ResponseBody
 	public RealTimeList getRealTimeAll()
@@ -72,7 +84,6 @@ public class RealTimeController {
 	      log.info("getRealTimeItem().... number = "+number);
 	      
 	      RealTime realTime = realTimeDetailService.realTimeDetail(number);
-	      
 	      return realTime;		//spring이 자동으로 json 형태로 리턴
 	   }
 	   
@@ -106,9 +117,15 @@ public class RealTimeController {
 		   }
 		   String id = realTimeRegisterService.regist(command.getRealTime());
 		   command.setId(id);
-		   
 		   return command;
-	   }	
+	   }
 	   
+	   @RequestMapping(value={"/{number:[0-9]+}"}, method=RequestMethod.DELETE)		
+	   @ResponseBody
+	   public void deleteRealTime(@PathVariable int number)
+	   {
+		   log.info("deleteRealTime()..." +number);
+		   realTimeUnRegisterService.unRegist(number);
+	   }
 
 }

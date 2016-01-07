@@ -99,3 +99,5 @@ set foreign_key_checks=0;
 set foreign_key_checks=1;
 
 drop table Travelmember;
+show create table Travelmember;
+alter table TravelShareBoard drop foreign key id;
