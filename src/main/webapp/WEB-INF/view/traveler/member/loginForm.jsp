@@ -12,7 +12,7 @@
 <title>login.jsp</title>
 
 <c:url var="LOGIN_URL" value="/traveler/member/login"></c:url>
-<c:url var="REDIRECT_URL" value="/traveler/member/main.html"></c:url>
+<c:url var="REDIRECT_URL" value="/traveler/member/memberMain.html"></c:url>
 <c:url var="MASTER_URL" value="/traveler/admin/main.html"></c:url>
 
 <script type="text/javascript">

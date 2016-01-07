@@ -40,6 +40,7 @@ app.controller("mainController", function($scope, $http, $location) {
 <!-- Custom CSS -->
 <link href="/Traveler/mainbootstrap/css/stylish-portfolio.css" rel="stylesheet">
 
+
 <!-- Custom Fonts -->
 <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -102,7 +103,7 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
-                                <a href="/shareList.html" class="btn btn-light">여행 정보 공유 게시판</a>
+                                <a href="../main.html#/shareList" class="btn btn-light">여행 정보 공유 게시판</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">

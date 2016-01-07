@@ -4,10 +4,11 @@
 <!--   <mapping decorator="/default-decorator.html"/> -->
 
   <!-- Map decorators to path patterns. -->
-    <mapping path="/traveler/member/main.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
-    <mapping path="/traveler/member/login.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/member/**" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/main.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
     <mapping path="/traveler/admin/main.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
-    <mapping path="/traveler/travel/main.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    
+<!--     <mapping path="/traveler/**" decorator="/WEB-INF/decorators/menu2.jsp"/> -->
 <!--   <mapping path="/traveler/shareInsert.html" 				decorator="/WEB-INF/decorators/menu_sider.jsp"/> -->
 <!--   <mapping path="/traveler/travel/shareInsert.*" 		decorator="/WEB-INF/decorators/menu_sider.jsp"/> -->
 <!--   <mapping path="/jsp/city/main.*" 		decorator="/decorators/menu.jsp"/> -->

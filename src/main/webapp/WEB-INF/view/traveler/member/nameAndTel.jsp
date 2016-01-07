@@ -42,7 +42,7 @@
 			
 			ajax.then(function(value) {
 				console.dir(value);
-				alert("id = " + $scope.member.id);
+				alert("id = " + $scope.nameAndTel.id);
 				location.href = "${REDIRECT_URL}";
 			}, function(reason) {
 				console.dir(reason);
