@@ -111,12 +111,8 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams, $l
 	};
 
 	$scope.submit = function() {
-<<<<<<< HEAD
-			var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.member.num, {
-=======
 		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.member.num, {
 			memberPicture:  $scope.member.memberPicture,
->>>>>>> 870a6f65b0198c455f7eb71fe91cf725ff103c90
 			num : 			$scope.member.num,
 			memberPicture : $scope.member.memberPicture,
 			id : 			$scope.member.id,

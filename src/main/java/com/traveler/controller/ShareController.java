@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.traveler.command.ShareCommand;
+import com.traveler.model.Comment;
 import com.traveler.model.Share;
 import com.traveler.model.ShareList;
 import com.traveler.model.SharePage;
+import com.traveler.service.ShareCommentRegisterService;
 import com.traveler.service.ShareDetailService;
 import com.traveler.service.ShareListService;
 import com.traveler.service.ShareModifyService;
@@ -44,6 +46,9 @@ public class ShareController{
 	 
 	 @Autowired
 	 ShareModifyService shareModifyService;
+ 
+	 @Autowired
+	 ShareCommentRegisterService shareCommentRegisterService;
 	
 	  
 		@RequestMapping(value="shareMain.html")
@@ -170,6 +175,19 @@ public class ShareController{
 		   
 		   shareUnRegisterService.unRegist(boardNum);
 	   }
+	   
+		@RequestMapping(value="/{listNo}", method=RequestMethod.POST)
+		@ResponseBody
+		public Comment postCommentAppend(@PathVariable int listNo,@RequestBody Comment comment) {
+			log.info("postCommentAppend()... getContent = " + comment.getContent());
+			log.info("postCommentAppend()... getId = " + comment.getId());
+			log.info("postCommentAppend()... listNo = " + listNo);
+			log.info("postCommentAppend()... getListNo = " + comment.getListNo());
+			
+			shareCommentRegisterService.regist(comment);
+			
+			return comment;
+		}
 	
 }
 

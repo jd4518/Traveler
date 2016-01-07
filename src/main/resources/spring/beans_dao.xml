@@ -89,6 +89,11 @@
 	<property name="mapperInterface" value="com.traveler.mapper.CommentMapper"/>
 	<property name="sqlSessionTemplate" ref="sqlSession"/>
 </bean>
+
+<bean id="shareCommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.ShareCommentMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
 <!-- RealTimeMapper -->
 <bean id="realTimeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="mapperInterface" value="com.traveler.mapper.RealTimeMapper"/>
@@ -113,6 +118,10 @@
 
 <bean id="commentDao" class="com.traveler.dao.CommentDao">
 	<property name="commentMapper" ref="commentMapper"/>
+</bean>
+
+<bean id="shareCommentDao" class="com.traveler.dao.ShareCommentDao">
+	<property name="shareCommentMapper" ref="shareCommentMapper"/>
 </bean>
 
 

@@ -62,7 +62,6 @@ create table TravelShareBoard(
 	content   longtext,
 	picture	  varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
 	map		  varchar(255),
-	foreign key(id) references Travelmember(id),
 	constraint boardNum primary key(boardNum)
 );
 
@@ -87,6 +86,16 @@ create table Comment(
 	content   varchar(255),
 	PRIMARY KEY (cono)
 );
+
+create table ShareComment(
+	listNo    int,
+	cono 	  int auto_increment,
+	id 		  varchar(255),
+	content   varchar(255),
+	PRIMARY KEY (cono)
+);
+
+select * from ShareComment
 
 drop table Comment
 insert into Comment(listNo,id,content) values('24','zz','하하')
