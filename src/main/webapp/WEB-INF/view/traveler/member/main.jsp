@@ -85,7 +85,7 @@ app.controller("mainController", function($scope, $http, $location) {
                     <h2>Our Services</h2>
                     <hr class="small">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-4 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -95,10 +95,10 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>추천 여행지</strong>
                                 </h4>
                                 <p>사이트에서 추천하는 여행지</p>
-                                <a href="#" class="btn btn-light">추천 여행지 게시판</a>
+                                <a href="/Traveler/traveler/recommand/recommandMain.html" class="btn btn-light">추천 여행지 게시판</a>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-4 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -108,23 +108,10 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
-                                <a href="../main.html#/shareList" class="btn btn-light">여행 정보 공유 게시판</a>
+                                <a href="/Traveler/traveler/travel/shareMain.html" class="btn btn-light">여행 정보 공유 게시판</a>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-child fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>여행 멤버 모집</strong>
-                                </h4>
-                                <p>같이 여행 갈 친구를 구해보세요!</p>
-                                <a href="#" class="btn btn-light">여행 멤버 모집 게시판</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-4 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -134,7 +121,7 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>실시간 게시판</strong>
                                 </h4>
                                 <p>여행 실시간 게시판</p>
-                                <a href="#" class="btn btn-light">실시간 게시판</a>
+                                <a href="/Traveler/traveler/realTime/realTimeMain.html" class="btn btn-light">실시간 게시판</a>
                             </div>
                         </div>
                     </div>

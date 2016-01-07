@@ -65,10 +65,9 @@ footer{
             <li>
             	<a href="" data-toggle="collapse" data-target="#demo" id="service">Service <span class="caret"></span>  </a>
             	<ul id="demo" class="collapse">
-	                <li><a href="#" onclick = $("#menu-close").click();>추천 여행지</a></li>
-	                <li><a href="#" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
-	                <li><a href="#" onclick = $("#menu-close").click();>여행 멤버 모집</a></li>
-	                <li><a href="#" onclick = $("#menu-close").click();>실시간 게시판</a></li>
+	                <li><a href="/Traveler/traveler/recommand/recommandMain.html" onclick = $("#menu-close").click();>추천 여행지</a></li>
+	                <li><a href="/Traveler/traveler/travel/shareMain.html" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
+	                <li><a href="/Traveler/traveler/realTime/realTimeMain.html" onclick = $("#menu-close").click();>실시간 게시판</a></li>
              	</ul>
             </li>
             <li data-ng-hide="loginstatus">
