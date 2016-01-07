@@ -57,6 +57,7 @@
 }
  
 </style>
+
 <script type="text/javascript">
 
 	var deps = ['ngRoute',
@@ -138,7 +139,9 @@ function chkId(){
 	}
 	});
  }
- </script>
+</script>
+ 
+<c:set var="picture" value="${pageContext.request.contextPath}/img/{{convertMemberPicture()}}"/>
 
 </head>
 
@@ -155,7 +158,7 @@ function chkId(){
 				<label for="memberPicture">사진등록:</label>
 				<div style="display: inline;">
 					<div align="center">
-						<img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="150" height="150">
+						<img alt="" ng-src="<c:url value="/img/"/>{{convertMemberPicture()}}" width="150" height="150">
 					</div>
 					<div style="display: inline;" align="right">
 						<div class="filebox bs3-success">
@@ -196,7 +199,7 @@ function chkId(){
                       data-ng-model="member.id"/>
                 <div align="right">
                	<input type="button" 
-               		   value="중복 체크" 
+               		   value="아이디 중복 체크" 
                		   class="btn btn-success"
                		   onclick="chkId();"/>
                	</div>

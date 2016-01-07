@@ -12,7 +12,7 @@
 <title>login.jsp</title>
 
 <c:url var="LOGIN_URL" value="/traveler/member/login"></c:url>
-<c:url var="REDIRECT_URL" value="/traveler/member/main.html"></c:url>
+<c:url var="REDIRECT_URL" value="/traveler/member/memberMain.html"></c:url>
 <c:url var="MASTER_URL" value="/traveler/admin/main.html"></c:url>
 
 <script type="text/javascript">
@@ -68,7 +68,6 @@
 </head>
 <body data-ng-controller="mainController" class="container">
    <div class="row">
-      <pre>{{login}}</pre>
       <div class="col-md-4 col-md-offset-4">
          <div class="login-panel panel panel-success">
             <div class="panel-heading">
@@ -107,12 +106,12 @@
                      <div class="form-group" align="right">
                         <a href="<c:url value="/traveler/admin/main.html#/memberappend"/>" class="btn btn-default btn-sm"> 
                         <font color="#5cb85c"><b>회원가입</b></font></a> 
-                           <a href="" class="btn btn-default btn-sm"> 
+                           <a href="<c:url value="/traveler/member/nameAndTel.html"/>" class="btn btn-default btn-sm"> 
                               <font color="#5cb85c">
                                  <b>아이디   찾기</b>
                               </font>
                            </a> 
-                           <a href="" class="btn btn-default btn-sm"> 
+                           <a href="<c:url value="/traveler/member/nameAndTel"/>" class="btn btn-default btn-sm"> 
                               <font color="#5cb85c">
                                  <b>비밀번호 찾기</b>
                               </font>

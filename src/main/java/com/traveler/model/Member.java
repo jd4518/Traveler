@@ -18,7 +18,7 @@ public class Member {
 	private String 	tel;
 	private String 	address;
 	private Integer addressNum;
-	private String memberPicture;
+	private String  memberPicture;
 	
 	
 	public String getMemberPicture() {
@@ -80,13 +80,6 @@ public class Member {
 	}
 	public void setAddressNum(Integer addressNum) {
 		this.addressNum = addressNum;
-	}
-	
-	public void changePassword(String oldPassword, String newPassword) {
-		if (!this.password.equals(oldPassword)) {
-			throw new PasswordNotMatchingException();
-		}
-		this.password = newPassword;
 	}
 	
 }

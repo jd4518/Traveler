@@ -60,7 +60,6 @@
 		(
 			 memberPicture,
 			 num,
-			 memberPicture,
 	         id,
 		 	 password,
 			 name,
@@ -74,7 +73,6 @@
 		(
 			#{memberPicture, jdbcType=VARCHAR},
 			#{num, jdbcType=NUMERIC},
-			#{memberPicture, jdbcType=VARCHAR},
 			#{id, jdbcType=VARCHAR},
 			#{password, jdbcType=VARCHAR},
 			#{name, jdbcType=VARCHAR},

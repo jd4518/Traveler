@@ -73,7 +73,10 @@
 				<label for="memberPicture">사진등록:</label>
 				<div style="display: inline;">
 					<div align="center">
-						<img alt="" src="${pageContext.request.contextPath}/img/{{member.memberPicture}}" width="150" height="150">
+						<img alt="" 
+						     src="<c:out value='${pageContext.request.contextPath}'/>/img/{{member.memberPicture}}" 
+						     width="150" 
+						     height="150">
 					</div>
 					<div style="display: inline;" align="right">
 						<div class="filebox bs3-success">
