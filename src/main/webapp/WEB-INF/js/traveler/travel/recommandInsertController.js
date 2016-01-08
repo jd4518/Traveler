@@ -46,7 +46,6 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	   $scope.toggle = function() {
 	       var p = $('#picture').val();
 	       $scope.recommand.picture = p;
-	       alert("success");
 	    };
 	
 	$scope.submit = function(){

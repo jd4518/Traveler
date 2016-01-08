@@ -83,7 +83,6 @@
 
 </head>
 <body  class="container">
-<h1><i class="fa fa-map-marker">{{title}}</i></h1>
 <div data-ng-view>
 </div>
 

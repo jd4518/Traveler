@@ -12,6 +12,7 @@
 <title>recommandList.jsp</title>
 </head>
 <body class="container">
+	<h1><i class="fa fa-map-marker">{{title}}</i></h1>
       <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-9">
           <p class="pull-right visible-xs">

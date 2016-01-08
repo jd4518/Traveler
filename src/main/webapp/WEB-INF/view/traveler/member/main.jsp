@@ -159,35 +159,35 @@ app.controller("mainController", function($scope, $http, $location) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                     <h2><a href="../recommand/recommandMain.html" class="btn btn-info btn-lg btn-block"><b>추천여행지</b></a></h2>
+                     <h2><a href="../recommand/recommandMain.html" class="btn btn-info btn-lg"><b>추천여행지</b></a></h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
-                                <a href="#">
+                                <a href="../recommand/recommandMain.html#/recommandDetail/43">
                                     <img class="img-portfolio img-responsive" src="/Traveler/img/제주도_마방목지.jpg" data-toggle="tooltip" title="제주도 마방목지" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
-                                <a href="#">
+                                <a href="../recommand/recommandMain.html#/recommandDetail/44">
                                     <img class="img-portfolio img-responsive" src="/Traveler/img/수월봉_001.png" data-toggle="tooltip" title="제주도 수월봉" data-placement="top">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/img/전라남도_영암군.jpg" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
+                                <a href="../recommand/recommandMain.html#/recommandDetail/46">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/연동어촌체험마을.jpg" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
                                 </a>
                             </div>
                         </div>
              
                         <div class="col-md-6">
                             <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/img/전라남도_영암군.jpg" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
+                                <a href="../recommand/recommandMain.html#/recommandDetail/45">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/향가유원지.png" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
                                 </a>
                             </div>
                         </div>

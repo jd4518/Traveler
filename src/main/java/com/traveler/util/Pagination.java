@@ -21,7 +21,7 @@ public class Pagination {
 	/*
 	 * read-write
 	 */
-	private int itemsPerPage = 9;
+	private int itemsPerPage = 10;
 	private int pagesPerGroup = 10;
 	
 	public void calculate() {
