@@ -12,15 +12,8 @@
 <sitemesh:write property='head'/>
 
 
-
-
 <style type="text/css">
 	
-footer{
-	 clear: both;  bottom: 10px;  position: fixed;
-}
-
-
 </style>
 <!-- Bootstrap Core CSS -->
     <link href="/Traveler/mainbootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -57,18 +50,18 @@ footer{
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <c:url var="member_logout" value="/traveler/logout"></c:url>
             <li class="sidebar-brand">
-                <a href=""  onclick = $("#menu-close").click(); >Traveler</a>
+                <a href=""  onclick = $("#menu-close").click();>Traveler</a>
             </li>
             <li>
                 <a href="/Traveler/traveler/member/memberMain.html" onclick = $("#menu-close").click(); >Home</a>
             </li>
-            <li>
-            	<a href="" data-toggle="collapse" data-target="#demo" id="service">Service <span class="caret"></span>  </a>
+            <li class="active">
+            	<a href="#" data-toggle="collapse" data-target="#demo" id="service">Service <span class="caret"></span>  </a>
             	<ul id="demo" class="collapse">
-	                <li><a href="#" onclick = $("#menu-close").click();>추천 여행지</a></li>
-	                <li><a href="#" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
-	                <li><a href="#" onclick = $("#menu-close").click();>여행 멤버 모집</a></li>
-	                <li><a href="#" onclick = $("#menu-close").click();>실시간 게시판</a></li>
+
+	                <li><a class="" href="<c:url value="/traveler/recommand/recommandMain.html"/>" onclick = $("#menu-close").click();>추천 여행지</a></li>
+	                <li><a class="active" href="<c:url value="/traveler/travel/shareMain.html"/>" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
+	                <li><a class="active" href="<c:url value="/traveler/realTime/realTimeMain.html"/>" onclick = $("#menu-close").click();>실시간 게시판</a></li>
              	</ul>
             </li>
             <li data-ng-hide="loginstatus">
@@ -88,13 +81,15 @@ footer{
             </li>
         </ul>
     </nav>
+    
+    
     <!-- jQuery -->
     <script src="/Traveler/jquery/dist/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/Traveler/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
+  <!-- Custom Theme JavaScript -->
     <script>
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
@@ -127,8 +122,6 @@ footer{
     </script>
 
 <sitemesh:write property='body'/>
-
-
 
 </body>
 </html>

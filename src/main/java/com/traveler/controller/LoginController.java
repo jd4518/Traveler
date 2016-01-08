@@ -57,7 +57,7 @@ public class LoginController {
 		log.info("logout()...");
 		
 		session.invalidate(); //session 날리기
-		return "redirect:/traveler/login.html";
+		return "redirect:/traveler/member/login.html";
 	}
 	
 	

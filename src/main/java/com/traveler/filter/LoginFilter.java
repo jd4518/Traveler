@@ -56,7 +56,6 @@ public class LoginFilter implements Filter {
 			res.sendRedirect(context + "/traveler/member/login.html");
 		}
 	}
-	
 
 	/**
 	 * @see Filter#init(FilterConfig)

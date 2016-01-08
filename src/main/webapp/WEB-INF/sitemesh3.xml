@@ -8,6 +8,7 @@
     <mapping path="/traveler/travel/shareMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
     <mapping path="/traveler/recommand/recommandMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
     <mapping path="/traveler/member/memberMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/realTime/realTimeMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
     <mapping path="/traveler/member/login.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
     <mapping path="/traveler/admin/main.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
     
@@ -30,5 +31,6 @@
   <!-- Exclude path from decoration. -->
 <!--   <mapping path="/javadoc/*" exclue="true"/> -->
 <!--   <mapping path="/brochures/*" exclue="true"/> -->
+
 
 </sitemesh>
