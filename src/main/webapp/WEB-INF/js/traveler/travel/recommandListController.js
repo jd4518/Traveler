@@ -21,6 +21,15 @@ app.controller('recommandListController', function($scope, $http, URL) {
 	$scope.recommandLists = [];
 	$scope.paging = {};
 	
+	$scope.c = function(){
+		if($scope.loginId=="master"){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
 	$scope.selectPage = function() {
 		$http.get(URL.GET_PAGE_BASE + $scope.pageNo).success(function(data, status, headers, config) {
 			console.dir(data);

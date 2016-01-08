@@ -18,7 +18,7 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 	console.log("URL.POST_ITEM_APPEND = " + URL.POST_ITEM_APPEND);
 	
 	$scope.$parent.title = "Append Recommand View";
-	
+	$scope.master = "관리자";
 	
 //	$("#picture").fileinput({
 //		uploadUrl : "../img",
@@ -28,6 +28,7 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 //	    minImageWidth: 50,
 //	    minImageHeight: 50
 //	});
+	
 	
 
 	$scope.cancel = function(){
@@ -52,7 +53,7 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		var ajax = $http.post(URL.POST_ITEM_APPEND,{
 			title   : $scope.recommand.title,
 			area 	: $scope.recommand.area,
-			name    : $scope.recommand.name,
+			name    : $scope.master,
 			content : $scope.recommand.content,
 			picture : $scope.recommand.picture
 		});

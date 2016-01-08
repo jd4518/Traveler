@@ -23,6 +23,8 @@
 
 <c:url var="URL_DELETE_ITEM_DELETE_BASE" 	value="/traveler/recommand/"/>
 
+<c:url var="URL_LOGIN_URL" value="/traveler/member/login"></c:url>
+
 <script type="text/javascript">
 	var urls = {
 			GET_LIST : 					"${URL_GET_LIST}",
@@ -35,7 +37,9 @@
 			PUT_LIST_MODIFY :			"${URL_PUT_LIST_MODIFY}",
 			PUT_ITEM_MODIFY_BASE :		"${URL_PUT_ITEM_MODIFY_BASE}",
 				
-			DELETE_ITEM_DELETE_BASE :	"${URL_DELETE_ITEM_DELETE_BASE}"
+			DELETE_ITEM_DELETE_BASE :	"${URL_DELETE_ITEM_DELETE_BASE}",
+			
+			LOGIN_URL : "URL_LOGIN_URL"
 	};
 
 	var deps = ['ngRoute',

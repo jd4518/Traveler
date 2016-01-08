@@ -37,7 +37,9 @@
       <label for="content" class="col-lg-2 control-label">내용</label>
       <div class="col-lg-10">
       <img alt="" src="../../img/{{recommand.picture}}"><BR>
-      	{{recommand.content}}
+      <textarea rows="20" cols="115" style="border: 0;" readonly="readonly">{{recommand.content}}
+      </textarea>
+      	
       </div>
     </div>
     <div  class="form-group">
@@ -51,7 +53,7 @@
 	 </div>
 	 </div>
 	 </div>
-	<div class="form-group">
+	<div class="form-group" data-ng-show="loginstatus">
 	<label  class="col-lg-2 control-label">댓글입력</label>
 	   <div  class="col-lg-7">
 	   <textarea name="comment" cols='105' rows='5' data-ng-model="content.content" required>
@@ -66,8 +68,8 @@
      <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
       <button type="button" class="btn btn-default" data-ng-click="cancel()">목록</button>
-     <a href="#/recommandModify/{{recommand.listNo}}" class="btn btn-success">수정</a>
-	<a href="#/recommandDelete/{{recommand.listNo}}" class="btn btn-info">삭제</a>
+     <a data-ng-show="c()" href="#/recommandModify/{{recommand.listNo}}" class="btn btn-success">수정</a>
+	<a data-ng-show="c()" href="#/recommandDelete/{{recommand.listNo}}" class="btn btn-info">삭제</a>
       </div>
     </div>
   </fieldset>

@@ -37,7 +37,7 @@ alter table RecommandList MODIFY listNo int(11) auto_increment
 
 insert into RecommandList(title,content,picture) values('우와된당','너는누구냐나야야누이할','1')
 
-select * from RecommandList where listNo=28;
+select * from RecommandList
 select count(*) from RecommandList;
 
 create table TravelShareBoard(

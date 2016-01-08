@@ -21,13 +21,12 @@
             <h1>여행지 추천 게시판</h1>
           </div>
           <div class="row">
-            <div class="col-xs-6 col-lg-4" data-ng-repeat="recommand in recommandLists">
-              <h2><a style="text-decoration: none; color: black;" href="#/recommandDetail/{{recommand.listNo}">{{recommand.title}}</a></h2>
+            <div class="col-xs-6 col-lg-4 col-sm-offset-1" data-ng-repeat="recommand in recommandLists">
+              <h3><a style="text-decoration: none; color: black;" href="#/recommandDetail/{{recommand.listNo}}">{{recommand.title}}</a></h3>
               <p><img alt="" src="../../img/{{recommand.picture}}" width="200" height="200"></p>
             </div><!--/.col-xs-6.col-lg-4-->
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
-
       </div><!--/row-->
 <div data-uib-pagination 
 							data-total-items="paging.totalItem" style="width:800px;" 
@@ -36,7 +35,7 @@
 							data-ng-change="selectPage()"
 							data-boundary-links="true">
 						</div>
-<div><a href="#/recommandInsert" class="btn btn-primary">글쓰기</a></div>
+<div><a data-ng-show="c()" href="#/recommandInsert" class="btn btn-primary">글쓰기</a></div>
 
 <hr>	
 

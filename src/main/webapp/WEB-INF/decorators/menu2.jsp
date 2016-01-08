@@ -31,9 +31,9 @@
 		
 		var ajax = $http.get("<c:url value="/traveler/member/logincheck"/>");
 		ajax.then(function(value) {
+			$scope.$parent.loginId = value.data.member.id;
 			$scope.$parent.loginstatus = value.data.login;
 		});
-		
 		$scope.member = {};
 	});
 </script>
