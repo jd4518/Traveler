@@ -41,6 +41,7 @@ src="http://maps.googleapis.com/maps/api/js">
 </script>
 
 <script>
+//구글맵, 애니메이션, 마커, 텍스트
 var myCenter = new google.maps.LatLng(37.499538, 127.030520);
 var marker;
 
@@ -73,6 +74,7 @@ function initialize()
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 
 <style type="text/css">
@@ -214,7 +216,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="../recommand/recommandMain.html#/recommandDetail/46">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/img/연동어촌체험마을.jpg" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/연동어촌체험마을.jpg" data-toggle="tooltip" title="연동 어촌 체험마을" data-placement="top">
                                 </a>
                             </div>
                         </div>
@@ -222,7 +224,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                 <a href="../recommand/recommandMain.html#/recommandDetail/45">
-                                    <img class="img-portfolio img-responsive" src="/Traveler/img/향가유원지.png" data-toggle="tooltip" title="전라남도 월출봉" data-placement="top">
+                                    <img class="img-portfolio img-responsive" src="/Traveler/img/향가유원지.png" data-toggle="tooltip" title="향가유원지" data-placement="top">
                                 </a>
                             </div>
                         </div>
@@ -239,8 +241,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </section>
     
      <!-- Map -->
-        
-		<div class="container" id="googleMap" style="width:950px; height:380px;"></div>
+		<div class="container" id="googleMap"  style="width:950px; height:380px;"></div>
 
     <!-- Footer -->
     <footer>
