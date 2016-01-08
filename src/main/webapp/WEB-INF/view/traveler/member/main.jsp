@@ -36,12 +36,48 @@ app.controller("mainController", function($scope, $http, $location) {
 
 </script>
 
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter = new google.maps.LatLng(37.499538, 127.030520);
+var marker;
+
+function initialize()
+{
+	var mapProp = {
+	  center:myCenter,
+	  zoom:17, 
+	  mapTypeId:google.maps.MapTypeId.ROADMAP
+	  };
+	
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	
+	var marker=new google.maps.Marker({
+	  position:myCenter,
+	  animation:google.maps.Animation.BOUNCE
+	  });
+	
+	var infowindow = new google.maps.InfoWindow({
+		  content:"중앙정보인재기술개발원"
+		  });
+
+		infowindow.open(map,marker);
+		
+	
+	marker.setMap(map);
+	
+	
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 <style type="text/css">
 
-#map
-{
-	height : 400px;
-}
+
 
 </style>
 
@@ -56,7 +92,6 @@ app.controller("mainController", function($scope, $http, $location) {
 
 <!-- Custom Fonts -->
 <link href="/Traveler/mainbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -204,8 +239,8 @@ app.controller("mainController", function($scope, $http, $location) {
     </section>
     
      <!-- Map -->
-        <br>
-		<div class="map" id="map" data-ng-map data-center="37.8, 127.03" data-zoom="10"></div>
+        
+		<div class="container" id="googleMap" style="width:950px; height:380px;"></div>
 
     <!-- Footer -->
     <footer>
