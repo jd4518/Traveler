@@ -34,7 +34,6 @@
 							data-boundary-links="true">
 						</div>
 <div><a data-ng-show="c()" href="#/recommandInsert" class="btn btn-primary">글쓰기</a></div>
-
 <hr>	
 
 </body>

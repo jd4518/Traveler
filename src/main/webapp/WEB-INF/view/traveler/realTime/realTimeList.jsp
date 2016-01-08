@@ -64,9 +64,11 @@
 <br>
 	<!-- Submit -->
 	<div class="form-group" align="center">
-		<input type="submit" value="등록" class="btn btn-primary" 
+		<input type="submit" value="등록" class="btn btn-primary"
+		data-ng-show="loginstatus" 
 		 data-ng-disabled="realTimeForm.$invalid"/>
 	</div>
+	
 </form>
 </div>
 </div>
