@@ -99,15 +99,9 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>추천 여행지</strong>
                                 </h4>
                                 <p>사이트에서 추천하는 여행지</p>
-<<<<<<< HEAD
-                                <a href="/Traveler/traveler/recommand/recommandMain.html" class="btn btn-light">추천 여행지 게시판</a>
-=======
-<<<<<<< HEAD
+
                                 <a href="<c:url value="/traveler/recommand/recommandMain.html"/>" class="btn btn-light">추천 여행지 게시판</a>
-=======
-                                <a href="../recommand/recommandMain.html" class="btn btn-light">추천 여행지 게시판</a>
->>>>>>> 34fae0170b8b3628db920891cf5421263d685bbe
->>>>>>> 44e0eefe2cd03fac04400fcd69b598a770ac9ea7
+
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
@@ -120,11 +114,8 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
-<<<<<<< HEAD
-                                <a href="/Traveler/traveler/travel/shareMain.html" class="btn btn-light">여행 정보 공유 게시판</a>
-=======
+
                                 <a href="<c:url value="/traveler/travel/shareMain.html"/>" class="btn btn-light">여행 정보 공유 게시판</a>
->>>>>>> 44e0eefe2cd03fac04400fcd69b598a770ac9ea7
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
@@ -137,11 +128,9 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>실시간 게시판</strong>
                                 </h4>
                                 <p>여행 실시간 게시판</p>
-<<<<<<< HEAD
-                                <a href="/Traveler/traveler/realTime/realTimeMain.html" class="btn btn-light">실시간 게시판</a>
-=======
+
                                 <a href="<c:url value="/traveler/realTime/realTimeMain.html"/>" class="btn btn-light">실시간 게시판</a>
->>>>>>> 44e0eefe2cd03fac04400fcd69b598a770ac9ea7
+
                             </div>
                         </div>
                     </div>
@@ -166,11 +155,8 @@ app.controller("mainController", function($scope, $http, $location) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-<<<<<<< HEAD
-                     <h2><a href="#" class="btn btn-info btn-lg btn-block"><b>추천여행지</b></a></h2>
-=======
+
                     <a class="btn btn-success btn-lg" href="../recommand/recommandMain.html">추천 여행지</a>
->>>>>>> 34fae0170b8b3628db920891cf5421263d685bbe
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
