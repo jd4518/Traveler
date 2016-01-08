@@ -101,7 +101,7 @@ app.controller('appendController', function($scope, $http, $location, URL) {
 		$scope.member.memberPicture = name;
 		return $scope.member.memberPicture;
 	};
-	 
+	
 	$scope.submit = function() {
 		console.log("submit...");
 		var ajax = $http.post(URL.POST_ITEM_APPEND, {

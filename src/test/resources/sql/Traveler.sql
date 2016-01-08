@@ -27,11 +27,12 @@ create table RecommandList (
   listNo int(11) auto_increment,
   title char(35) NOT NULL,
   area char(20),
-  name char(20) NOT NULL,
+  name char(20),
   content longtext NOT NULL,
   picture char(100) default 'nothing.jpg , nothing.png, nothing.gif',
   PRIMARY KEY (listNo)
 );
+
 alter table RecommandList MODIFY name char(20);
 alter table RecommandList MODIFY listNo int(11) auto_increment
 
@@ -43,12 +44,14 @@ select count(*) from RecommandList;
 create table TravelShareBoard(
 	boardNum int auto_increment,
 	id		  varchar(255),
+	writer    varchar(255),
 	title	  varchar(255),
 	term	  varchar(255),		
 	number	  int(100), 		
 	transCost	  int(255),
 	stayCost	  int(255),
 	eatCost		  int(255),
+	totalCost	  int(255),
 	content   longtext,
 	picture	  varchar(255) default 'nothing.jpg , nothing.png, nothing.gif',
 	map		  varchar(255),

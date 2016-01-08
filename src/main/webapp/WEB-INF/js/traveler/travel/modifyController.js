@@ -42,13 +42,15 @@ app.config(function($routeProvider) {
 			
 			var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.share.boardNum,{	//var ajax는 local변수
 				boardNum:		$scope.share.boardNum,
-				id : 			$scope.share.id,
+				id : 			$scope.member.id,
+				writer:			$scope.member.name,
 				title :			$scope.share.title,
 				term : 			$scope.share.term,
 				number : 		$scope.share.number,
 				eatCost :		$scope.share.eatCost,
 				stayCost : 		$scope.share.stayCost,
 				transCost : 	$scope.share.transCost,
+				totalCost : 	$scope.share.totalCost,
 				content : 		$scope.share.content,
 				picture : 		$scope.share.picture,
 				map : 			$scope.share.map

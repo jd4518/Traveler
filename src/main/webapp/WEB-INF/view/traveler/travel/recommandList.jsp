@@ -17,9 +17,6 @@
           <p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
-          <div class="jumbotron">
-            <h1>여행지 추천 게시판</h1>
-          </div>
           <div class="row">
             <div class="col-xs-6 col-lg-4 col-sm-offset-1" data-ng-repeat="recommand in recommandLists">
               <h3><a style="text-decoration: none; color: black;" href="#/recommandDetail/{{recommand.listNo}}">{{recommand.title}}</a></h3>

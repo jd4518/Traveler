@@ -17,7 +17,9 @@
         	   map,
         	   transCost,
         	   stayCost,
-        	   eatCost
+        	   eatCost,
+        	   totalCost,
+        	   writer
          from TravelShareBoard   
     </select>
     
@@ -32,7 +34,9 @@
         	   map,
         	   transCost,
         	   stayCost,
-        	   eatCost
+        	   eatCost,
+        	   totalCost,
+        	   writer
          from TravelShareBoard  
 		 where boardNum = #{boardNum}
     </select>
@@ -51,7 +55,9 @@
         	   map,
         	   transCost,
         	   stayCost,
-        	   eatCost
+        	   eatCost,
+        	   totalCost,
+        	   writer
          from TravelShareBoard  
 		 order by boardNum desc
 		 limit #{start}, #{length} 
@@ -75,7 +81,9 @@
         	   map,
         	   transCost,
         	   stayCost,
-        	   eatCost
+        	   eatCost,
+        	   totalCost,
+        	   writer
 		)
 		values
 		(
@@ -89,7 +97,9 @@
 			#{map, 					jdbcType=VARCHAR},
 			#{transCost, 			jdbcType=NUMERIC},
 			#{stayCost, 			jdbcType=NUMERIC},
-			#{eatCost, 				jdbcType=NUMERIC}
+			#{eatCost, 				jdbcType=NUMERIC},
+			#{totalCost, 			jdbcType=NUMERIC},
+			#{writer, 				jdbcType=VARCHAR}
 		)
     </insert>
     
@@ -105,7 +115,9 @@
         	   	transCost		= #{transCost},
         	   	stayCost		= #{stayCost},
         	   	eatCost			= #{eatCost},
-        	   	map				= #{map}
+        	   	totalCost		= #{totalCost},
+        	   	map				= #{map},
+        	   	writer			= #{writer}
           where boardNum = #{boardNum}
       </update>
       

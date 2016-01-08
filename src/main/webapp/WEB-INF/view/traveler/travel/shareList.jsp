@@ -28,10 +28,10 @@
 			<tr data-ng-repeat="share in shares">
 				<td>{{share.boardNum}}</td>
 				<td>{{share.id}}</td>
-				<td>{{share.name}}</td>
+				<td>{{share.writer}}</td>
 				<td><a href="#/shareDetail/{{share.boardNum}}">{{share.title}}</a></td>
-				<td>{{share.number}}</td>
-				<td>{{share.totalCost}}</td>
+				<td>{{share.number}}명</td>
+				<td>{{share.totalCost}}원</td>
 				<td><a href="#/shareModify/{{share.boardNum}}" class="btn btn-success">Edit...</a></td>
 				<td><a href="#/shareDelete/{{share.boardNum}}" class="btn btn-info">Delete...</a></td>
 			</tr>
@@ -51,7 +51,6 @@
 </div>
 
 <hr>	
-</div>
 </body>
 </html>
 

@@ -20,26 +20,15 @@
 		<div class="panel-body">
 					<form class="form-horizontal" name="shareForm" id="shareForm"
 						novalidate="novalidate" data-ng-submit="submit()">
-						<!-- Name -->
+						<!-- name -->
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="name">이름 : </label>
+							<label class="col-sm-2 control-label" for="name">작성자 :</label>
 							<div class="col-sm-8">
 								<input id="name" name="name" type="text" class="form-control"
 									required="required" data-ng-model="member.name"
-									disabled="disabled"
-									data-ng-maxlength="35" />
-								<!-- 사용자의 입력이 발생하면 share.name -->
-								<div data-ng-show="shareForm.name.$dirty">
-									<div class="alert alert-warning"
-										data-ng-show="shareForm.name.$error.required">필수 입력
-										항목입니다.</div>
-									<div class="alert alert-warning"
-										data-ng-show="shareForm.name.$error.maxlength">35자리까지
-										입력가능합니다.</div>
-								</div>
+									data-ng-maxlength="15" disabled="disabled"/>
 							</div>
 						</div>
-
 						<!-- title -->
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="title">제목 :</label>
@@ -102,7 +91,6 @@
 								<input id="eatCost" name="eatCost" type="number" class="form-control"
 									required="required" data-ng-maxlength="15"
 									data-ng-model="share.eatCost" placeholder="식비:" />
-								
 								Total : {{share.transCost+share.stayCost+share.eatCost}}원
 							</div>
 						</div>
@@ -117,6 +105,7 @@
 							<label class="col-sm-2 control-label" for="content">내용 :</label>
 							<div class="col-sm-8">
 								<textarea class="form-control" rows="5" id="content" name="content"
+								required="required"
 									data-ng-model="share.content"></textarea>
 							</div>
 						</div>
@@ -132,8 +121,6 @@
 							<img alt="" src="${pageContext.request.contextPath}/img/{{share.picture}}" width="150" height="150">
 								<input id="picture" name="picture" type="file"
 									required="required" data-ng-model="share.picture"
-									data-ng-file-select="onFileSelect($files)"
-									multiple accept="imgage/*"
 									data-ng-maxlength="15" /> <input type="button"
 									class="btn btn-success" data-ng-click="toggle()" value="올리기" />
 							</div>
@@ -149,11 +136,10 @@
 							<label class="col-sm-2 control-label" for="map">경로 :</label>
 							<div class="col-sm-8">
 								<textarea data-ng-model="share.map" class="form-control"
-									rows="5" id="map"
+									rows="5" id="map" required="required"
 									placeholder="ex) 지역:서울 >> 경복궁  >> 인사동 >> 광장시장 >> 낙성대 >> 명동 "></textarea>
 							</div>
 						</div>
-						
 						<div data-ng-show="shareForm.map.$dirty">
 							<div class="alert alert-warning"
 								data-ng-show="shareForm.map.$error.required">필수 입력 항목입니다.</div>

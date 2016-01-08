@@ -17,7 +17,8 @@
 <div class="panel-body">
 <form name="realTimeForm" id="realTimeForm" novalidate="novalidate" data-ng-submit="submit()">
 		<textarea rows="5" class="form-control" id="content" name="content" 
-				data-ng-model="realTime.content">
+				data-ng-model="realTime.content"
+				required="required">
 		</textarea>
 				<div class="form-group">
 							<label class="col-sm-2 control-label" for="date"></label>
@@ -29,7 +30,8 @@
 <br>
 	<!-- Submit -->
 	<div class="form-group" align="center">
-		<input type="submit" value="등록" class="btn btn-primary" />
+		<input type="submit" value="등록" class="btn btn-primary"
+		data-ng-disabled="realTimeForm.$invalid"  />
 	</div>
 </form>
 </div>

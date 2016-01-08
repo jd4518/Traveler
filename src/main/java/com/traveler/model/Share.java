@@ -13,8 +13,24 @@ public class Share {
 	private int transCost;
 	private int stayCost;
 	private int eatCost;
+	private int totalCost;
 	private String id;
+	private String writer;
+	
+	public int getTotalCost() {
+		return totalCost;
+	}
+	public void setTotalCost(int totalCost) {
+		this.totalCost = totalCost;
+	}
 	List<Comment> comments;
+	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	
 	
 	public List<Comment> getComments() {

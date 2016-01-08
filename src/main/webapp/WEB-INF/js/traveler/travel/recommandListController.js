@@ -15,7 +15,7 @@ app.controller('recommandListController', function($scope, $http, URL) {
 	console.log("recommandListController...");
 	console.log("URL.GET_PAGE_BASE = " + URL.GET_PAGE_BASE);
 	
-	$scope.$parent.title = "List Recommand View";
+	$scope.$parent.title = "추천게시판";
 	
 	$scope.pageNo = 1;
 	$scope.recommandLists = [];
