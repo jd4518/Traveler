@@ -24,7 +24,7 @@
 		<tbody>
 			<tr data-ng-repeat="realTime in realTimes">
 				<td>{{realTime.number}}</td>
-				<td>{{realTime.id}}</td>
+				<td>{{member.id}}</td>
 				<td>{{realTime.content}}</td>
 				<td><a href="#/realTimeDelete/{{realTime.number}}" class="btn btn-info">Delete</a></td>
 			</tr>

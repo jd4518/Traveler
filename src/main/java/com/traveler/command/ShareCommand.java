@@ -19,8 +19,24 @@ public class ShareCommand {						//Server 측으로 데이터를 넘길때
 	private int transCost;
 	private int stayCost;
 	private int eatCost;
-	private String id;
+	private int totalCost;
 	
+	public int getTotalCost() {
+		return totalCost;
+	}
+	public void setTotalCost(int totalCost) {
+		this.totalCost = totalCost;
+	}
+
+	private String id;
+	private String writer;
+	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public String getId() {
 		return id;
 	}
@@ -95,12 +111,14 @@ public class ShareCommand {						//Server 측으로 데이터를 넘길때
 		s.setEatCost(eatCost);
 		s.setStayCost(stayCost);
 		s.setTransCost(transCost);
+		s.setTotalCost(totalCost);
 		s.setMap(map);
 		s.setNumber(number);
 		s.setPicture(picture);
 		s.setTerm(term);
 		s.setContent(content);
 		s.setTitle(title);
+		s.setWriter(writer);
 		return s;
 	}
 	

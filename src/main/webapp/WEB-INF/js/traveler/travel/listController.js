@@ -22,6 +22,8 @@ app.config(function($routeProvider) {
 		$scope.shares = [];
 		$scope.paging = {};
 		
+		
+		
 		$scope.selectPage = function() {
 			$http.get(URL.GET_PAGE_BASE + $scope.pageNo).success(function(data, status, headers, config) {
 				console.dir(data);

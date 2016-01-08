@@ -28,13 +28,15 @@
 <!-- 로그인처리 -->
 <script type="text/javascript">
 	app.controller("navController", function($scope, $http){
+		$scope.member = {};
 		
 		var ajax = $http.get("<c:url value="/traveler/member/logincheck"/>");
 		ajax.then(function(value) {
 			$scope.$parent.loginstatus = value.data.login;
+			$scope.$parent.member = value.data.member;
 		});
 		
-		$scope.member = {};
+		
 	});
 </script>
 
@@ -58,9 +60,9 @@
             <li class="active">
             	<a href="#" data-toggle="collapse" data-target="#demo" id="service">Service <span class="caret"></span>  </a>
             	<ul id="demo" class="collapse">
-	                <li><a class="" href="<c:url value="/traveler/recommand/recommandMain.html"/>" onclick = $("#menu-close").click();>추천 여행지</a></li>
-	                <li><a class="active" href="<c:url value="/traveler/travel/shareMain.html"/>" onclick = $("#menu-close").click();>여행 정보 공유</a></li>
-	                <li><a class="active" href="<c:url value="/traveler/realTime/realTimeMain.html"/>" onclick = $("#menu-close").click();>실시간 게시판</a></li>
+	                <li><a class="active" href="<c:url value="/traveler/recommand/recommandMain.html"/>">추천 여행지</a></li>
+	                <li><a class="active" href="<c:url value="/traveler/travel/shareMain.html"/>">여행 정보 공유</a></li>
+	                <li><a class="active" href="<c:url value="/traveler/realTime/realTimeMain.html"/>">실시간 게시판</a></li>
              	</ul>
             </li>
             <li data-ng-hide="loginstatus">

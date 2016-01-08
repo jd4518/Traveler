@@ -36,7 +36,7 @@
         	   id="name" 
         	   name="name"
         	   readonly="readonly"
-        	   data-ng-model="recommand.name"
+        	   data-ng-model="member.name"
         	   >
         <div class="checkbox"  data-ng-model="recommand.area" required="required">
           <label>

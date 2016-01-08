@@ -24,20 +24,37 @@ app.config(function($routeProvider) {
 		$scope.toggle = function(){
 			var p = $('#picture').val();
 			$scope.share.picture = p;
+			$scope.getTotal();
+			
 			alert("성공");
 		};
 		
+		$scope.getTotal = function()
+		{
+			var gt = $scope.share.transCost+$scope.share.stayCost+$scope.share.eatCost;
+			$scope.share.totalCost = gt;
+		}
+		
+		$scope.convertMemberPicture = function() {
+			var name = $scope.member.memberPicture;
+			var pos = name.lastIndexOf("\\");
+			name = name.substr(pos + 1, name.length);
+			$scope.member.memberPicture = name;
+			return $scope.member.memberPicture;
+		};
 		
 		$scope.submit = function()
 		{
 			var ajax = $http.post(URL.POST_ITEM_APPEND,{
-				id : $scope.share.id,
+				id :	 $scope.member.id,
+				writer: $scope.member.name,
 				title : $scope.share.title,
 				term : $scope.share.term,
 				number : $scope.share.number,
 				eatCost : $scope.share.eatCost,
 				stayCost : $scope.share.stayCost,
 				transCost : $scope.share.transCost,
+				totalCost : $scope.share.totalCost,
 				content : $scope.share.content,
 				picture : $scope.share.picture,
 				map : $scope.share.map
@@ -47,7 +64,8 @@ app.config(function($routeProvider) {
 			ajax.then(function(value) {				//성공시
 				$location.path("/shareList");
 			}, function(reason) {					//에러시
-				$scope.share = reason.data;	
+				$scope.share = reason.data;
+				alert("에러");
 			});
 		};
 	});

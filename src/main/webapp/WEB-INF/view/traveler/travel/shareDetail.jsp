@@ -12,27 +12,23 @@
 <title>Insert title here</title>
 </head>
 <body class="container">
-<a class="btn btn-primary" href="#/shareList">list...</a>
+<a class="btn btn-primary" href="#/shareList">목록</a>
 <br><br><br><br>
 <div class="row">
-	<div class="col-sm-3">
+	<div class="col-sm-4">
 			<div class="panel panel-default">
 			<div class="panel-heading"><b>회원사진</b>
-						<div class="form-group">
+			<div class="panel-body">
 						<!-- picture -->
+						<div class="form-group">
 						<label class="col-sm-5 control-label" for="memberPicture"></label>
 						<div class="col-sm-8">
-						<img alt="" src="../img/{{member.memberPicture}}" id="memberPicture"  name="memberPicture" 
+						<img alt="" src="../../img/{{member.memberPicture}}" width="150" height="150" id="memberPicture"  name="memberPicture" 
 							   width="200" height="200">
 						</div>
 					</div>
+				</div>
 			</div>
-			</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-3">
-		<div class="panel panel-default">
 		<div class="panel-heading"><b>프로필</b></div>
 		<div class="panel-body">
 			<form class="form-horizontal" name="shareForm" novalidate="novalidate">
@@ -45,7 +41,7 @@
 					   type="text" 
 					   class="form-control"
 					   required="required"
-					   data-ng-model="share.id"	
+					   data-ng-model="member.id"	
 					   data-ng-maxlength="35"
 					   disabled="disabled"		
 					   />
@@ -59,7 +55,7 @@
 					   type="text" 
 					   class="form-control"
 					   required="required"
-					   data-ng-model="share.memberAge"	
+					   data-ng-model="member.birthday"	
 					   data-ng-maxlength="35"
 					   disabled="disabled"		
 					   />
@@ -73,7 +69,7 @@
 					   type="text" 
 					   class="form-control"
 					   required="required"
-					   data-ng-model="share.memberTel"	
+					   data-ng-model="member.tel"	
 					   data-ng-maxlength="35"
 					   disabled="disabled"		
 					   />
@@ -82,11 +78,44 @@
 			</form>
 		</div>
 		</div>
+		<div class="panel panel-default">
+		<div class="panel-heading"><b>댓글</b></div>
+		<div class="panel-body">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>ID</th><th>내용</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="comment in share.comments">
+					<td>{{comment.id}}
+					</td>
+					<td>{{comment.content}}</td>
+				</tr>			
+			</tbody>		
+		</table>
+		
+		<form class="form-horizontal" name="replyForm" novalidate="novalidate" data-ng-submit="submit()">
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="reply"></label>
+				<div class="col-sm-8" align="right">
+							<textarea class="form-control" rows="5" 
+							id="reply" name="reply"
+							placeholder="댓글등록" data-ng-model="content.content"></textarea>
+							<input type="button"
+							class="btn btn-info" data-ng-click="click()" value="등록" />
+				</div>  
+			</div>	
+		</form>
+		</div>
+</div>
 	</div>
-	<div class="col-sm-8 col-sm-offset-1">
+	<div class="col-sm-3">
+</div>
+	<div class="col-sm-7">
 		<div class="panel panel-default">
 		<div class="panel-heading"><b>상세 정보</b></div>
-		<pre>{{share}}</pre>
 		<div class="panel-body">
 			<form class="form-horizontal" name="shareForm" novalidate="novalidate">
 			<!-- Name -->
@@ -98,7 +127,7 @@
 					   type="text" 
 					   class="form-control"
 					   required="required"
-					   data-ng-model="share.name"	
+					   data-ng-model="member.name"	
 					   data-ng-maxlength="35"
 					   disabled="disabled"		
 					   />
@@ -207,8 +236,8 @@
 						<!-- picture -->
 						<label class="col-sm-2 control-label" for="picture">여행사진:</label>
 						<div class="col-sm-8">
-						<img alt="" src="../img/{{share.picture}}" id="picture"  name="picture" 
-							   width="200" height="200">
+						<img alt="" src="../../img/{{share.picture}}" id="picture"  name="picture" 
+							   width="150" height="150">
 						</div>
 					</div>
 					
@@ -225,43 +254,6 @@
 		</div>
 	</div>
 </div>
-
-<div class="row">
-<div class="col-sm-8 col-sm-offset-4">
-<div class="panel panel-default">
-		<div class="panel-heading"><b>댓글</b></div>
-		<div class="panel-body">
-		<form class="form-horizontal" name="replyForm" novalidate="novalidate" data-ng-submit="submit()">
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reply"></label>
-				<div class="col-sm-8" align="right">
-							<textarea class="form-control" rows="5" 
-							id="reply" name="reply"
-							placeholder="댓글등록" data-ng-model="content.content"></textarea>
-							<input type="button"
-							class="btn btn-info" data-ng-click="click()" value="등록" />
-				</div>  
-			</div>	
-		</form>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th>ID</th><th>내용</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr data-ng-repeat="comment in share.comments">
-					<td>{{comment.id}}
-					</td>
-					<td>{{comment.content}}</td>
-				</tr>			
-			</tbody>		
-		</table>
-		</div>
-</div>
-</div>
-</div>
-
 
 </body>
 </html>

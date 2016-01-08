@@ -57,8 +57,6 @@
             alert("입력하신 회원 정보를 확인하세요.");
             $scope.error = reason.data;
          });
-         
-         
       };
       
    });

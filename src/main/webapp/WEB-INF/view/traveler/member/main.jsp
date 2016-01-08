@@ -15,13 +15,14 @@
 <meta name="author" content="">
 
 <title>Traveler</title>
-
+<script src="http://maps.google.com/maps/api/js"></script>
 <script type="text/javascript">
 var deps = ['ngRoute',
             'ngAnimate',
             'ngTouch',
             'angular-loading-bar',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'ngMap'
            ];
 
 var app = angular.module("travelerApp", deps);
@@ -34,6 +35,15 @@ app.controller("mainController", function($scope, $http, $location) {
 });
 
 </script>
+
+<style type="text/css">
+
+#map
+{
+	height : 400px;
+}
+
+</style>
 
 
 
@@ -52,7 +62,6 @@ app.controller("mainController", function($scope, $http, $location) {
 
 <body data-ng-controller="mainController">
 <div>
-<pre>{{loginstatus}}</pre>
 </div>
 	<div>
     </div>
@@ -71,8 +80,8 @@ app.controller("mainController", function($scope, $http, $location) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                    <h2>신나는 여행정보 공유 사이트 Traveler!!</h2>
+                    <p class="lead">여러분의 여행장소와 소중한 추억들을 공유해주세요 <a target="_blank" href="http://www.earthtory.com/ko/">Earthtory</a>.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -99,11 +108,7 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>추천 여행지</strong>
                                 </h4>
                                 <p>사이트에서 추천하는 여행지</p>
-<<<<<<< HEAD
                                 <a href="<c:url value="/traveler/recommand/recommandMain.html"/>" class="btn btn-light">추천 여행지 게시판</a>
-=======
-                                <a href="../recommand/recommandMain.html" class="btn btn-light">추천 여행지 게시판</a>
->>>>>>> 34fae0170b8b3628db920891cf5421263d685bbe
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
@@ -154,11 +159,7 @@ app.controller("mainController", function($scope, $http, $location) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-<<<<<<< HEAD
-                     <h2><a href="#" class="btn btn-info btn-lg btn-block"><b>추천여행지</b></a></h2>
-=======
-                    <a class="btn btn-success btn-lg" href="../recommand/recommandMain.html">추천 여행지</a>
->>>>>>> 34fae0170b8b3628db920891cf5421263d685bbe
+                    <a class="btn btn-info btn-lg" href="../recommand/recommandMain.html"><b>추천 여행지</b></a>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
@@ -203,14 +204,8 @@ app.controller("mainController", function($scope, $http, $location) {
     </section>
     
      <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
-    </section>
+        <br>
+		<div class="map" id="map" data-ng-map data-center="37.8, 127.03" data-zoom="10"></div>
 
     <!-- Footer -->
     <footer>
