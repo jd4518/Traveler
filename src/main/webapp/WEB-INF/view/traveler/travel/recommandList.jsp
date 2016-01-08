@@ -19,7 +19,7 @@
           </p>
           <div class="row">
             <div class="col-xs-6 col-lg-4" data-ng-repeat="recommand in recommandLists">
-              <h2><a style="text-decoration: none; color: black;" href="#/recommandDetail/{{recommand.listNo}}">{{recommand.title}}</a></h2>
+              <h2><a style="text-decoration: none; color: black;" href="#/recommandDetail/{{recommand.listNo}">{{recommand.title}}</a></h2>
               <p><img alt="" src="../../img/{{recommand.picture}}" width="200" height="200"></p>
             </div><!--/.col-xs-6.col-lg-4-->
           </div><!--/row-->

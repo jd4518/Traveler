@@ -40,8 +40,6 @@
 	});
 </script>
 
-
-
 </head>
 <body data-ng-controller="mainController">
   <!-- Navigation -->

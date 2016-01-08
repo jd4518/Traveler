@@ -121,6 +121,7 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>여행 정보 공유</strong>
                                 </h4>
                                 <p>여행 정보를 공유해보세요</p>
+
                                 <a href="<c:url value="/traveler/travel/shareMain.html"/>" class="btn btn-light">여행 정보 공유 게시판</a>
                             </div>
                         </div>
@@ -134,7 +135,9 @@ app.controller("mainController", function($scope, $http, $location) {
                                     <strong>실시간 게시판</strong>
                                 </h4>
                                 <p>여행 실시간 게시판</p>
+
                                 <a href="<c:url value="/traveler/realTime/realTimeMain.html"/>" class="btn btn-light">실시간 게시판</a>
+
                             </div>
                         </div>
                     </div>
