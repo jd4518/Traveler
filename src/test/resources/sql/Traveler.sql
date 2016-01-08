@@ -18,6 +18,7 @@ create table Travelmember(
 
 delete from RecommandList;
 
+
 update Travelmember set num ='1' where num='3'
 select * from Travelmember;
 drop table RecommandList;
